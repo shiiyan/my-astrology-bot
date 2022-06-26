@@ -3,5 +3,7 @@
     "eslint.workingDirectories": [
         "./functions"
     ],
-    "typescript.format.enable": false
+    "typescript.format.enable": false,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Default Dark+"
 }
