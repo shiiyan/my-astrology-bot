@@ -1,0 +1,7 @@
+{
+    "javascript.format.enable": false,
+    "eslint.workingDirectories": [
+        "./functions"
+    ],
+    "typescript.format.enable": false
+}
