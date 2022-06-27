@@ -1,5 +1,5 @@
 import helloWorldFunction from "./helloWorld";
-import welcomeBotInFunction from "./welcomeBot";
+import welcomeBotFunction from "./welcomeBot";
 
 export const helloWorld = helloWorldFunction;
-export const welcomeBot = welcomeBotInFunction;
+export const slack = welcomeBotFunction;
