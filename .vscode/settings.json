@@ -1,9 +1,9 @@
 {
-    "javascript.format.enable": false,
-    "eslint.workingDirectories": [
-        "./functions"
-    ],
-    "typescript.format.enable": false,
-    "window.autoDetectColorScheme": true,
-    "workbench.preferredDarkColorTheme": "Default Dark+"
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.workingDirectories": ["./functions"]
 }
