@@ -48,4 +48,17 @@ boltApp.event("app_home_opened", async ({event, client}) => {
   }
 });
 
+boltApp.event("app_mention", async ({event, say})=> {
+  const matchedGroups = event.text.match(
+      /(?<name>[\p{Han}\p{Hiragana}\p{Katakana}\w]+)は(?<month>[0-9]{1,2})月生まれ/
+  )?.groups;
+
+  if (!matchedGroups) {
+    await say("理解できませんでした。");
+    return;
+  }
+
+  await say(`${matchedGroups.name}さんの誕生日データを保存しました。`);
+});
+
 export default functions.https.onRequest(expressReceiver.app);
