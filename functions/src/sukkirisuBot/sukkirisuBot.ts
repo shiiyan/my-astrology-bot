@@ -1,8 +1,8 @@
 import * as functions from "firebase-functions";
 import * as firebaseAdmin from "firebase-admin";
 import {App as BoltApp, ExpressReceiver} from "@slack/bolt";
-// eslint-disable-next-line max-len
-import SaveBirthMonthProfile, {BirthMonthProfile} from "./SaveBirthMonthProfile";
+import {UseCaseFactory} from "./useCase/useCaseFactory";
+import {UseCaseSelector} from "./useCase/useCaseSelector";
 
 firebaseAdmin.initializeApp();
 
@@ -55,11 +55,16 @@ boltApp.event("app_home_opened", async ({event, client}) => {
 
 boltApp.event("app_mention", async ({event, say})=> {
   try {
-    const {useCase, executeParam}= selectUseCase(event.text);
-    if (!useCase || !executeParam) {
+    const {useCaseName, executeParam}= UseCaseSelector.select(event.text);
+    if (!useCaseName || !executeParam) {
       await say("理解できませんでした。");
       return;
     }
+
+    const useCase = UseCaseFactory.create({
+      useCaseName: useCaseName,
+      dependency: firebaseAdmin.firestore(),
+    });
 
     functions.logger.info("Starting ", useCase.description.english);
     await useCase.execute(executeParam);
@@ -69,39 +74,5 @@ boltApp.event("app_mention", async ({event, say})=> {
     functions.logger.error(e);
   }
 });
-
-
-const selectUseCase = (eventMessage: string): SelectResult => {
-  const matchedGroups = eventMessage.match(
-      /(?<name>[\w]+)は(?<month>[0-9]{1,2})月生まれ/
-  )?.groups;
-
-  if (!matchedGroups) {
-    return {
-      useCase: undefined,
-      executeParam: undefined,
-    };
-  }
-
-  const useCase = new SaveBirthMonthProfile(
-      firebaseAdmin.firestore(),
-  );
-
-  const birthMonthProfile: BirthMonthProfile = {
-    name: String(matchedGroups.name),
-    birthMonth: Number(matchedGroups.month),
-  };
-
-  return {
-    useCase,
-    executeParam: birthMonthProfile,
-  };
-};
-
-
-declare type SelectResult = {
-  useCase?: SaveBirthMonthProfile,
-  executeParam?: BirthMonthProfile
-}
 
 export default functions.https.onRequest(expressReceiver.app);
