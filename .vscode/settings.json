@@ -2,10 +2,15 @@
   "javascript.format.enable": false,
   "typescript.format.enable": false,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.editor.enablePreview": false,
   "editor.rename.enablePreview": true,
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
-  "eslint.workingDirectories": ["./functions"]
+  "eslint.workingDirectories": [
+    "./functions"
+  ],
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.iconTheme": "vs-seti"
 }
