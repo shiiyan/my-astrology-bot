@@ -7,5 +7,5 @@ export interface AppMentionUseCaseInterface {
         english: string,
         japanese: string
     };
-    execute(param: AppMentionUseCaseExecuteParam): void;
+    execute(param: AppMentionUseCaseExecuteParam): Promise<void>;
 }
