@@ -8,28 +8,37 @@ import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfi
  * @implements {BirthMonthProfileRepositoryInterface}
  */
 export class BirthMonthProfileFirestoreRepository implements BirthMonthProfileRepositoryInterface {
-  private firestoreClient: firestore.Firestore;
+  private database: firestore.Firestore;
 
   /**
    * Creates an instance of BirthMonthProfileFirestoreRepository.
-   * @param {firestore.Firestore} firestoreClient
+   * @param {firestore.Firestore} database
    * @memberof SaveBirthMonthProfile
    */
   constructor(
-      firestoreClient: firestore.Firestore
+      database: firestore.Firestore
   ) {
-    this.firestoreClient = firestoreClient;
+    this.database = database;
   }
 
   /**
-   * Save birth month profile to firestore.
+   * Save birth month profile to firestore with unique name.
+   * Batched write is used to ensure name is unique.
+   * @link https://stackoverflow.com/a/59892127
    *
    * @param {BirthMonthProfile} birthMonthProfile
    * @memberof BirthMonthProfileFirestoreRepository
    */
   async save(birthMonthProfile: BirthMonthProfile): Promise<void> {
-    await this.firestoreClient.collection("birthMonthProfiles").add(
-        birthMonthProfile
-    );
+    const batch = this.database.batch();
+
+    const birthMonthDocRef = this.database.collection("birthMonthProfiles").doc();
+    batch.set(birthMonthDocRef, birthMonthProfile);
+
+    const indexDocRef = this.database.collection("indexes")
+        .doc(`/birthMonthProfiles/name/${birthMonthProfile.name}`);
+    batch.set(indexDocRef, {value: birthMonthDocRef.id});
+
+    await batch.commit();
   }
 }
