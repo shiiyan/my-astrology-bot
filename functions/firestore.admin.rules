@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
+        // Get birthMonthProfileId after batch write completes but before commits.
+        function getProfileNameAfter(id) {
+            return getAfter(/databases/$(database)/documents/birthMonthProfiles/$(id)).data.name
+        }
+        
+        // Get indexed profileId after batch write completes but before commits.
+        function getIndexedProfileIdAfter(name) {
+            return getAfter(/databases/$(database)/documents/indexes/birthMonthProfiles/name/$(name)).data.value
+        }
+
+        match /birthMonthProfiles/{id} {
+            allow read: true;
+            allow create: if getIndexedProfileIdAfter(getProfileNameAfter(id)) == id;
+            allow update: false;
+            allow delete: false;
+        }
+
+        match /indexes/birthMonthProfiles/name/{name} {
+            allow read: true;
+            allow create: if getProfileNameAfter(getIndexedProfileIdAfter(name)) == name;
+            allow update: false;
+            allow delete: false;
+        }
+    }
+}
