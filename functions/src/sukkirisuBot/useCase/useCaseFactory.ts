@@ -1,10 +1,11 @@
 import {firestore} from "firebase-admin";
+import {BirthMonthProfileFirestoreRepository} from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
 import {AppMentionUseCaseInterface} from "./appMentionUseCaseInterface";
 import {SaveBirthMonthProfile} from "./saveBirthMonthProfile";
 
 export type CreateParam = {
     useCaseName: string,
-    dependency: firestore.Firestore
+    firestore: firestore.Firestore
 }
 
 /**
@@ -13,16 +14,18 @@ export type CreateParam = {
  */
 export class UseCaseFactory {
   /**
-   * @param {CreateParam} {useCaseName, dependency}
+   * @param {CreateParam} {useCaseName, firestore}
    * @return {AppMentionUseCaseInterface}
    * @memberof UseCaseFactory
    */
   public static create(
-      {useCaseName, dependency}: CreateParam
+      {useCaseName, firestore}: CreateParam
   ): AppMentionUseCaseInterface {
     switch (useCaseName) {
       case "SaveBirthMonthProfile":
-        return new SaveBirthMonthProfile(dependency);
+        return new SaveBirthMonthProfile(
+            new BirthMonthProfileFirestoreRepository(firestore)
+        );
       default:
         throw new Error("No use case to create");
     }
