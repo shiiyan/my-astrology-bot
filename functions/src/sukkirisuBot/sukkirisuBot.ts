@@ -63,7 +63,7 @@ boltApp.event("app_mention", async ({event, say})=> {
 
     const useCase = UseCaseFactory.create({
       useCaseName: useCaseName,
-      dependency: firebaseAdmin.firestore(),
+      firestore: firebaseAdmin.firestore(),
     });
 
     functions.logger.info("Starting ", useCase.description.english);
