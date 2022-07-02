@@ -33,11 +33,11 @@ export class BirthMonthProfileFirestoreRepository implements BirthMonthProfileRe
     const batch = this.database.batch();
 
     const birthMonthDocRef = this.database.collection("birthMonthProfiles").doc();
-    batch.set(birthMonthDocRef, birthMonthProfile);
+    batch.create(birthMonthDocRef, birthMonthProfile);
 
     const indexDocRef = this.database.collection("indexes")
         .doc(`/birthMonthProfiles/name/${birthMonthProfile.name}`);
-    batch.set(indexDocRef, {value: birthMonthDocRef.id});
+    batch.create(indexDocRef, {value: birthMonthDocRef.id});
 
     await batch.commit();
   }
