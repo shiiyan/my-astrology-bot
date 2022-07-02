@@ -1,12 +1,12 @@
-import {firestore} from "firebase-admin";
 import {BirthMonthProfile} from "../domain/birthMonthProfile";
+import {BirthMonthProfileRepositoryInterface} from "../domain/birthMonthProfileRepositoryInterface";
 import {AppMentionUseCaseInterface} from "./appMentionUseCaseInterface";
 
 /**
  * Class usecase for saving birth month.
  */
 export class SaveBirthMonthProfile implements AppMentionUseCaseInterface {
-  private firestoreClient: firestore.Firestore;
+  private repository: BirthMonthProfileRepositoryInterface;
   public description = {
     english: "saving birth month profile",
     japanese: "誕生月情報を保存する",
@@ -14,23 +14,23 @@ export class SaveBirthMonthProfile implements AppMentionUseCaseInterface {
 
   /**
    * Creates an instance of SaveBirthMonthProfile.
-   * @param {firestore.Firestore} firestoreClient
+   * @param {BirthMonthProfileRepositoryInterface} repository
    * @memberof SaveBirthMonthProfile
    */
   constructor(
-      firestoreClient: firestore.Firestore
+      repository: BirthMonthProfileRepositoryInterface
   ) {
-    this.firestoreClient = firestoreClient;
+    this.repository = repository;
   }
 
   /**
-   * @param {BirthMonthProfile} {name, birthMonth}
+   * Execute save birth month profile usecase.
+   *
+   * @param {BirthMonthProfile} birthMonthProfile
    * @return {Promise<void>}
    * @memberof SaveBirthMonthProfile
    */
-  public async execute({name, birthMonth}: BirthMonthProfile): Promise<void> {
-    await this.firestoreClient.collection("birthMonthProfiles").add(
-        {name, birthMonth}
-    );
+  public async execute(birthMonthProfile: BirthMonthProfile): Promise<void> {
+    await this.repository.save(birthMonthProfile);
   }
 }
