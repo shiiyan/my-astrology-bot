@@ -1,6 +1,6 @@
 import {firestore} from "firebase-admin";
-import {AppMentionUseCaseInterface, BirthMonthProfile}
-  from "./appMentionUseCaseInterface";
+import {BirthMonthProfile} from "../domain/birthMonthProfile";
+import {AppMentionUseCaseInterface} from "./appMentionUseCaseInterface";
 
 /**
  * Class usecase for saving birth month.

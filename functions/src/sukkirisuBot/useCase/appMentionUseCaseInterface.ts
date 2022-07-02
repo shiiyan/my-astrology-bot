@@ -1,7 +1,4 @@
-export type BirthMonthProfile = {
-    name: string,
-    birthMonth: number
-  }
+import {BirthMonthProfile} from "../domain/birthMonthProfile";
 
 export type AppMentionUseCaseExecuteParam = BirthMonthProfile
 
