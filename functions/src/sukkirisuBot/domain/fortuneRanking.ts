@@ -18,7 +18,7 @@ export class FortuneRanking {
    * @memberof FortuneRanking
    */
   constructor(list: BirthMonthFortune[]) {
-    this.ensureRankCoversAllMonths(list);
+    this.ensureRankCoversEachMonthOnce(list);
 
     this.createDate = new Date();
     this.ranks = list;
@@ -64,16 +64,15 @@ export class FortuneRanking {
    * @param {BirthMonthFortune[]} list
    * @memberof FortuneRanking
    */
-  private ensureRankCoversAllMonths(list: BirthMonthFortune[]) {
-    const monthSet = new Set(list.map((fortune) => fortune.birthMonth));
-
-    if (monthSet.size !== this.ALL_MONTHS.length) {
-      throw new InvalidArgumentError("Fortune Ranking does not cover all months.");
+  private ensureRankCoversEachMonthOnce(list: BirthMonthFortune[]) {
+    if (list.length !== this.ALL_MONTHS.length) {
+      throw new InvalidArgumentError("Fortune Ranking does not cover each month once.");
     }
 
+    const monthSet = new Set(list.map((fortune) => fortune.birthMonth));
     this.ALL_MONTHS.forEach((month) => {
       if (!monthSet.has(month)) {
-        throw new InvalidArgumentError(`There is no fortune for month ${month}.`);
+        throw new InvalidArgumentError(`There is no fortune of month ${month}.`);
       }
     });
   }
