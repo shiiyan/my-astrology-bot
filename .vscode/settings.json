@@ -8,9 +8,5 @@
   "eslint.workingDirectories": [
     "./functions"
   ],
-  "workbench.preferredLightColorTheme": "GitHub Light Default",
-  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
-  "workbench.iconTheme": "vs-seti",
-  "workbench.colorTheme": "GitHub Light Default",
   "workbench.editor.enablePreview": false
 }
