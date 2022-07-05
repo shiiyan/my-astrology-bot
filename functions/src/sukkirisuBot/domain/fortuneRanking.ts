@@ -1,5 +1,5 @@
 import {BirthMonthFortune} from "./birthMonthFortune";
-import {InvalidArgumentError} from "./invalidArgumentError";
+import {InvalidArgumentError} from "../../shared/error/invalidArgumentError";
 
 /**
  * Ranking of birth month fortune.
