@@ -1,7 +1,7 @@
 import {firestore} from "firebase-admin";
 import {BirthMonthProfileFirestoreRepository} from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
 import {AppMentionUseCaseInterface} from "./appMentionUseCaseInterface";
-import {SaveBirthMonthProfile} from "./saveBirthMonthProfile";
+import {SaveBirthMonthProfile} from "./appMentionUseCaseImplementation/saveBirthMonthProfile";
 
 export type CreateParam = {
     useCaseName: string,

@@ -1,4 +1,4 @@
-import {BirthMonthProfile} from "../domain/birthMonthProfile";
+import {BirthMonthProfile} from "../domain/birthMonthProfile/birthMonthProfile";
 
 export type AppMentionUseCaseExecuteParam = BirthMonthProfile
 
