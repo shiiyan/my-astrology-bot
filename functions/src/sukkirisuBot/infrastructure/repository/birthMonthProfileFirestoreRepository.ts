@@ -1,6 +1,6 @@
 import {firestore} from "firebase-admin";
 import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
-import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/birthMonthProfileRepoInterface";
+import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/entityRepositoryInterface";
 
 /**
  * @export
