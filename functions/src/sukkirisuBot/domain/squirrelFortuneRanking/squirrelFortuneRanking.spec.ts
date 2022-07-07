@@ -1,7 +1,7 @@
 import {should} from "chai";
-import {InvalidArgumentError} from "../../shared/error/invalidArgumentError";
+import {InvalidArgumentError} from "../../../shared/error/invalidArgumentError";
 import {BirthMonthFortune} from "./birthMonthFortune";
-import {FortuneRanking} from "./fortuneRanking";
+import {SquirrelFortuneRanking} from "./squirrelFortuneRanking";
 should();
 
 describe("FortuneRanking", () => {
@@ -21,9 +21,9 @@ describe("FortuneRanking", () => {
       {birthMonth: 12, rank: 12, comment: "", luckyColor: ""},
     ];
 
-    const fortuneRanking = FortuneRanking.create(list);
+    const fortuneRanking = SquirrelFortuneRanking.create(list);
 
-    fortuneRanking.should.be.instanceOf(FortuneRanking);
+    fortuneRanking.should.be.instanceOf(SquirrelFortuneRanking);
     fortuneRanking.should.have.property("createDate");
     fortuneRanking.should.have.property("createDate").be.instanceOf(Date);
     fortuneRanking.should.have.property("ranks");
@@ -34,7 +34,7 @@ describe("FortuneRanking", () => {
   it("should throw invalid argument error given empty array.", () => {
     const list: BirthMonthFortune[] = [];
 
-    (() => FortuneRanking.create(list)).should.throw(
+    (() => SquirrelFortuneRanking.create(list)).should.throw(
         InvalidArgumentError, "Fortune Ranking does not cover each month once."
     );
   });
@@ -55,7 +55,7 @@ describe("FortuneRanking", () => {
       {birthMonth: 11, rank: 12, comment: "", luckyColor: ""},
     ];
 
-    (() => FortuneRanking.create(list)).should.throw(
+    (() => SquirrelFortuneRanking.create(list)).should.throw(
         InvalidArgumentError, "There is no fortune of month 12."
     );
   });

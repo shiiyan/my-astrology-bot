@@ -1,22 +1,22 @@
+import {InvalidArgumentError} from "../../../shared/error/invalidArgumentError";
 import {BirthMonthFortune} from "./birthMonthFortune";
-import {InvalidArgumentError} from "../../shared/error/invalidArgumentError";
 
 /**
  * Ranking of birth month fortune.
  *
  * @export
- * @class FortuneRanking
+ * @class SquirrelFortuneRanking
  */
-export class FortuneRanking {
+export class SquirrelFortuneRanking {
   private readonly createDate: Date;
   private readonly ranks: BirthMonthFortune[];
   private readonly ALL_MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   /**
-   * Creates an instance of FortuneRanking.
+   * Creates an instance of SquirrelFortuneRanking.
    *
    * @param {BirthMonthFortune[]} list
-   * @memberof FortuneRanking
+   * @memberof SquirrelFortuneRanking
    */
   constructor(list: BirthMonthFortune[]) {
     this.ensureRankCoversEachMonthOnce(list);
@@ -26,15 +26,15 @@ export class FortuneRanking {
   }
 
   /**
-   * Factory method to create FortuneRanking.
+   * Factory method to create SquirrelFortuneRanking.
    *
    * @static
    * @param {BirthMonthFortune[]} list
-   * @return {FortuneRanking}
-   * @memberof FortuneRanking
+   * @return {SquirrelFortuneRanking}
+   * @memberof SquirrelFortuneRanking
    */
-  public static create(list: BirthMonthFortune[]): FortuneRanking {
-    return new FortuneRanking(list);
+  public static create(list: BirthMonthFortune[]): SquirrelFortuneRanking {
+    return new SquirrelFortuneRanking(list);
   }
 
   /**
@@ -42,7 +42,7 @@ export class FortuneRanking {
    *
    * @param {number} rank
    * @return {BirthMonthFortune}
-   * @memberof FortuneRanking
+   * @memberof SquirrelFortuneRanking
    */
   public getFortuneByRank(rank: number): BirthMonthFortune | undefined {
     return this.ranks.find((fortune) => fortune.rank === rank);
@@ -52,7 +52,7 @@ export class FortuneRanking {
    * Get create date.
    *
    * @return {Date}
-   * @memberof FortuneRanking
+   * @memberof SquirrelFortuneRanking
    */
   public getCreateDate(): Date {
     return this.createDate;
@@ -63,7 +63,7 @@ export class FortuneRanking {
    *
    * @private
    * @param {BirthMonthFortune[]} list
-   * @memberof FortuneRanking
+   * @memberof SquirrelFortuneRanking
    */
   private ensureRankCoversEachMonthOnce(list: BirthMonthFortune[]) {
     if (list.length !== this.ALL_MONTHS.length) {
