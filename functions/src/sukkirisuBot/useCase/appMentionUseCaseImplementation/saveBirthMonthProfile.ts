@@ -1,6 +1,6 @@
-import {BirthMonthProfile} from "../domain/birthMonthProfile";
-import {BirthMonthProfileRepositoryInterface} from "../domain/birthMonthProfileRepositoryInterface";
-import {AppMentionUseCaseInterface} from "./appMentionUseCaseInterface";
+import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
+import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/birthMonthProfileRepoInterface";
+import {AppMentionUseCaseInterface} from "../appMentionUseCaseInterface";
 
 /**
  * Class usecase for saving birth month.
