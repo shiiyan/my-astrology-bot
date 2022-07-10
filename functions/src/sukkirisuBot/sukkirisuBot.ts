@@ -4,6 +4,7 @@ import {App as BoltApp, ExpressReceiver} from "@slack/bolt";
 import {UseCaseFactory} from "./useCase/useCaseFactory";
 import {UseCaseSelector} from "./useCase/useCaseSelector";
 import {isCommandUseCase, isQueryUseCase} from "./useCase/useCaseType";
+import {SquirrelFortuneRankingSlackMessageBuilder} from "./presentation/squirrelFortuneRankingSlackMessageBuilder";
 
 firebaseAdmin.initializeApp();
 
@@ -78,7 +79,11 @@ boltApp.event("app_mention", async ({event, say})=> {
       const queryResult = await useCase.run();
       if (!queryResult) {
         await say(useCase.metaInfo.message.failure);
+        return;
       }
+
+      const message = new SquirrelFortuneRankingSlackMessageBuilder(queryResult).build();
+      await say(message);
     }
 
     functions.logger.info("Finished ", useCase.metaInfo.description.english);
