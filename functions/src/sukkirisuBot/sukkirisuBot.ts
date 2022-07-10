@@ -82,7 +82,7 @@ boltApp.event("app_mention", async ({event, say})=> {
         return;
       }
 
-      const message = new SquirrelFortuneRankingSlackMessageBuilder(queryResult).build();
+      const message = (new SquirrelFortuneRankingSlackMessageBuilder(queryResult)).build();
       await say(message);
     }
 
