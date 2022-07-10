@@ -57,8 +57,13 @@ export class SquirrelFortuneRanking {
    * @return {BirthMonthFortune}
    * @memberof SquirrelFortuneRanking
    */
-  public getFortuneByRank(rank: number): BirthMonthFortune | undefined {
-    return this.birthMonthFortunes.find((fortune) => fortune.rank === rank);
+  public getFortuneByRank(rank: number): BirthMonthFortune {
+    const found = this.birthMonthFortunes.find((fortune) => fortune.rank === rank);
+    if (!found) {
+      throw new InvalidArgumentError("BirthMonthFortune for given rank does not exist.");
+    }
+
+    return found;
   }
 
   /**
