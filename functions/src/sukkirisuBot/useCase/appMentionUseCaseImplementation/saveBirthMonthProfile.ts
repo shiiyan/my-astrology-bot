@@ -1,14 +1,16 @@
 import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
 import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/entityRepositoryInterface";
-import {AppMentionUseCaseInterface} from "../appMentionUseCaseInterface";
+import {AppMentionCommandUseCaseInterface} from "../appMentionCommandUseCaseInterface";
+import {UseCaseType} from "../useCaseType";
 
 /**
  * Class usecase for saving birth month.
  */
-export class SaveBirthMonthProfile implements AppMentionUseCaseInterface {
+export class SaveBirthMonthProfile implements AppMentionCommandUseCaseInterface {
   private repository: BirthMonthProfileRepositoryInterface;
 
   public metaInfo = {
+    type: UseCaseType.Command,
     description: {
       english: "saving birth month profile",
       japanese: "誕生月情報を保存",
@@ -24,9 +26,7 @@ export class SaveBirthMonthProfile implements AppMentionUseCaseInterface {
    * @param {BirthMonthProfileRepositoryInterface} repository
    * @memberof SaveBirthMonthProfile
    */
-  constructor(
-      repository: BirthMonthProfileRepositoryInterface
-  ) {
+  constructor(repository: BirthMonthProfileRepositoryInterface) {
     this.repository = repository;
   }
 
