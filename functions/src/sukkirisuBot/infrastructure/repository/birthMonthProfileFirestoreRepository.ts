@@ -13,7 +13,7 @@ export class BirthMonthProfileFirestoreRepository implements BirthMonthProfileRe
   /**
    * Creates an instance of BirthMonthProfileFirestoreRepository.
    * @param {firestore.Firestore} database
-   * @memberof SaveBirthMonthProfile
+   * @memberof BirthMonthProfileFirestoreRepository
    */
   constructor(
       database: firestore.Firestore
