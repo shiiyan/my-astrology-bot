@@ -1,7 +1,10 @@
 import {firestore} from "firebase-admin";
 import {BirthMonthProfileFirestoreRepository} from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
+import {SquirrelFortuneRankingFirestoreRepository}
+  from "../infrastructure/repository/squirrelFortuneRankingFirestoreRepository";
 import {AppMentionCommandUseCaseInterface} from "./appMentionCommandUseCaseInterface";
 import {AppMentionQueryUseCaseInterface} from "./appMentionQueryUseCaseInterface";
+import {GetSquirrelFortuneRankingForToday} from "./appMentionUseCaseImplementation/getSquirrelFortuneRankingForToday";
 import {SaveBirthMonthProfile} from "./appMentionUseCaseImplementation/saveBirthMonthProfile";
 
 export type CreateParam = {
@@ -26,6 +29,10 @@ export class UseCaseFactory {
       case "SaveBirthMonthProfile":
         return new SaveBirthMonthProfile(
             new BirthMonthProfileFirestoreRepository(firestore)
+        );
+      case "GetSquirrelFortuneRankingForToday":
+        return new GetSquirrelFortuneRankingForToday(
+            new SquirrelFortuneRankingFirestoreRepository(firestore)
         );
       default:
         throw new Error("No use case to create");
