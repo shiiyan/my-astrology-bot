@@ -1,9 +1,11 @@
 import {BirthMonthProfile} from "../domain/birthMonthProfile/birthMonthProfile";
+import {UseCaseType} from "./useCaseType";
 
-export type AppMentionUseCaseExecuteParam = BirthMonthProfile
+export type AppMentionUseCaseExecuteParam = BirthMonthProfile | undefined;
 
-export interface AppMentionUseCaseInterface {
+export interface AppMentionCommandUseCaseInterface {
     metaInfo: {
+        type: UseCaseType;
         description: {
             english: string;
             japanese: string;
