@@ -26,9 +26,9 @@ describe("FortuneRanking", () => {
     fortuneRanking.should.be.instanceOf(SquirrelFortuneRanking);
     fortuneRanking.should.have.property("createDate");
     fortuneRanking.should.have.property("createDate").be.instanceOf(Date);
-    fortuneRanking.should.have.property("ranks");
-    fortuneRanking.should.have.property("ranks").be.a("array");
-    fortuneRanking.should.have.property("ranks").that.have.members(list);
+    fortuneRanking.should.have.property("birthMonthFortunes");
+    fortuneRanking.should.have.property("birthMonthFortunes").be.a("array");
+    fortuneRanking.should.have.property("birthMonthFortunes").that.have.members(list);
   });
 
   it("should throw invalid argument error given empty array.", () => {
@@ -83,8 +83,8 @@ describe("FortuneRanking", () => {
     reconstructed.should.have.property("createDate");
     reconstructed.should.have.property("createDate").be.instanceOf(Date);
     reconstructed.getCreateDate().getTime().should.equal(createDate.getTime());
-    reconstructed.should.have.property("ranks");
-    reconstructed.should.have.property("ranks").be.a("array");
-    reconstructed.should.have.property("ranks").that.have.members(list);
+    reconstructed.should.have.property("birthMonthFortunes");
+    reconstructed.should.have.property("birthMonthFortunes").be.a("array");
+    reconstructed.should.have.property("birthMonthFortunes").that.have.members(list);
   });
 });

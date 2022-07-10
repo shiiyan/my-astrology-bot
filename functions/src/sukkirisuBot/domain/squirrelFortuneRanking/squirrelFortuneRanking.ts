@@ -9,7 +9,7 @@ import {BirthMonthFortune} from "./birthMonthFortune";
  */
 export class SquirrelFortuneRanking {
   private readonly createDate: Date;
-  private readonly ranks: BirthMonthFortune[];
+  private readonly birthMonthFortunes: BirthMonthFortune[];
   private readonly ALL_MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   /**
@@ -22,7 +22,7 @@ export class SquirrelFortuneRanking {
     this.ensureRankCoversEachMonthOnce(list);
 
     this.createDate = createDate;
-    this.ranks = list;
+    this.birthMonthFortunes = list;
   }
 
   /**
@@ -58,7 +58,7 @@ export class SquirrelFortuneRanking {
    * @memberof SquirrelFortuneRanking
    */
   public getFortuneByRank(rank: number): BirthMonthFortune | undefined {
-    return this.ranks.find((fortune) => fortune.rank === rank);
+    return this.birthMonthFortunes.find((fortune) => fortune.rank === rank);
   }
 
   /**
