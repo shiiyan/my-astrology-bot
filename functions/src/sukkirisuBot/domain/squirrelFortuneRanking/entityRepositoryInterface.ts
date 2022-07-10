@@ -1,5 +1,5 @@
 import {SquirrelFortuneRanking} from "./squirrelFortuneRanking";
 
 export interface SquirrelFortuneRankingRepositoryInterface {
-    findByCreateDate(date: Date): Promise<SquirrelFortuneRanking | undefined>;
+    findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined>;
 }
