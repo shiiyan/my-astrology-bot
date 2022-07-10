@@ -32,16 +32,16 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
    */
   async findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined> {
     const {rankingSnapShot, fortunesSnapShot} = await this.database.runTransaction(async (transaction) => {
-      // ensure same query can only perform once per minute.
-      const currentMinute = moment().format("YYYY-MM-DD HH:mm");
-      const logsRef = this.database.collection("squirrelFortuneRankingQueryLogs").doc(currentMinute);
-      transaction.create(logsRef, {method: "findByCreateDateWithLock"});
-
       const dateString = moment(date).format("YYYY-MM-DD");
       const rankingRef = this.database.collection("squirrelFortuneRankings").doc(dateString);
       const rankingSnapShot = await transaction.get(rankingRef);
       const fortunesRef = rankingRef.collection("birthMonthFortunes");
       const fortunesSnapShot = await transaction.get(fortunesRef);
+
+      // ensure same query can only perform once per minute.
+      const currentMinute = moment().format("YYYY-MM-DD HH:mm");
+      const logsRef = this.database.collection("squirrelFortuneRankingQueryLogs").doc(currentMinute);
+      transaction.create(logsRef, {method: "findByCreateDateWithLock"});
 
       return {rankingSnapShot, fortunesSnapShot};
     });
