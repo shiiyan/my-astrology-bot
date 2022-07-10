@@ -1,6 +1,7 @@
 import {firestore} from "firebase-admin";
 import {BirthMonthProfileFirestoreRepository} from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
-import {AppMentionUseCaseInterface} from "./appMentionUseCaseInterface";
+import {AppMentionCommandUseCaseInterface} from "./appMentionCommandUseCaseInterface";
+import {AppMentionQueryUseCaseInterface} from "./appMentionQueryUseCaseInterface";
 import {SaveBirthMonthProfile} from "./appMentionUseCaseImplementation/saveBirthMonthProfile";
 
 export type CreateParam = {
@@ -20,7 +21,7 @@ export class UseCaseFactory {
    */
   public static create(
       {useCaseName, firestore}: CreateParam
-  ): AppMentionUseCaseInterface {
+  ): AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface {
     switch (useCaseName) {
       case "SaveBirthMonthProfile":
         return new SaveBirthMonthProfile(
