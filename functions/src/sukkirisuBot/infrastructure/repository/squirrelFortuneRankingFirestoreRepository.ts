@@ -38,9 +38,10 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
       const fortunesRef = rankingRef.collection("birthMonthFortunes");
       const fortunesSnapShot = await transaction.get(fortunesRef);
 
-      // ensure same query can only perform once per minute.
-      const currentMinute = moment().format("YYYY-MM-DD HH:mm");
-      const logsRef = this.database.collection("squirrelFortuneRankingQueryLogs").doc(currentMinute);
+      // ensure same query can only perform once per half hour.
+      const halfHour = Number(moment().format("m")) > 30 ? "30" : "00";
+      const currentHour = moment().format("YYYY-MM-DD HH");
+      const logsRef = this.database.collection("squirrelFortuneRankingQueryLogs").doc(currentHour + halfHour);
       transaction.create(logsRef, {method: "findByCreateDateWithLock"});
 
       return {rankingSnapShot, fortunesSnapShot};
