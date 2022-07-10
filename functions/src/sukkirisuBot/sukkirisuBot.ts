@@ -3,6 +3,7 @@ import * as firebaseAdmin from "firebase-admin";
 import {App as BoltApp, ExpressReceiver} from "@slack/bolt";
 import {UseCaseFactory} from "./useCase/useCaseFactory";
 import {UseCaseSelector} from "./useCase/useCaseSelector";
+import {isCommandUseCase, isQueryUseCase} from "./useCase/useCaseType";
 
 firebaseAdmin.initializeApp();
 
@@ -55,8 +56,8 @@ boltApp.event("app_home_opened", async ({event, client}) => {
 
 boltApp.event("app_mention", async ({event, say})=> {
   try {
-    const {useCaseName, executeParam}= UseCaseSelector.select(event.text);
-    if (!useCaseName || !executeParam) {
+    const {useCaseName, useCaseParam} = UseCaseSelector.select(event.text);
+    if (!useCaseName || !useCaseParam) {
       await say("理解できませんでした。");
       return;
     }
@@ -67,9 +68,20 @@ boltApp.event("app_mention", async ({event, say})=> {
     });
 
     functions.logger.info("Starting ", useCase.metaInfo.description.english);
-    await useCase.execute(executeParam);
+
+    if (isCommandUseCase(useCase)) {
+      await useCase.execute(useCaseParam);
+      await say(useCase.metaInfo.message.success);
+    }
+
+    if (isQueryUseCase(useCase)) {
+      const queryResult = await useCase.run();
+      if (!queryResult) {
+        await say(useCase.metaInfo.message.failure);
+      }
+    }
+
     functions.logger.info("Finished ", useCase.metaInfo.description.english);
-    await say(useCase.metaInfo.message.success);
   } catch (e) {
     functions.logger.error(e);
   }
