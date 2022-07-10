@@ -57,7 +57,7 @@ boltApp.event("app_home_opened", async ({event, client}) => {
 boltApp.event("app_mention", async ({event, say})=> {
   try {
     const {useCaseName, useCaseParam} = UseCaseSelector.select(event.text);
-    if (!useCaseName || !useCaseParam) {
+    if (!useCaseName) {
       await say("理解できませんでした。");
       return;
     }
