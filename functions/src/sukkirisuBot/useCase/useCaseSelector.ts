@@ -1,8 +1,8 @@
-import {AppMentionUseCaseExecuteParam} from "./appMentionUseCaseInterface";
+import {AppMentionUseCaseExecuteParam} from "./appMentionCommandUseCaseInterface";
 
 declare type SelectResult = {
     useCaseName?: string,
-    executeParam?: AppMentionUseCaseExecuteParam
+    useCaseParam?: AppMentionUseCaseExecuteParam
   }
 
 /**
@@ -18,25 +18,31 @@ export class UseCaseSelector {
    * @memberof UseCaseSelector
    */
   public static select(eventMessage: string): SelectResult {
-    const matchedGroups = eventMessage.match(
-        /(?<name>[\w]+)は(?<month>[0-9]{1,2})月生まれ/
-    )?.groups;
+    let matchedGroups;
+    matchedGroups = eventMessage.match(/(?<name>[\w]+)は(?<month>[0-9]{1,2})月生まれ/)?.groups;
+    if (matchedGroups?.name && matchedGroups?.month) {
+      const birthMonthProfile = {
+        name: String(matchedGroups.name),
+        birthMonth: Number(matchedGroups.month),
+      };
 
-    if (!matchedGroups) {
       return {
-        useCaseName: undefined,
-        executeParam: undefined,
+        useCaseName: "SaveBirthMonthProfile",
+        useCaseParam: birthMonthProfile,
       };
     }
 
-    const birthMonthProfile = {
-      name: String(matchedGroups.name),
-      birthMonth: Number(matchedGroups.month),
-    };
+    matchedGroups = eventMessage.match(/(?<fortune>今日の運勢)/)?.groups;
+    if (matchedGroups?.fortune) {
+      return {
+        useCaseName: "GetSquirrelFortuneRankingForToday",
+        useCaseParam: undefined,
+      };
+    }
 
     return {
-      useCaseName: "SaveBirthMonthProfile",
-      executeParam: birthMonthProfile,
+      useCaseName: undefined,
+      useCaseParam: undefined,
     };
   }
 }
