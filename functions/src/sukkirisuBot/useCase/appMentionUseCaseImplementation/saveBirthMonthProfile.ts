@@ -7,9 +7,16 @@ import {AppMentionUseCaseInterface} from "../appMentionUseCaseInterface";
  */
 export class SaveBirthMonthProfile implements AppMentionUseCaseInterface {
   private repository: BirthMonthProfileRepositoryInterface;
-  public description = {
-    english: "saving birth month profile",
-    japanese: "誕生月情報を保存する",
+
+  public metaInfo = {
+    description: {
+      english: "saving birth month profile",
+      japanese: "誕生月情報を保存",
+    },
+    message: {
+      success: "誕生月情報を保存しました。",
+      failure: "誕生月情報を保存できませんでした。",
+    },
   };
 
   /**

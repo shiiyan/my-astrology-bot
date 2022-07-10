@@ -66,10 +66,10 @@ boltApp.event("app_mention", async ({event, say})=> {
       firestore: firebaseAdmin.firestore(),
     });
 
-    functions.logger.info("Starting ", useCase.description.english);
+    functions.logger.info("Starting ", useCase.metaInfo.description.english);
     await useCase.execute(executeParam);
-    functions.logger.info("Finished ", useCase.description.english);
-    await say(`${useCase.description.japanese}が成功しました。`);
+    functions.logger.info("Finished ", useCase.metaInfo.description.english);
+    await say(useCase.metaInfo.message.success);
   } catch (e) {
     functions.logger.error(e);
   }
