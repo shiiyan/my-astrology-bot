@@ -14,14 +14,14 @@ export class SquirrelFortuneRanking {
 
   /**
    * Creates an instance of SquirrelFortuneRanking.
-   *
+   * @param {Date} createDate
    * @param {BirthMonthFortune[]} list
    * @memberof SquirrelFortuneRanking
    */
-  constructor(list: BirthMonthFortune[]) {
+  constructor(createDate: Date, list: BirthMonthFortune[]) {
     this.ensureRankCoversEachMonthOnce(list);
 
-    this.createDate = new Date();
+    this.createDate = createDate;
     this.ranks = list;
   }
 
@@ -34,7 +34,20 @@ export class SquirrelFortuneRanking {
    * @memberof SquirrelFortuneRanking
    */
   public static create(list: BirthMonthFortune[]): SquirrelFortuneRanking {
-    return new SquirrelFortuneRanking(list);
+    return new SquirrelFortuneRanking(new Date(), list);
+  }
+
+  /**
+   * Reconstruct SquirrelFortuneRanking from data store.
+   *
+   * @static
+   * @param {Date} createDate
+   * @param {BirthMonthFortune[]} list
+   * @return {SquirrelFortuneRanking}
+   * @memberof SquirrelFortuneRanking
+   */
+  public static reconstruct(createDate: Date, list: BirthMonthFortune[]): SquirrelFortuneRanking {
+    return new SquirrelFortuneRanking(createDate, list);
   }
 
   /**

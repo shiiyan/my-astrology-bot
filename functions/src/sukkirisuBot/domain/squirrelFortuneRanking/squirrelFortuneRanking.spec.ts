@@ -5,7 +5,7 @@ import {SquirrelFortuneRanking} from "./squirrelFortuneRanking";
 should();
 
 describe("FortuneRanking", () => {
-  it("should holds createDate and ranking of birth month fortune", () => {
+  it("should hold createDate and ranking of birth month fortune", () => {
     const list: BirthMonthFortune[] = [
       {birthMonth: 1, rank: 1, comment: "", luckyColor: ""},
       {birthMonth: 2, rank: 2, comment: "", luckyColor: ""},
@@ -58,5 +58,33 @@ describe("FortuneRanking", () => {
     (() => SquirrelFortuneRanking.create(list)).should.throw(
         InvalidArgumentError, "There is no fortune of month 12."
     );
+  });
+
+  it("should reconstruct using createDate and list of birth month fortune", () => {
+    const createDate: Date = new Date("2022-07-10 10:08:00");
+    const list: BirthMonthFortune[] = [
+      {birthMonth: 1, rank: 1, comment: "", luckyColor: ""},
+      {birthMonth: 2, rank: 2, comment: "", luckyColor: ""},
+      {birthMonth: 3, rank: 3, comment: "", luckyColor: ""},
+      {birthMonth: 4, rank: 4, comment: "", luckyColor: ""},
+      {birthMonth: 5, rank: 5, comment: "", luckyColor: ""},
+      {birthMonth: 6, rank: 6, comment: "", luckyColor: ""},
+      {birthMonth: 7, rank: 7, comment: "", luckyColor: ""},
+      {birthMonth: 8, rank: 8, comment: "", luckyColor: ""},
+      {birthMonth: 9, rank: 9, comment: "", luckyColor: ""},
+      {birthMonth: 10, rank: 10, comment: "", luckyColor: ""},
+      {birthMonth: 11, rank: 11, comment: "", luckyColor: ""},
+      {birthMonth: 12, rank: 12, comment: "", luckyColor: ""},
+    ];
+
+    const reconstructed = SquirrelFortuneRanking.reconstruct(createDate, list);
+
+    reconstructed.should.be.instanceOf(SquirrelFortuneRanking);
+    reconstructed.should.have.property("createDate");
+    reconstructed.should.have.property("createDate").be.instanceOf(Date);
+    reconstructed.getCreateDate().getTime().should.equal(createDate.getTime());
+    reconstructed.should.have.property("ranks");
+    reconstructed.should.have.property("ranks").be.a("array");
+    reconstructed.should.have.property("ranks").that.have.members(list);
   });
 });
