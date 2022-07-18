@@ -40,6 +40,14 @@ export class UseCaseSelector {
       };
     }
 
+    matchedGroups = eventMessage.match(/(?<allPersonalFortune>全員の運勢)/)?.groups;
+    if (matchedGroups?.allPersonalFortune) {
+      return {
+        useCaseName: "GetAllPersonalSquirrelFortuneForToday",
+        useCaseParam: undefined,
+      };
+    }
+
     return {
       useCaseName: undefined,
       useCaseParam: undefined,
