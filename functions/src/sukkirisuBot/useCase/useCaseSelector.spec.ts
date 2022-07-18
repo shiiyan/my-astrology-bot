@@ -17,7 +17,7 @@ describe("UseCaseSelector", () => {
   });
 
   it("should return get squirrel fortune ranking use case when correct message is provided", () => {
-    const message = "今日の運勢を教えて";
+    const message = "今日の運勢ランキングを教えて";
     const result = UseCaseSelector.select(message);
 
     result.should.be.a("object");
