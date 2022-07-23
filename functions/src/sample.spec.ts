@@ -1,7 +1,7 @@
 import {expect, should} from "chai";
 should();
 
-describe("Typescipt usage suite", () => {
+describe("Typescript usage suite", () => {
   it("should be able to execute a test in expect style", () => {
     const foo = "bar";
     const beverages = {tea: ["chai", "matcha", "oolong"]};
