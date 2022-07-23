@@ -1,5 +1,5 @@
 import {PersonalSquirrelFortuneDto} from "./personalSquirrelFortuneDto";
 
 export interface PersonalSquirrelFortuneDtoQueryServiceInterface {
-    fetchAllByDateWithLock(): Promise<PersonalSquirrelFortuneDto[]>;
+    fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[]>;
 }
