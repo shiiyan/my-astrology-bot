@@ -17,11 +17,11 @@ export class GetSquirrelFortuneRankingForToday implements AppMentionQueryUseCase
     type: UseCaseType.Query,
     description: {
       english: "get squirrel fortune ranking",
-      japanese: "スッキリす運勢ランキングを取得",
+      japanese: "今日のスッキリす運勢ランキングを取得",
     },
     message: {
-      success: "スッキリす運勢ランキングを取得しました。",
-      failure: "スッキリす運勢ランキングを取得できませんでした。",
+      success: "今日のスッキリす運勢ランキングを取得しました。",
+      failure: "今日のスッキリす運勢ランキングを取得できませんでした。",
     },
   };
   /**
