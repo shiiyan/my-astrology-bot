@@ -1,7 +1,10 @@
 import {SquirrelFortuneRanking} from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import {PersonalSquirrelFortuneDto} from "./personalSquirrelFortune/personalSquirrelFortuneDto";
 import {UseCaseType} from "./useCaseType";
 
-export type AppMentionQueryResult = SquirrelFortuneRanking | undefined;
+export type AppMentionQueryResult = SquirrelFortuneRanking
+    | PersonalSquirrelFortuneDto[]
+    | undefined;
 
 export interface AppMentionQueryUseCaseInterface {
     metaInfo: {
