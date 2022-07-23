@@ -67,6 +67,22 @@ export class SquirrelFortuneRanking {
   }
 
   /**
+   * Get fortune by birth month.
+   *
+   * @param {number} birthMonth
+   * @return {BirthMonthFortune}
+   * @memberof SquirrelFortuneRanking
+   */
+  public getFortuneByBirthMonth(birthMonth: number): BirthMonthFortune {
+    const found = this.birthMonthFortunes.find((fortune) => fortune.birthMonth === birthMonth);
+    if (!found) {
+      throw new InvalidArgumentError("BirthMonthFortune for given birth month does not exist.");
+    }
+
+    return found;
+  }
+
+  /**
    * Get create date.
    *
    * @return {Date}
