@@ -24,6 +24,7 @@ export class GetSquirrelFortuneRankingForToday implements AppMentionQueryUseCase
       failure: "今日のスッキリす運勢ランキングを取得できませんでした。",
     },
   };
+
   /**
    * Creates an instance of GetSquirrelFortuneRankingForToday.
    * @param {SquirrelFortuneRankingRepositoryInterface} repository
