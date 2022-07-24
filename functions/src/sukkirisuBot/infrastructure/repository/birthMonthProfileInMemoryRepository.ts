@@ -23,4 +23,14 @@ export class BirthMonthProfileInMemoryRepository implements BirthMonthProfileRep
     this.data.push(birthMonthProfile);
     return new Promise((resolve) => resolve());
   }
+
+  /**
+   * Find first BirthMonthProfile in this.data.
+   *
+   * @return {*}  {BirthMonthProfile}
+   * @memberof BirthMonthProfileInMemoryRepository
+   */
+  findFirst(): BirthMonthProfile {
+    return this.data[0];
+  }
 }
