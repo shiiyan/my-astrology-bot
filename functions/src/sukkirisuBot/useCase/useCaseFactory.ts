@@ -1,4 +1,5 @@
 import {firestore} from "firebase-admin";
+import {InvalidArgumentError} from "../../shared/error/invalidArgumentError";
 import {BirthMonthProfileFirestoreRepository} from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
 import {SquirrelFortuneRankingFirestoreRepository}
   from "../infrastructure/repository/squirrelFortuneRankingFirestoreRepository";
@@ -35,7 +36,7 @@ export class UseCaseFactory {
             new SquirrelFortuneRankingFirestoreRepository(firestore)
         );
       default:
-        throw new Error("No use case to create");
+        throw new InvalidArgumentError(`No use case to create for given name ${useCaseName}`);
     }
   }
 }
