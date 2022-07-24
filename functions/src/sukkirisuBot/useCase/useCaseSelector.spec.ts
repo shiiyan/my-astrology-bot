@@ -22,7 +22,7 @@ describe("UseCaseSelector", () => {
 
     result.should.be.a("object");
     result.should.have.property("useCaseName").equals("GetSquirrelFortuneRankingForToday");
-    result.should.have.property("useCaseParam").be.a("undefined");
+    result.should.have.property("useCaseParam").be.undefined;
   });
 
   it("should return get personal fortune ranking for all use case when correct message is provided", () => {
@@ -31,7 +31,7 @@ describe("UseCaseSelector", () => {
 
     result.should.be.a("object");
     result.should.have.property("useCaseName").equals("GetAllPersonalSquirrelFortuneForToday");
-    result.should.have.property("useCaseParam").be.a("undefined");
+    result.should.have.property("useCaseParam").be.undefined;
   });
 
   it("should return undefined use case when message is not understandable", () => {
