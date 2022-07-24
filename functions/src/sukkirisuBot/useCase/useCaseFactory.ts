@@ -5,7 +5,7 @@ import {SquirrelFortuneRankingFirestoreRepository}
 import {AppMentionCommandUseCaseInterface} from "./appMentionCommandUseCaseInterface";
 import {AppMentionQueryUseCaseInterface} from "./appMentionQueryUseCaseInterface";
 import {GetSquirrelFortuneRankingForToday} from "./appMentionUseCaseImplementation/getSquirrelFortuneRankingForToday";
-import {SaveBirthMonthProfile} from "./appMentionUseCaseImplementation/saveBirthMonthProfile";
+import {SaveBirthMonthProfile} from "./saveBirthMonthProfile/saveBirthMonthProfile";
 
 export type CreateParam = {
     useCaseName: string,
