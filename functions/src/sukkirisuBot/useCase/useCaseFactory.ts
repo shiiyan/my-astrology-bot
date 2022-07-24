@@ -4,7 +4,7 @@ import {SquirrelFortuneRankingFirestoreRepository}
   from "../infrastructure/repository/squirrelFortuneRankingFirestoreRepository";
 import {AppMentionCommandUseCaseInterface} from "./appMentionCommandUseCaseInterface";
 import {AppMentionQueryUseCaseInterface} from "./appMentionQueryUseCaseInterface";
-import {GetSquirrelFortuneRankingForToday} from "./appMentionUseCaseImplementation/getSquirrelFortuneRankingForToday";
+import {GetSquirrelFortuneRankingForToday} from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
 import {SaveBirthMonthProfile} from "./saveBirthMonthProfile/saveBirthMonthProfile";
 
 export type CreateParam = {
