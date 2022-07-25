@@ -69,7 +69,7 @@ export class SquirrelFortuneRankingSlackMessageBuilder {
   /**
    * Build message for squirrel fortune ranking.
    *
-   * @return {object}
+   * @return {*} {object}
    * @memberof SquirrelFortuneRankingSlackMessageBuilder
    */
   public build(): object {
@@ -130,7 +130,7 @@ export class SquirrelFortuneRankingSlackMessageBuilder {
    *
    * @private
    * @param {BirthMonthFortune} fortune
-   * @return {object}
+   * @return {*} {object}
    * @memberof SquirrelFortuneRankingSlackMessageBuilder
    */
   private createMessageSection(fortune: BirthMonthFortune): object {

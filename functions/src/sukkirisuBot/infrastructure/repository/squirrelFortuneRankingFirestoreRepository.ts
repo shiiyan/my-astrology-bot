@@ -27,7 +27,7 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
    * Find squirrel fortune ranking by create date.
    *
    * @param {Date} date
-   * @return {(Promise<SquirrelFortuneRanking | undefined>)}
+   * @return {*} {(Promise<SquirrelFortuneRanking | undefined>)}
    * @memberof SquirrelFortuneRankingFirestoreRepository
    */
   async findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined> {

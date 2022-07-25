@@ -34,7 +34,7 @@ export class SaveBirthMonthProfile implements AppMentionCommandUseCaseInterface 
    * Execute save birth month profile usecase.
    *
    * @param {BirthMonthProfile} birthMonthProfile
-   * @return {Promise<void>}
+   * @return {*} {Promise<void>}
    * @memberof SaveBirthMonthProfile
    */
   public async execute(birthMonthProfile: BirthMonthProfile): Promise<void> {

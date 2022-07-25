@@ -37,7 +37,7 @@ export class GetAllPersonalSquirrelFortuneForToday implements AppMentionQueryUse
   /**
    * Run get all personal squirrel fortune query.
    *
-   * @return {Promise<PersonalSquirrelFortuneDto[]>}
+   * @return {*} {Promise<PersonalSquirrelFortuneDto[]>}
    * @memberof GetAllPersonalSquirrelFortuneForToday
    */
   async run(): Promise<PersonalSquirrelFortuneDto[]> {

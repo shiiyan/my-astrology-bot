@@ -37,7 +37,7 @@ export class GetSquirrelFortuneRankingForToday implements AppMentionQueryUseCase
   /**
    * Run get squirrel fortune ranking by date of today query use case.
    *
-   * @return {Promise<SquirrelFortuneRanking | undefined>}
+   * @return {*} {Promise<SquirrelFortuneRanking | undefined>}
    * @memberof GetSquirrelFortuneRankingForToday
    */
   async run(): Promise<SquirrelFortuneRanking | undefined> {

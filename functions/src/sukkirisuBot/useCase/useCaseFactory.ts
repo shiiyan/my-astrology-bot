@@ -20,7 +20,7 @@ export type CreateParam = {
 export class UseCaseFactory {
   /**
    * @param {CreateParam} {useCaseName, firestore}
-   * @return {AppMentionUseCaseInterface}
+   * @return {*} {AppMentionUseCaseInterface}
    * @memberof UseCaseFactory
    */
   public static create(

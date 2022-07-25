@@ -29,7 +29,7 @@ export class PersonalSquirrelFortuneDtoFireStoreQueryService implements QuerySer
    * Fetch all personal squirrel fortune by date.
    *
    * @param {Date} date
-   * @return {Promise<PersonalSquirrelFortuneDto[]>}
+   * @return {*} {Promise<PersonalSquirrelFortuneDto[]>}
    * @memberof PersonalSquirrelFortuneDtoFireStoreQueryService
    */
   async fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[]> {

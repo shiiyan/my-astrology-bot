@@ -30,7 +30,7 @@ export class SquirrelFortuneRanking {
    *
    * @static
    * @param {BirthMonthFortune[]} list
-   * @return {SquirrelFortuneRanking}
+   * @return {*} {SquirrelFortuneRanking}
    * @memberof SquirrelFortuneRanking
    */
   public static create(list: BirthMonthFortune[]): SquirrelFortuneRanking {
@@ -43,7 +43,7 @@ export class SquirrelFortuneRanking {
    * @static
    * @param {Date} createDate
    * @param {BirthMonthFortune[]} list
-   * @return {SquirrelFortuneRanking}
+   * @return {*} {SquirrelFortuneRanking}
    * @memberof SquirrelFortuneRanking
    */
   public static reconstruct(createDate: Date, list: BirthMonthFortune[]): SquirrelFortuneRanking {
@@ -54,7 +54,7 @@ export class SquirrelFortuneRanking {
    * Get fortune by rank.
    *
    * @param {number} rank
-   * @return {BirthMonthFortune}
+   * @return {*} {BirthMonthFortune}
    * @memberof SquirrelFortuneRanking
    */
   public getFortuneByRank(rank: number): BirthMonthFortune {
@@ -70,7 +70,7 @@ export class SquirrelFortuneRanking {
    * Get fortune by birth month.
    *
    * @param {number} birthMonth
-   * @return {BirthMonthFortune}
+   * @return {*} {BirthMonthFortune}
    * @memberof SquirrelFortuneRanking
    */
   public getFortuneByBirthMonth(birthMonth: number): BirthMonthFortune {
@@ -85,7 +85,7 @@ export class SquirrelFortuneRanking {
   /**
    * Get create date.
    *
-   * @return {Date}
+   * @return {*} {Date}
    * @memberof SquirrelFortuneRanking
    */
   public getCreateDate(): Date {

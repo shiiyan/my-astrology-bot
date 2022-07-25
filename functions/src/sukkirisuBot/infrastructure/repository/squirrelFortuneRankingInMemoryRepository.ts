@@ -13,7 +13,7 @@ export class SquirrelFortuneRankingInMemoryRepository implements SquirrelFortune
    * Find squirrel fortune ranking from this.data by create date.
    *
    * @param {Date} date
-   * @return {(Promise<SquirrelFortuneRanking | undefined>)}
+   * @return {*} {(Promise<SquirrelFortuneRanking | undefined>)}
    * @memberof SquirrelFortuneRankingInMemoryRepository
    */
   findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined> {
@@ -27,7 +27,7 @@ export class SquirrelFortuneRankingInMemoryRepository implements SquirrelFortune
    * Save squirrel fortune ranking to this.data.
    *
    * @param {SquirrelFortuneRanking} squirrelFortuneRanking
-   * @return {Promise<void>}
+   * @return {*} {Promise<void>}
    * @memberof SquirrelFortuneRankingInMemoryRepository
    */
   save(squirrelFortuneRanking: SquirrelFortuneRanking): Promise<void> {

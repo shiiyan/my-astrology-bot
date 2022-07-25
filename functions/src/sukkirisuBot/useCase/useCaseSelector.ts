@@ -14,7 +14,7 @@ declare type SelectResult = {
 export class UseCaseSelector {
   /**
    * @param {string} eventMessage
-   * @return {SelectResult}
+   * @return {*} {SelectResult}
    * @memberof UseCaseSelector
    */
   public static select(eventMessage: string): SelectResult {
