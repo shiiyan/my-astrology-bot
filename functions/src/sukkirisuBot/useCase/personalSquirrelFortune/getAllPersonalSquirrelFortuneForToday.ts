@@ -33,14 +33,13 @@ export class GetAllPersonalSquirrelFortuneForToday implements AppMentionQueryUse
     this.queryService = queryService;
   }
 
-
   /**
    * Run get all personal squirrel fortune query.
    *
-   * @return {*} {Promise<PersonalSquirrelFortuneDto[]>}
+   * @return {*}  {(Promise<PersonalSquirrelFortuneDto[] | undefined>)}
    * @memberof GetAllPersonalSquirrelFortuneForToday
    */
-  async run(): Promise<PersonalSquirrelFortuneDto[]> {
+  async run(): Promise<PersonalSquirrelFortuneDto[] | undefined> {
     const now = new Date();
     const found = await this.queryService.fetchAllByDateWithLock(now);
     return found;
