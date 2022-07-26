@@ -7,9 +7,15 @@ import {GetSquirrelFortuneRankingForToday} from "./getSquirrelFortuneRankingForT
 should();
 
 describe("GetSquirrelFortuneRankingForToday", () => {
+  let repository: SquirrelFortuneRankingInMemoryRepository;
+  let useCase: GetSquirrelFortuneRankingForToday;
+
+  beforeEach("prepare use case", () => {
+    repository = new SquirrelFortuneRankingInMemoryRepository();
+    useCase = new GetSquirrelFortuneRankingForToday(repository);
+  });
+
   it("should get squirrel fortune ranking by date of today", async () => {
-    const repository = new SquirrelFortuneRankingInMemoryRepository();
-    const useCase = new GetSquirrelFortuneRankingForToday(repository);
     const allMonthFortunes = createAllMonthBirthMonthFortunes();
     const squirrelFortuneRanking = SquirrelFortuneRanking.create(allMonthFortunes);
     repository.save(squirrelFortuneRanking);
@@ -24,9 +30,13 @@ describe("GetSquirrelFortuneRankingForToday", () => {
     result?.should.have.property("birthMonthFortunes").that.have.members(allMonthFortunes);
   });
 
-  it("should return undefined when there is no squirrel fortune ranking", async () => {
-    const repository = new SquirrelFortuneRankingInMemoryRepository();
-    const useCase = new GetSquirrelFortuneRankingForToday(repository);
+  it("should return undefined when there is no squirrel fortune ranking for today", async () => {
+    const allMonthFortunes = createAllMonthBirthMonthFortunes();
+    const squirrelFortuneRanking = SquirrelFortuneRanking.reconstruct(
+        new Date("2021-07-27"),
+        allMonthFortunes
+    );
+    repository.save(squirrelFortuneRanking);
 
     const result = await useCase.run();
 
