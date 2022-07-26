@@ -2,7 +2,7 @@ import {PersonalSquirrelFortuneDto} from "../../useCase/personalSquirrelFortune/
 import {PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface}
   from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDtoQueryServiceInterface";
 
-type InMemoryDatum = {
+type FortunesWithDate = {
     createDate: Date,
     personalSquirrelFortunes: PersonalSquirrelFortuneDto[]
 };
@@ -13,7 +13,7 @@ type InMemoryDatum = {
  * @implements {QueryServiceInterface}
  */
 export class PersonalSquirrelFortuneDtoInMemoryQueryService implements QueryServiceInterface {
-  private data: InMemoryDatum[] = [];
+  private data: FortunesWithDate[] = [];
 
   /**
    * Fetch all personal squirrel fortunes from this.data by date.
@@ -24,7 +24,7 @@ export class PersonalSquirrelFortuneDtoInMemoryQueryService implements QueryServ
    */
   fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[] | undefined> {
     const found = this.data.find(
-        (datum) => datum.createDate.getTime() === date.getTime()
+        (fortuneWithDate) => fortuneWithDate.createDate.getTime() === date.getTime()
     );
 
     return new Promise((resolve) => resolve(found?.personalSquirrelFortunes));
@@ -38,10 +38,10 @@ export class PersonalSquirrelFortuneDtoInMemoryQueryService implements QueryServ
    * @memberof PersonalSquirrelFortuneDtoInMemoryQueryService
    */
   saveAll(date: Date, personalSquirrelFortunes: PersonalSquirrelFortuneDto[]): void {
-    const datum = {
+    const fortuneWithDate = {
       createDate: date,
       personalSquirrelFortunes: personalSquirrelFortunes,
     };
-    this.data.push(datum);
+    this.data.push(fortuneWithDate);
   }
 }
