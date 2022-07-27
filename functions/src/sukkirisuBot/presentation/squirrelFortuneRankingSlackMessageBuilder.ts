@@ -1,5 +1,6 @@
 import {BirthMonthFortune} from "../domain/squirrelFortuneRanking/birthMonthFortune";
 import {SquirrelFortuneRanking} from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import {SlackMessageBuilderInterface} from "./slackMessageBuilderInterface";
 
 /**
  * Build rich slack message for squirrel fortune ranking using same format as slack block kit.
@@ -8,7 +9,7 @@ import {SquirrelFortuneRanking} from "../domain/squirrelFortuneRanking/squirrelF
  * @export
  * @class SquirrelFortuneRankingSlackMessageBuilder
  */
-export class SquirrelFortuneRankingSlackMessageBuilder {
+export class SquirrelFortuneRankingSlackMessageBuilder implements SlackMessageBuilderInterface {
   private readonly upperRankHeader = {
     "type": "header",
     "text": {
