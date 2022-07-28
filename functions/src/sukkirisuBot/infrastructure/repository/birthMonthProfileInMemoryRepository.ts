@@ -1,5 +1,5 @@
-import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
-import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/entityRepositoryInterface";
+import { BirthMonthProfile } from "../../domain/birthMonthProfile/birthMonthProfile";
+import { BirthMonthProfileRepositoryInterface } from "../../domain/birthMonthProfile/entityRepositoryInterface";
 
 
 /**

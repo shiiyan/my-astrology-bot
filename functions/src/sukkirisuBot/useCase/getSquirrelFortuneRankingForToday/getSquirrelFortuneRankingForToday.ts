@@ -1,7 +1,8 @@
-import {SquirrelFortuneRankingRepositoryInterface} from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
-import {SquirrelFortuneRanking} from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import {AppMentionQueryUseCaseInterface} from "../appMentionQueryUseCaseInterface";
-import {UseCaseType} from "../useCaseType";
+import { SquirrelFortuneRankingRepositoryInterface }
+  from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
+import { SquirrelFortuneRanking } from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { AppMentionQueryUseCaseInterface } from "../appMentionQueryUseCaseInterface";
+import { UseCaseType } from "../useCaseType";
 
 /**
  * Get squirrel fortune ranking by date of today.

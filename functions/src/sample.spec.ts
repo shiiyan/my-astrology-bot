@@ -1,10 +1,10 @@
-import {expect, should} from "chai";
+import { expect, should } from "chai";
 should();
 
 describe("Typescript usage suite", () => {
   it("should be able to execute a test in expect style", () => {
     const foo = "bar";
-    const beverages = {tea: ["chai", "matcha", "oolong"]};
+    const beverages = { tea: ["chai", "matcha", "oolong"] };
 
     expect(foo).to.be.a("string");
     expect(foo).to.equal("bar");
@@ -14,7 +14,7 @@ describe("Typescript usage suite", () => {
 
   it("should be able to execute a test in should style", () => {
     const foo = "bar";
-    const beverages = {tea: ["chai", "matcha", "oolong"]};
+    const beverages = { tea: ["chai", "matcha", "oolong"] };
 
     foo.should.be.a("string");
     foo.should.equal("bar");

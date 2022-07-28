@@ -1,6 +1,6 @@
-import {firestore} from "firebase-admin";
-import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
-import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/entityRepositoryInterface";
+import { firestore } from "firebase-admin";
+import { BirthMonthProfile } from "../../domain/birthMonthProfile/birthMonthProfile";
+import { BirthMonthProfileRepositoryInterface } from "../../domain/birthMonthProfile/entityRepositoryInterface";
 
 /**
  * @export
@@ -37,7 +37,7 @@ export class BirthMonthProfileFirestoreRepository implements BirthMonthProfileRe
 
     const indexDocRef = this.database.collection("indexes")
         .doc(`/birthMonthProfiles/name/${birthMonthProfile.name}`);
-    batch.create(indexDocRef, {value: birthMonthDocRef.id});
+    batch.create(indexDocRef, { value: birthMonthDocRef.id });
 
     await batch.commit();
   }

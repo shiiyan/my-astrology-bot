@@ -1,5 +1,5 @@
-import {PersonalSquirrelFortuneDto} from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
-import {PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface}
+import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
   from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDtoQueryServiceInterface";
 
 type FortunesWithDate = {

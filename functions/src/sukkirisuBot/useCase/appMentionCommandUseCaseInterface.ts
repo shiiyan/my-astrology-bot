@@ -1,5 +1,5 @@
-import {BirthMonthProfile} from "../domain/birthMonthProfile/birthMonthProfile";
-import {UseCaseType} from "./useCaseType";
+import { BirthMonthProfile } from "../domain/birthMonthProfile/birthMonthProfile";
+import { UseCaseType } from "./useCaseType";
 
 export type AppMentionUseCaseExecuteParam = BirthMonthProfile | undefined;
 

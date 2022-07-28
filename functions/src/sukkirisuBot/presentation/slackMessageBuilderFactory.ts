@@ -1,8 +1,8 @@
-import {InvalidArgumentError} from "../../shared/error/invalidArgumentError";
-import {SquirrelFortuneRanking} from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import {PersonalSquirrelFortuneDto} from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
-import {SlackMessageBuilderInterface} from "./slackMessageBuilderInterface";
-import {SquirrelFortuneRankingSlackMessageBuilder} from "./squirrelFortuneRankingSlackMessageBuilder";
+import { InvalidArgumentError } from "../../shared/error/invalidArgumentError";
+import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
+import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
+import { SquirrelFortuneRankingSlackMessageBuilder } from "./squirrelFortuneRankingSlackMessageBuilder";
 
 type QueryResult = SquirrelFortuneRanking | PersonalSquirrelFortuneDto[];
 

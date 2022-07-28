@@ -1,5 +1,5 @@
-import {AppMentionCommandUseCaseInterface} from "./appMentionCommandUseCaseInterface";
-import {AppMentionQueryUseCaseInterface} from "./appMentionQueryUseCaseInterface";
+import { AppMentionCommandUseCaseInterface } from "./appMentionCommandUseCaseInterface";
+import { AppMentionQueryUseCaseInterface } from "./appMentionQueryUseCaseInterface";
 
 export enum UseCaseType {
     Command = "command",

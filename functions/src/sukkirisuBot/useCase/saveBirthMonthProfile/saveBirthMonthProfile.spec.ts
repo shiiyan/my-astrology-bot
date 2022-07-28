@@ -1,7 +1,8 @@
-import {should} from "chai";
-import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
-import {BirthMonthProfileInMemoryRepository} from "../../infrastructure/repository/birthMonthProfileInMemoryRepository";
-import {SaveBirthMonthProfile} from "./saveBirthMonthProfile";
+import { should } from "chai";
+import { BirthMonthProfile } from "../../domain/birthMonthProfile/birthMonthProfile";
+import { BirthMonthProfileInMemoryRepository }
+  from "../../infrastructure/repository/birthMonthProfileInMemoryRepository";
+import { SaveBirthMonthProfile } from "./saveBirthMonthProfile";
 should();
 
 

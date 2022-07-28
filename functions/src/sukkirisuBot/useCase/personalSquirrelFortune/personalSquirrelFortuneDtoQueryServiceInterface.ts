@@ -1,4 +1,4 @@
-import {PersonalSquirrelFortuneDto} from "./personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneDto } from "./personalSquirrelFortuneDto";
 
 export interface PersonalSquirrelFortuneDtoQueryServiceInterface {
     fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[] | undefined>;

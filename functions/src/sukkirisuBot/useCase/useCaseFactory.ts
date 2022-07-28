@@ -1,12 +1,14 @@
-import {firestore} from "firebase-admin";
-import {InvalidArgumentError} from "../../shared/error/invalidArgumentError";
-import {BirthMonthProfileFirestoreRepository} from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
-import {SquirrelFortuneRankingFirestoreRepository}
+import { firestore } from "firebase-admin";
+import { InvalidArgumentError } from "../../shared/error/invalidArgumentError";
+import { BirthMonthProfileFirestoreRepository }
+  from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
+import { SquirrelFortuneRankingFirestoreRepository }
   from "../infrastructure/repository/squirrelFortuneRankingFirestoreRepository";
-import {AppMentionCommandUseCaseInterface} from "./appMentionCommandUseCaseInterface";
-import {AppMentionQueryUseCaseInterface} from "./appMentionQueryUseCaseInterface";
-import {GetSquirrelFortuneRankingForToday} from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
-import {SaveBirthMonthProfile} from "./saveBirthMonthProfile/saveBirthMonthProfile";
+import { AppMentionCommandUseCaseInterface } from "./appMentionCommandUseCaseInterface";
+import { AppMentionQueryUseCaseInterface } from "./appMentionQueryUseCaseInterface";
+import { GetSquirrelFortuneRankingForToday }
+  from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
+import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
 
 export type CreateParam = {
     useCaseName: string,
@@ -24,7 +26,7 @@ export class UseCaseFactory {
    * @memberof UseCaseFactory
    */
   public static create(
-      {useCaseName, firestore}: CreateParam
+      { useCaseName, firestore }: CreateParam
   ): AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface {
     switch (useCaseName) {
       case "SaveBirthMonthProfile":

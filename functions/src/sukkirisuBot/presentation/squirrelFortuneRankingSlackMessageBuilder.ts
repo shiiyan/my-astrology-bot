@@ -1,6 +1,6 @@
-import {BirthMonthFortune} from "../domain/squirrelFortuneRanking/birthMonthFortune";
-import {SquirrelFortuneRanking} from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import {SlackMessageBuilderInterface} from "./slackMessageBuilderInterface";
+import { BirthMonthFortune } from "../domain/squirrelFortuneRanking/birthMonthFortune";
+import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
 
 /**
  * Build rich slack message for squirrel fortune ranking using same format as slack block kit.

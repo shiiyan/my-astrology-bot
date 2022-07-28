@@ -1,6 +1,6 @@
-import {SquirrelFortuneRanking} from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import {PersonalSquirrelFortuneDto} from "./personalSquirrelFortune/personalSquirrelFortuneDto";
-import {UseCaseType} from "./useCaseType";
+import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { PersonalSquirrelFortuneDto } from "./personalSquirrelFortune/personalSquirrelFortuneDto";
+import { UseCaseType } from "./useCaseType";
 
 export type AppMentionQueryResult = SquirrelFortuneRanking
     | PersonalSquirrelFortuneDto[]

@@ -1,5 +1,6 @@
-import {SquirrelFortuneRankingRepositoryInterface} from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
-import {SquirrelFortuneRanking} from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { SquirrelFortuneRankingRepositoryInterface }
+  from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
+import { SquirrelFortuneRanking } from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
 
 /**
  * @export

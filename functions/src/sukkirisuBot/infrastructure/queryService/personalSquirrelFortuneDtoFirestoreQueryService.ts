@@ -1,9 +1,9 @@
-import {firestore} from "firebase-admin";
+import { firestore } from "firebase-admin";
 import moment from "moment";
-import {BirthMonthFortune} from "../../domain/squirrelFortuneRanking/birthMonthFortune";
-import {SquirrelFortuneRanking} from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import {PersonalSquirrelFortuneDto} from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
-import {PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface}
+import { BirthMonthFortune } from "../../domain/squirrelFortuneRanking/birthMonthFortune";
+import { SquirrelFortuneRanking } from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
   from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDtoQueryServiceInterface";
 
 /**
@@ -33,7 +33,7 @@ export class PersonalSquirrelFortuneDtoFireStoreQueryService implements QuerySer
    * @memberof PersonalSquirrelFortuneDtoFireStoreQueryService
    */
   async fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[]> {
-    const {fortunesSnapShot, birthMonthProfilesSnapShot} = await this.database.runTransaction(
+    const { fortunesSnapShot, birthMonthProfilesSnapShot } = await this.database.runTransaction(
         async (transaction) => {
           // get fortunes snap shot.
           const dateString = moment(date).format("YYYY-MM-DD");
@@ -54,9 +54,9 @@ export class PersonalSquirrelFortuneDtoFireStoreQueryService implements QuerySer
           const logsRef = this.database
               .collection("personalSqiurrelFortuneQueryServiceLogs")
               .doc(currentHour + ":" + halfHour);
-          transaction.create(logsRef, {method: "fetchAllByDateWithLock"});
+          transaction.create(logsRef, { method: "fetchAllByDateWithLock" });
 
-          return {fortunesSnapShot, birthMonthProfilesSnapShot};
+          return { fortunesSnapShot, birthMonthProfilesSnapShot };
         });
 
     const allMonthFortunes: BirthMonthFortune[] = [];

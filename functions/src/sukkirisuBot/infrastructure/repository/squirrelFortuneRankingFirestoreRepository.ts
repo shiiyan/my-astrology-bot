@@ -1,8 +1,9 @@
-import {firestore} from "firebase-admin";
+import { firestore } from "firebase-admin";
 import moment from "moment";
-import {BirthMonthFortune} from "../../domain/squirrelFortuneRanking/birthMonthFortune";
-import {SquirrelFortuneRankingRepositoryInterface} from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
-import {SquirrelFortuneRanking} from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { BirthMonthFortune } from "../../domain/squirrelFortuneRanking/birthMonthFortune";
+import { SquirrelFortuneRankingRepositoryInterface }
+  from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
+import { SquirrelFortuneRanking } from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
 
 /**
  * @export
@@ -31,7 +32,7 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
    * @memberof SquirrelFortuneRankingFirestoreRepository
    */
   async findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined> {
-    const {rankingSnapShot, fortunesSnapShot} = await this.database.runTransaction(
+    const { rankingSnapShot, fortunesSnapShot } = await this.database.runTransaction(
         async (transaction) => {
           const dateString = moment(date).format("YYYY-MM-DD");
           const rankingRef = this.database
@@ -47,9 +48,9 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
           const logsRef = this.database
               .collection("squirrelFortuneRankingQueryLogs")
               .doc(currentHour + ":" + halfHour);
-          transaction.create(logsRef, {method: "findByCreateDateWithLock"});
+          transaction.create(logsRef, { method: "findByCreateDateWithLock" });
 
-          return {rankingSnapShot, fortunesSnapShot};
+          return { rankingSnapShot, fortunesSnapShot };
         });
 
     if (!rankingSnapShot.exists) {

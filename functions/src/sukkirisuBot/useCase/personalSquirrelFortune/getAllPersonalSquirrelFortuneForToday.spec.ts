@@ -1,8 +1,8 @@
-import {should} from "chai";
-import {PersonalSquirrelFortuneDtoInMemoryQueryService}
+import { should } from "chai";
+import { PersonalSquirrelFortuneDtoInMemoryQueryService }
   from "../../infrastructure/queryService/personalSquirrelFortuneDtoInMemoryQueryService";
-import {GetAllPersonalSquirrelFortuneForToday} from "./getAllPersonalSquirrelFortuneForToday";
-import {PersonalSquirrelFortuneDto} from "./personalSquirrelFortuneDto";
+import { GetAllPersonalSquirrelFortuneForToday } from "./getAllPersonalSquirrelFortuneForToday";
+import { PersonalSquirrelFortuneDto } from "./personalSquirrelFortuneDto";
 should();
 
 describe("GetAllPersonalSquirrelFortuneForToday", () => {

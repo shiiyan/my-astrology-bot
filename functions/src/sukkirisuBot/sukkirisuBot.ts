@@ -1,12 +1,10 @@
 import * as functions from "firebase-functions";
 import * as firebaseAdmin from "firebase-admin";
-import {App as BoltApp, ExpressReceiver} from "@slack/bolt";
-import {UseCaseFactory} from "./useCase/useCaseFactory";
-import {UseCaseSelector} from "./useCase/useCaseSelector";
-import {isCommandUseCase, isQueryUseCase} from "./useCase/useCaseType";
-import {SquirrelFortuneRankingSlackMessageBuilder} from "./presentation/squirrelFortuneRankingSlackMessageBuilder";
-import {SquirrelFortuneRanking} from "./domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import {SlackMessageBuilderFactory} from "./presentation/slackMessageBuilderFactory";
+import { App as BoltApp, ExpressReceiver } from "@slack/bolt";
+import { UseCaseFactory } from "./useCase/useCaseFactory";
+import { UseCaseSelector } from "./useCase/useCaseSelector";
+import { isCommandUseCase, isQueryUseCase } from "./useCase/useCaseType";
+import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
 
 firebaseAdmin.initializeApp();
 
@@ -25,7 +23,7 @@ const boltApp = new BoltApp({
 });
 
 
-boltApp.event("app_home_opened", async ({event, client}) => {
+boltApp.event("app_home_opened", async ({ event, client }) => {
   functions.logger.debug("app_home_opened");
 
   try {
@@ -57,9 +55,9 @@ boltApp.event("app_home_opened", async ({event, client}) => {
   }
 });
 
-boltApp.event("app_mention", async ({event, say})=> {
+boltApp.event("app_mention", async ({ event, say })=> {
   try {
-    const {useCaseName, useCaseParam} = UseCaseSelector.select(event.text);
+    const { useCaseName, useCaseParam } = UseCaseSelector.select(event.text);
     if (!useCaseName) {
       await say("理解できませんでした。");
       return;

@@ -1,7 +1,7 @@
-import {AppMentionQueryUseCaseInterface} from "../appMentionQueryUseCaseInterface";
-import {UseCaseType} from "../useCaseType";
-import {PersonalSquirrelFortuneDto} from "./personalSquirrelFortuneDto";
-import {PersonalSquirrelFortuneDtoQueryServiceInterface} from "./personalSquirrelFortuneDtoQueryServiceInterface";
+import { AppMentionQueryUseCaseInterface } from "../appMentionQueryUseCaseInterface";
+import { UseCaseType } from "../useCaseType";
+import { PersonalSquirrelFortuneDto } from "./personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneDtoQueryServiceInterface } from "./personalSquirrelFortuneDtoQueryServiceInterface";
 
 /**
  * @export

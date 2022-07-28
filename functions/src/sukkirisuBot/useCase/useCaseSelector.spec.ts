@@ -1,5 +1,5 @@
-import {should} from "chai";
-import {UseCaseSelector} from "./useCaseSelector";
+import { should } from "chai";
+import { UseCaseSelector } from "./useCaseSelector";
 should();
 
 describe("UseCaseSelector", () => {

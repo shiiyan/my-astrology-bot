@@ -1,7 +1,7 @@
-import {BirthMonthProfile} from "../../domain/birthMonthProfile/birthMonthProfile";
-import {BirthMonthProfileRepositoryInterface} from "../../domain/birthMonthProfile/entityRepositoryInterface";
-import {AppMentionCommandUseCaseInterface} from "../appMentionCommandUseCaseInterface";
-import {UseCaseType} from "../useCaseType";
+import { BirthMonthProfile } from "../../domain/birthMonthProfile/birthMonthProfile";
+import { BirthMonthProfileRepositoryInterface } from "../../domain/birthMonthProfile/entityRepositoryInterface";
+import { AppMentionCommandUseCaseInterface } from "../appMentionCommandUseCaseInterface";
+import { UseCaseType } from "../useCaseType";
 
 /**
  * Class usecase for saving birth month.

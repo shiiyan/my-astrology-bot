@@ -1,4 +1,4 @@
-import {AppMentionUseCaseExecuteParam} from "./appMentionCommandUseCaseInterface";
+import { AppMentionUseCaseExecuteParam } from "./appMentionCommandUseCaseInterface";
 
 declare type SelectResult = {
     useCaseName?: string,
