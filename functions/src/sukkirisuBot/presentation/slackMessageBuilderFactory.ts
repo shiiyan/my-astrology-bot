@@ -21,7 +21,7 @@ export class SlackMessageBuilderFactory {
     if (queryResult instanceof SquirrelFortuneRanking) {
       return new SquirrelFortuneRankingSlackMessageBuilder(queryResult);
     } else {
-      throw new InvalidArgumentError(`No slack message builder for given query result ${queryResult}`);
+      throw new InvalidArgumentError("No slack message builder for given query result");
     }
   }
 }
