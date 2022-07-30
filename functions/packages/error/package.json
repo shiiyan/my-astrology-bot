@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/shiiyan/my-sukkirisu-bot/issues"
   },
-  "homepage": "https://github.com/shiiyan/my-sukkirisu-bot/blob/master/functions/packages/error/README.md"
+  "homepage": "https://github.com/shiiyan/my-sukkirisu-bot/blob/master/functions/packages/error/README.md",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
