@@ -1,6 +1,6 @@
 {
   "name": "@shiiyan/sukkirisu-function-error",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "errors for sukkirsu function",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,5 +19,5 @@
   "bugs": {
     "url": "https://github.com/shiiyan/my-sukkirisu-bot/issues"
   },
-  "homepage": "https://github.com/shiiyan/my-sukkirisu-bot#readme"
+  "homepage": "https://github.com/shiiyan/my-sukkirisu-bot/functions/packages/error#readme"
 }
