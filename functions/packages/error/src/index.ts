@@ -1,5 +1,5 @@
 /**
- * Error for invalid argument.
+ * Error for an invalid argument.
  *
  * @export
  * @class InvalidArgumentError
