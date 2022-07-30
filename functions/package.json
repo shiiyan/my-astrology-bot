@@ -16,7 +16,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@shiiyan/sukkirisu-function-error": "^1.0.1",
+    "@shiiyan/sukkirisu-function-error": "^1.0.4",
     "@slack/bolt": "^3.11.3",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
