@@ -1,5 +1,5 @@
 import { should } from "chai";
-import { InvalidArgumentError } from "../../shared/error/invalidArgumentError";
+import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { SlackMessageBuilderFactory } from "./slackMessageBuilderFactory";

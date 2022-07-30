@@ -1,7 +1,7 @@
 import { should } from "chai";
 import { firestore } from "firebase-admin";
 import { stubInterface } from "ts-sinon";
-import { InvalidArgumentError } from "../../shared/error/invalidArgumentError";
+import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
 import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";

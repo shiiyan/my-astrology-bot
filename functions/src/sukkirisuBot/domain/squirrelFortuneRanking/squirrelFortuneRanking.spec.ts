@@ -1,5 +1,5 @@
 import { should } from "chai";
-import { InvalidArgumentError } from "../../../shared/error/invalidArgumentError";
+import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { BirthMonthFortune } from "./birthMonthFortune";
 import { SquirrelFortuneRanking } from "./squirrelFortuneRanking";
 should();

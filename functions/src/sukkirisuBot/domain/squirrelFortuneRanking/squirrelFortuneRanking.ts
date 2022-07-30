@@ -1,4 +1,4 @@
-import { InvalidArgumentError } from "../../../shared/error/invalidArgumentError";
+import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { BirthMonthFortune } from "./birthMonthFortune";
 
 /**

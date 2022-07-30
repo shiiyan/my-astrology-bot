@@ -1,5 +1,5 @@
 import { firestore } from "firebase-admin";
-import { InvalidArgumentError } from "../../shared/error/invalidArgumentError";
+import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { BirthMonthProfileFirestoreRepository }
   from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
 import { SquirrelFortuneRankingFirestoreRepository }
