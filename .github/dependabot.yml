@@ -14,6 +14,8 @@ registries:
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/functions" # Location of package manifests
+    registries: 
+      - npm-github
     schedule:
       interval: "daily"
     open-pull-requests-limit: 20
