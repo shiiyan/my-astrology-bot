@@ -14,7 +14,8 @@ describe("SquirrelFortuneRanking", () => {
     fortuneRanking.should.have.property("createDate").be.instanceOf(Date);
     fortuneRanking.should.have.property("birthMonthFortunes");
     fortuneRanking.should.have.property("birthMonthFortunes").be.a("array");
-    fortuneRanking.should.have.property("birthMonthFortunes").that.have.members(list);
+    const expectedAllMonthFortunes = createAllMonthBirthMonthFortunes();
+    fortuneRanking.should.have.property("birthMonthFortunes").that.have.deep.members(expectedAllMonthFortunes);
   });
 
   it("should throw invalid argument error given empty array.", () => {

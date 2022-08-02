@@ -27,7 +27,8 @@ describe("GetSquirrelFortuneRankingForToday", () => {
     result?.should.have.property("createDate").be.instanceOf(Date);
     result?.should.have.property("birthMonthFortunes");
     result?.should.have.property("birthMonthFortunes").be.a("array");
-    result?.should.have.property("birthMonthFortunes").that.have.members(allMonthFortunes);
+    const expectedAllMonthFortunes = createAllMonthBirthMonthFortunes();
+    result?.should.have.property("birthMonthFortunes").that.have.deep.members(expectedAllMonthFortunes);
   });
 
   it("should return undefined when there is no squirrel fortune ranking for today", async () => {

@@ -11,7 +11,7 @@ describe("SquirrelFortuneRankingSlackMessageBuilder", () => {
 
     message.should.have.property("blocks").be.a("array");
     const expected = createExpectedMessage();
-    message.should.have.property("blocks").that.have.members(expected);
+    message.should.have.property("blocks").that.have.deep.members(expected);
   });
 });
 
