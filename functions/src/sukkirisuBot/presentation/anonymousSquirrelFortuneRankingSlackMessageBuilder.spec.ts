@@ -4,7 +4,7 @@ import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 should();
 
-describe("SquirrelFortuneRankingSlackMessageBuilder", () => {
+describe("AnonymousSquirrelFortuneRankingSlackMessageBuilder", () => {
   it("should render correct slack message given SquirrelFortuneRanking", () => {
     const squirrelFortuneRanking = createSquirrelFortuneRanking();
     const slackMessageBuilder = new AnonymousSquirrelFortuneRankingSlackMessageBuilder(squirrelFortuneRanking);
