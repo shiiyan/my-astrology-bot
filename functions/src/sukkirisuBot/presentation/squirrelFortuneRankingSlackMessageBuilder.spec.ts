@@ -1,12 +1,13 @@
 import { should } from "chai";
 import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import { SquirrelFortuneRankingSlackMessageBuilder } from "./squirrelFortuneRankingSlackMessageBuilder";
+import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
+  from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 should();
 
 describe("SquirrelFortuneRankingSlackMessageBuilder", () => {
   it("should render correct slack message given SquirrelFortuneRanking", () => {
     const squirrelFortuneRanking = createSquirrelFortuneRanking();
-    const slackMessageBuilder = new SquirrelFortuneRankingSlackMessageBuilder(squirrelFortuneRanking);
+    const slackMessageBuilder = new AnonymousSquirrelFortuneRankingSlackMessageBuilder(squirrelFortuneRanking);
     const message = slackMessageBuilder.build();
 
     message.should.have.property("blocks").be.a("array");

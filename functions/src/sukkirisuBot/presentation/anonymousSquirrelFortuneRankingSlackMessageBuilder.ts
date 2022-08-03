@@ -7,9 +7,9 @@ import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
  *
  * @link https://api.slack.com/block-kit
  * @export
- * @class SquirrelFortuneRankingSlackMessageBuilder
+ * @class AnonymousSquirrelFortuneRankingSlackMessageBuilder
  */
-export class SquirrelFortuneRankingSlackMessageBuilder implements SlackMessageBuilderInterface {
+export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements SlackMessageBuilderInterface {
   private readonly upperRankHeader = {
     "type": "header",
     "text": {

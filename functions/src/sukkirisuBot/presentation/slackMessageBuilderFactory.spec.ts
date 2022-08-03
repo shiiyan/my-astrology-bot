@@ -3,7 +3,8 @@ import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { SlackMessageBuilderFactory } from "./slackMessageBuilderFactory";
-import { SquirrelFortuneRankingSlackMessageBuilder } from "./squirrelFortuneRankingSlackMessageBuilder";
+import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
+  from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 should();
 
 describe("SlackMessageBuilderFactory", () => {
@@ -11,7 +12,7 @@ describe("SlackMessageBuilderFactory", () => {
     const squirrelFortuneRanking = createSquirrelFortuneRanking();
     const created = SlackMessageBuilderFactory.create(squirrelFortuneRanking);
 
-    created.should.be.an.instanceOf(SquirrelFortuneRankingSlackMessageBuilder);
+    created.should.be.an.instanceOf(AnonymousSquirrelFortuneRankingSlackMessageBuilder);
   });
 
   it("should throw error given queryResult as PersonalSquirrelFortuneDtos", () => {
