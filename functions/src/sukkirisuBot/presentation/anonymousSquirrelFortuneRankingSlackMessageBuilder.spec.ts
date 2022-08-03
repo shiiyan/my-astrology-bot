@@ -10,9 +10,8 @@ describe("AnonymousSquirrelFortuneRankingSlackMessageBuilder", () => {
     const slackMessageBuilder = new AnonymousSquirrelFortuneRankingSlackMessageBuilder(squirrelFortuneRanking);
     const message = slackMessageBuilder.build();
 
-    message.should.have.property("blocks").be.a("array");
     const expected = createExpectedMessage();
-    message.should.have.property("blocks").that.have.deep.members(expected);
+    message.should.deep.equal(expected);
   });
 });
 
@@ -35,338 +34,340 @@ const createSquirrelFortuneRanking = () => {
 };
 
 const createExpectedMessage = () => {
-  return [
-    {
-      "text": {
-        "emoji": true,
-        "text": ":sparkles:スッキリす:sparkles::chipmunk:",
-        "type": "plain_text",
+  return {
+    "blocks": [
+      {
+        "text": {
+          "emoji": true,
+          "text": ":sparkles:スッキリす:sparkles::chipmunk:",
+          "type": "plain_text",
+        },
+        "type": "header",
       },
-      "type": "header",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "2位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "2月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "3位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "3月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "4位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "4月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "5位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "5月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "6位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "6月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "text": {
-        "emoji": true,
-        "text": ":snowflake:まあまあスッキリす:snowflake::chipmunk:",
-        "type": "plain_text",
+      {
+        "type": "divider",
       },
-      "type": "header",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "7位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "7月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "8位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "8月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "9位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "9月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "10位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "10月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "11位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "11月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "text": {
-        "emoji": true,
-        "text": ":cloud:がっかりす:cloud::chipmunk:",
-        "type": "plain_text",
+      {
+        "fields": [
+          {
+            "text": "2位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "2月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
       },
-      "type": "header",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "12位",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "12月",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "",
-          "type": "mrkdwn",
-        },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "text": {
-        "emoji": true,
-        "text": ":sunny:超スッキリす:sunny::chipmunk:",
-        "type": "plain_text",
+      {
+        "type": "divider",
       },
-      "type": "header",
-    },
-    {
-      "type": "divider",
-    },
-    {
-      "fields": [
-        {
-          "text": "1位",
-          "type": "mrkdwn",
+      {
+        "fields": [
+          {
+            "text": "3位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "3月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "4位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "4月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "5位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "5月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "6位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "6月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "text": {
+          "emoji": true,
+          "text": ":snowflake:まあまあスッキリす:snowflake::chipmunk:",
+          "type": "plain_text",
         },
-        {
-          "text": "1月",
-          "type": "mrkdwn",
+        "type": "header",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "7位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "7月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "8位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "8月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "9位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "9月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "10位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "10月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "11位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "11月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "text": {
+          "emoji": true,
+          "text": ":cloud:がっかりす:cloud::chipmunk:",
+          "type": "plain_text",
         },
-        {
-          "text": "",
-          "type": "mrkdwn",
+        "type": "header",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "12位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "12月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "text": {
+          "emoji": true,
+          "text": ":sunny:超スッキリす:sunny::chipmunk:",
+          "type": "plain_text",
         },
-        {
-          "text": "ラッキーカラー\n",
-          "type": "mrkdwn",
-        },
-      ],
-      "type": "section",
-    },
-    {
-      "type": "divider",
-    },
-  ];
+        "type": "header",
+      },
+      {
+        "type": "divider",
+      },
+      {
+        "fields": [
+          {
+            "text": "1位",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "1月",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "",
+            "type": "mrkdwn",
+          },
+          {
+            "text": "ラッキーカラー\n",
+            "type": "mrkdwn",
+          },
+        ],
+        "type": "section",
+      },
+      {
+        "type": "divider",
+      },
+    ],
+  };
 };
