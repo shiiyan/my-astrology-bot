@@ -7,5 +7,6 @@ export const helloWorld = functions
     .onRequest(helloWorldFunction);
 
 export const slack = functions
+    .region("asia-northeast1")
     .https
     .onRequest(boltAppReceiver.app);
