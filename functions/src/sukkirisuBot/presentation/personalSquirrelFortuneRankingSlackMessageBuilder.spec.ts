@@ -5,9 +5,18 @@ import { PersonalSquirrelFortuneRankingSlackMessageBuilder }
 should();
 
 describe("PersonalSquirrelFortuneRankingSlackMessageBuilder", () => {
-  it("should render correct slack message given PersonlSquirrelFortunes", () => {
+  it("should render fortune ranking message in correct format given PersonlSquirrelFortunes", () => {
     const personalSquirrelFortunes = createPersonalFortunes();
     const slackMessageBuilder = new PersonalSquirrelFortuneRankingSlackMessageBuilder(personalSquirrelFortunes);
+    const message = slackMessageBuilder.build();
+
+    const expected = createExpectedMessage();
+    message.should.deep.equal(expected);
+  });
+
+  it("should render fortune ranking message in ascending order of rank given PersonlSquirrelFortunes", () => {
+    const randomOrderedFortunes = createPersonalFortunesInRandomOrder();
+    const slackMessageBuilder = new PersonalSquirrelFortuneRankingSlackMessageBuilder(randomOrderedFortunes);
     const message = slackMessageBuilder.build();
 
     const expected = createExpectedMessage();
@@ -39,6 +48,41 @@ const createPersonalFortunes = (): PersonalSquirrelFortuneDto[] => {
       birthMonth: 1,
       name: "333",
       rank: 1,
+      comment: "日焼け対策をして肌トラブルを防ごう",
+    },
+    {
+      birthMonth: 1,
+      name: "uuu",
+      rank: 1,
+      comment: "日焼け対策をして肌トラブルを防ごう",
+    },
+  ];
+};
+
+const createPersonalFortunesInRandomOrder = (): PersonalSquirrelFortuneDto[] => {
+  return [
+    {
+      birthMonth: 3,
+      name: "ccc",
+      rank: 3,
+      comment: "日焼け対策をして肌トラブルを防ごう",
+    },
+    {
+      birthMonth: 1,
+      name: "abc",
+      rank: 1,
+      comment: "日焼け対策をして肌トラブルを防ごう",
+    },
+    {
+      birthMonth: 1,
+      name: "333",
+      rank: 1,
+      comment: "日焼け対策をして肌トラブルを防ごう",
+    },
+    {
+      birthMonth: 2,
+      name: "bbb",
+      rank: 2,
       comment: "日焼け対策をして肌トラブルを防ごう",
     },
     {

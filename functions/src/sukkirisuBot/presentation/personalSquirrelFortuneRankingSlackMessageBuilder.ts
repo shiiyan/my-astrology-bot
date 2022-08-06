@@ -72,7 +72,11 @@ export class PersonalSquirrelFortuneRankingSlackMessageBuilder implements SlackM
    * @memberof PersonalSquirrelFortuneRankingSlackMessageBuilder
    */
   createFortuneRankingBlocks() {
-    const fortunesGroupByRank: Map<number, PersonalSquirrelFortuneDto[]> = this.personalSquirrelFortunes.reduce(
+    const fortunesSorted: PersonalSquirrelFortuneDto[] = [...this.personalSquirrelFortunes].sort(
+        (one, another) => one.rank - another.rank
+    );
+
+    const fortunesGroupByRank: Map<number, PersonalSquirrelFortuneDto[]> = fortunesSorted.reduce(
         (groupMap, fortune) => groupMap.set(
             fortune.rank,
             [...(groupMap.get(fortune.rank) || []), fortune]
