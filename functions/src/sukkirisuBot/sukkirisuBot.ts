@@ -10,7 +10,7 @@ firebaseAdmin.initializeApp();
 
 const functionConfig = functions.config();
 
-const expressReceiver = new ExpressReceiver({
+const boltAppReceiver = new ExpressReceiver({
   signingSecret: functionConfig.slack.signing_secret,
   endpoints: "/events",
   processBeforeResponse: true,
@@ -18,7 +18,7 @@ const expressReceiver = new ExpressReceiver({
 
 const boltApp = new BoltApp({
   token: functionConfig.slack.bot_token,
-  receiver: expressReceiver,
+  receiver: boltAppReceiver,
   processBeforeResponse: true,
 });
 
@@ -92,4 +92,4 @@ boltApp.event("app_mention", async ({ event, say })=> {
   }
 });
 
-export default functions.https.onRequest(expressReceiver.app);
+export default boltAppReceiver;

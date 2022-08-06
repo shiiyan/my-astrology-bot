@@ -1,5 +1,11 @@
+import * as functions from "firebase-functions";
 import helloWorldFunction from "./helloWorld";
-import sukkirisuBotFunction from "./sukkirisuBot/sukkirisuBot";
+import boltAppReceiver from "./sukkirisuBot/sukkirisuBot";
 
-export const helloWorld = helloWorldFunction;
-export const slack = sukkirisuBotFunction;
+export const helloWorld = functions
+    .https
+    .onRequest(helloWorldFunction);
+
+export const slack = functions
+    .https
+    .onRequest(boltAppReceiver.app);
