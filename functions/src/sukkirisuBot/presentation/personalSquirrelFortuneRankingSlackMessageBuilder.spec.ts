@@ -1,5 +1,7 @@
 import { should } from "chai";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneRankingSlackMessageBuilder }
+  from "./personalSquirrelFortuneRankingSlackMessageBuilder";
 should();
 
 describe("PersonalSquirrelFortuneRankingSlackMessageBuilder", () => {
@@ -55,7 +57,7 @@ const createExpectedMessage = () => {
         "type": "header",
         "text": {
           "emoji": true,
-          "text": "2022年8月4日の個人スッキリすランキング:chipmunk:",
+          "text": "今日の個人スッキリすランキング:chipmunk:",
           "type": "plain_text",
         },
       },
