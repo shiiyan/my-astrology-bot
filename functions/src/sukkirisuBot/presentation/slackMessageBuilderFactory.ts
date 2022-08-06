@@ -1,9 +1,9 @@
-import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
 import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
+import { PersonalSquirrelFortuneRankingSlackMessageBuilder } from "./personalSquirrelFortuneRankingSlackMessageBuilder";
 
 type QueryResult = SquirrelFortuneRanking | PersonalSquirrelFortuneDto[];
 
@@ -22,7 +22,7 @@ export class SlackMessageBuilderFactory {
     if (queryResult instanceof SquirrelFortuneRanking) {
       return new AnonymousSquirrelFortuneRankingSlackMessageBuilder(queryResult);
     } else {
-      throw new InvalidArgumentError("No slack message builder for given query result");
+      return new PersonalSquirrelFortuneRankingSlackMessageBuilder(queryResult);
     }
   }
 }

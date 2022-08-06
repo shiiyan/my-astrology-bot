@@ -1,10 +1,11 @@
 import { should } from "chai";
-import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { SlackMessageBuilderFactory } from "./slackMessageBuilderFactory";
 import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
+import { PersonalSquirrelFortuneRankingSlackMessageBuilder }
+  from "./personalSquirrelFortuneRankingSlackMessageBuilder";
 should();
 
 describe("SlackMessageBuilderFactory", () => {
@@ -15,12 +16,11 @@ describe("SlackMessageBuilderFactory", () => {
     created.should.be.an.instanceOf(AnonymousSquirrelFortuneRankingSlackMessageBuilder);
   });
 
-  it("should throw error given queryResult as PersonalSquirrelFortuneDtos", () => {
+  it("should create correct slack message builder given queryResult as PersonalSquirrelFortuneDtos", () => {
     const personalFortunes = createPersonalFortunes();
+    const created = SlackMessageBuilderFactory.create(personalFortunes);
 
-    (() => SlackMessageBuilderFactory.create(personalFortunes)).should.throw(
-        InvalidArgumentError, "No slack message builder for given query result"
-    );
+    created.should.be.an.instanceOf(PersonalSquirrelFortuneRankingSlackMessageBuilder);
   });
 });
 
