@@ -22,8 +22,8 @@ export class SaveDummySquirrelFortuneRanking implements AppMentionCommandUseCase
       japanese: "仮のスッキリすランキングを保存",
     },
     message: {
-      success: "仮のスッキリすランキングしました。",
-      failure: "仮のスッキリすランキングできませんでした。",
+      success: "仮のスッキリすランキングを保存しました。",
+      failure: "仮のスッキリすランキングを保存できませんでした。",
     },
   };
 
