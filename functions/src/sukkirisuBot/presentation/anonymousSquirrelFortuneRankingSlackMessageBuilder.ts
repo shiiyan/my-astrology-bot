@@ -50,6 +50,14 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
     "type": "divider",
   };
 
+  private readonly footer = {
+    type: "section",
+    text: {
+      type: "mrkdwn",
+      text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキりす!>",
+    },
+  };
+
   private readonly upperRanks = [2, 3, 4, 5, 6];
   private readonly lowerRanks = [7, 8, 9, 10, 11];
   private readonly firstRank = [1];
@@ -95,6 +103,10 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
         blocks,
         this.firstRankHeader,
         this.firstRank,
+    );
+    this.addFooterSectionToBlocks(
+        blocks,
+        this.footer
     );
 
     return {
@@ -156,5 +168,19 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
         },
       ],
     };
+  }
+
+  /**
+   * Add footer section to blocks.
+   *
+   * @private
+   * @param {object[]} blocks
+   * @param {object} footer
+   * @memberof AnonymousSquirrelFortuneRankingSlackMessageBuilder
+   */
+  private addFooterSectionToBlocks(
+      blocks: object[],
+      footer: object) {
+    blocks.push(footer);
   }
 }
