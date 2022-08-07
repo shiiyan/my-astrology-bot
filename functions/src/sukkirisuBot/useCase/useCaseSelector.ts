@@ -32,18 +32,18 @@ export class UseCaseSelector {
       };
     }
 
-    matchedGroups = eventMessage.match(/(?<fortune>今日の運勢)/)?.groups;
-    if (matchedGroups?.fortune) {
+    matchedGroups = eventMessage.match(/(?<allPersonalFortune>個人スッキリす)/)?.groups;
+    if (matchedGroups?.allPersonalFortune) {
       return {
-        useCaseName: "GetSquirrelFortuneRankingForToday",
+        useCaseName: "GetAllPersonalSquirrelFortuneForToday",
         useCaseParam: undefined,
       };
     }
 
-    matchedGroups = eventMessage.match(/(?<allPersonalFortune>全員の運勢)/)?.groups;
-    if (matchedGroups?.allPersonalFortune) {
+    matchedGroups = eventMessage.match(/(?<fortune>スッキリす)/)?.groups;
+    if (matchedGroups?.fortune) {
       return {
-        useCaseName: "GetAllPersonalSquirrelFortuneForToday",
+        useCaseName: "GetSquirrelFortuneRankingForToday",
         useCaseParam: undefined,
       };
     }
