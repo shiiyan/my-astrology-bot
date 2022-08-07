@@ -1,12 +1,12 @@
 import { should } from "chai";
-import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { SquirrelFortuneRankingFactory } from "../domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
 import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 should();
 
 describe("AnonymousSquirrelFortuneRankingSlackMessageBuilder", () => {
   it("should render correct slack message given SquirrelFortuneRanking", () => {
-    const squirrelFortuneRanking = createSquirrelFortuneRanking();
+    const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
     const slackMessageBuilder = new AnonymousSquirrelFortuneRankingSlackMessageBuilder(squirrelFortuneRanking);
     const message = slackMessageBuilder.build();
 
@@ -14,24 +14,6 @@ describe("AnonymousSquirrelFortuneRankingSlackMessageBuilder", () => {
     message.should.deep.equal(expected);
   });
 });
-
-const createSquirrelFortuneRanking = () => {
-  const allMonthFortunes = [
-    { birthMonth: 1, rank: 1, comment: "", luckyColor: "" },
-    { birthMonth: 2, rank: 2, comment: "", luckyColor: "" },
-    { birthMonth: 3, rank: 3, comment: "", luckyColor: "" },
-    { birthMonth: 4, rank: 4, comment: "", luckyColor: "" },
-    { birthMonth: 5, rank: 5, comment: "", luckyColor: "" },
-    { birthMonth: 6, rank: 6, comment: "", luckyColor: "" },
-    { birthMonth: 7, rank: 7, comment: "", luckyColor: "" },
-    { birthMonth: 8, rank: 8, comment: "", luckyColor: "" },
-    { birthMonth: 9, rank: 9, comment: "", luckyColor: "" },
-    { birthMonth: 10, rank: 10, comment: "", luckyColor: "" },
-    { birthMonth: 11, rank: 11, comment: "", luckyColor: "" },
-    { birthMonth: 12, rank: 12, comment: "", luckyColor: "" },
-  ];
-  return SquirrelFortuneRanking.create(allMonthFortunes);
-};
 
 const createExpectedMessage = () => {
   return {
@@ -54,15 +36,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "2月",
+            "text": "10月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "新しい刺激で心が弾みそうな週末に！",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n青",
             "type": "mrkdwn",
           },
         ],
@@ -78,15 +60,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "3月",
+            "text": "6月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "一発逆転！ラッキーがありそうな予感",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\nピンク",
             "type": "mrkdwn",
           },
         ],
@@ -102,15 +84,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "4月",
+            "text": "3月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "行動すればするほど良い結果が出そう",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n黄",
             "type": "mrkdwn",
           },
         ],
@@ -126,15 +108,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "5月",
+            "text": "7月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "古き良き物に触れることで運気ＵＰ",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\nゴールド",
             "type": "mrkdwn",
           },
         ],
@@ -150,15 +132,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "6月",
+            "text": "11月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "派手よりもナチュラルを大切にすると◎",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n茶",
             "type": "mrkdwn",
           },
         ],
@@ -185,15 +167,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "7月",
+            "text": "4月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "料理に迷ったら時短メニューがオススメ",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n黒",
             "type": "mrkdwn",
           },
         ],
@@ -209,15 +191,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "8月",
+            "text": "12月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "愛は言葉で分かりやすく相手に伝えよう",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\nシルバー",
             "type": "mrkdwn",
           },
         ],
@@ -237,11 +219,11 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "自己中心的にならず相手を優先しよう",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n白",
             "type": "mrkdwn",
           },
         ],
@@ -257,15 +239,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "10月",
+            "text": "1月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "水回りをピカピカに掃除をすると吉",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n紫",
             "type": "mrkdwn",
           },
         ],
@@ -281,15 +263,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "11月",
+            "text": "2月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "予想外なことにも冷静に対処してミス防止",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n赤",
             "type": "mrkdwn",
           },
         ],
@@ -316,15 +298,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "12月",
+            "text": "5月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "体がなまり気味に…毎日の運動がパワーの源に！",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\n緑",
             "type": "mrkdwn",
           },
         ],
@@ -351,15 +333,15 @@ const createExpectedMessage = () => {
             "type": "mrkdwn",
           },
           {
-            "text": "1月",
+            "text": "8月",
             "type": "mrkdwn",
           },
           {
-            "text": "",
+            "text": "マンネリから抜け出し新鮮な気分で興味のある事に挑戦しよう",
             "type": "mrkdwn",
           },
           {
-            "text": "ラッキーカラー\n",
+            "text": "ラッキーカラー\nオレンジ",
             "type": "mrkdwn",
           },
         ],
