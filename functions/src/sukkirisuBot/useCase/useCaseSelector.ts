@@ -48,6 +48,14 @@ export class UseCaseSelector {
       };
     }
 
+    matchedGroups = eventMessage.match(/(?<testData>テストデータ)/)?.groups;
+    if (matchedGroups?.testData) {
+      return {
+        useCaseName: "SaveDummySquirrelFortuneRanking",
+        useCaseParam: undefined,
+      };
+    }
+
     return {
       useCaseName: undefined,
       useCaseParam: undefined,

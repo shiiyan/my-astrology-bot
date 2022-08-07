@@ -9,6 +9,7 @@ import { GetAllPersonalSquirrelFortuneForToday }
 
 import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
 import { UseCaseFactory } from "./useCaseFactory";
+import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
 should();
 
 describe("UseCaseFactory", () => {
@@ -39,6 +40,15 @@ describe("UseCaseFactory", () => {
     });
 
     created.should.be.an.instanceOf(GetAllPersonalSquirrelFortuneForToday);
+  });
+
+  it("should create correct use case given use case name SaveDummySquirrelFortuneRanking", () => {
+    const created = UseCaseFactory.create({
+      useCaseName: "SaveDummySquirrelFortuneRanking",
+      firestore: stubFirestore,
+    });
+
+    created.should.be.an.instanceOf(SaveDummySquirrelFortuneRanking);
   });
 
   it("should throw error when no use case to create", () => {
