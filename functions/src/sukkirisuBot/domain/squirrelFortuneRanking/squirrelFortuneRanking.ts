@@ -85,11 +85,21 @@ export class SquirrelFortuneRanking {
   /**
    * Get create date.
    *
-   * @return {*} {Date}
+   * @return {*} Date
    * @memberof SquirrelFortuneRanking
    */
   public getCreateDate(): Date {
     return this.createDate;
+  }
+
+  /**
+   * Get fortunes of all months.
+   *
+   * @return {*}  {BirthMonthFortune[]}
+   * @memberof SquirrelFortuneRanking
+   */
+  public getAllMonthFortunes(): BirthMonthFortune[] {
+    return this.birthMonthFortunes;
   }
 
   /**

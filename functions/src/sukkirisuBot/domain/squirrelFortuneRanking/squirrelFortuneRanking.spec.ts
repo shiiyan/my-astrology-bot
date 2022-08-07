@@ -82,6 +82,15 @@ describe("SquirrelFortuneRanking", () => {
     getResult.should.be.instanceOf(Date);
     getResult.getTime().should.equal(createDate.getTime());
   });
+
+  it("should get all month fortunes", () => {
+    const list: BirthMonthFortune[] = createAllMonthBirthMonthFortunes();
+    const fortuneRanking = SquirrelFortuneRanking.create(list);
+
+    const getResult = fortuneRanking.getAllMonthFortunes();
+
+    getResult.should.deep.equal(list);
+  });
 });
 
 const createAllMonthBirthMonthFortunes = (): BirthMonthFortune[] => {
