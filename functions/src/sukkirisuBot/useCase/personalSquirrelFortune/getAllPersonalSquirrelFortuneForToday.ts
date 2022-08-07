@@ -15,11 +15,11 @@ export class GetAllPersonalSquirrelFortuneForToday implements AppMentionQueryUse
     type: UseCaseType.Query,
     description: {
       english: "get all personal squirrel fortune for today",
-      japanese: "全員の今日の個人運勢を取得",
+      japanese: "今日の個人スッキリすランキングを取得",
     },
     message: {
-      success: "全員の今日の個人運勢を取得しました。",
-      failure: "全員の今日の個人運勢を取得できませんでした。",
+      success: "今日の個人スッキリすランキングを取得しました。",
+      failure: "今日の個人スッキリすランキングを取得できませんでした。",
     },
   };
 
