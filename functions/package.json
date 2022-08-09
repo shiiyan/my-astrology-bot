@@ -20,11 +20,13 @@
     "@slack/bolt": "^3.11.3",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
+    "jsdom": "^20.0.0",
     "moment": "^2.29.4",
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
+    "@types/jsdom": "^20.0.0",
     "@types/mocha": "^9.1.1",
     "@types/node-fetch": "^2.6.2",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
