@@ -1,7 +1,7 @@
 import { firestore } from "firebase-admin";
 import moment from "moment";
-import { BirthMonthFortune } from "../../domain/squirrelFortuneRanking/birthMonthFortune";
-import { SquirrelFortuneRanking } from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { BirthMonthFortune } from "../../../core/domain/squirrelFortuneRanking/birthMonthFortune";
+import { SquirrelFortuneRanking } from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
   from "../../useCase/personalSquirrelFortune/personalSquirrelFortuneDtoQueryServiceInterface";

@@ -1,5 +1,5 @@
 import { should } from "chai";
-import { SquirrelFortuneRankingFactory } from "../domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
+import { SquirrelFortuneRankingFactory } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
 import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 should();

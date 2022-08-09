@@ -1,4 +1,4 @@
-import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { SquirrelFortuneRanking } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
 import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }

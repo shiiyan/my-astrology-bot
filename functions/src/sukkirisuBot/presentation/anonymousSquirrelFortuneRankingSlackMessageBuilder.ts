@@ -1,5 +1,5 @@
-import { BirthMonthFortune } from "../domain/squirrelFortuneRanking/birthMonthFortune";
-import { SquirrelFortuneRanking } from "../domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { BirthMonthFortune } from "../../core/domain/squirrelFortuneRanking/birthMonthFortune";
+import { SquirrelFortuneRanking } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
 
 /**

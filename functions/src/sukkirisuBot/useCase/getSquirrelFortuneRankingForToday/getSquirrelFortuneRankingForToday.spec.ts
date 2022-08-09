@@ -1,7 +1,8 @@
 import { should } from "chai";
-import { BirthMonthFortune } from "../../domain/squirrelFortuneRanking/birthMonthFortune";
-import { SquirrelFortuneRanking } from "../../domain/squirrelFortuneRanking/squirrelFortuneRanking";
-import { SquirrelFortuneRankingFactory } from "../../domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
+import { BirthMonthFortune } from "../../../core/domain/squirrelFortuneRanking/birthMonthFortune";
+import { SquirrelFortuneRanking } from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { SquirrelFortuneRankingFactory }
+  from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
 import { SquirrelFortuneRankingInMemoryRepository }
   from "../../infrastructure/repository/squirrelFortuneRankingInMemoryRepository";
 import { GetSquirrelFortuneRankingForToday } from "./getSquirrelFortuneRankingForToday";

@@ -1,6 +1,7 @@
 import { SquirrelFortuneRankingRepositoryInterface }
-  from "../../domain/squirrelFortuneRanking/entityRepositoryInterface";
-import { SquirrelFortuneRankingFactory } from "../../domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
+  from "../../../core/domain/squirrelFortuneRanking/entityRepositoryInterface";
+import { SquirrelFortuneRankingFactory }
+  from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
 import { AppMentionCommandUseCaseInterface } from "../appMentionCommandUseCaseInterface";
 import { UseCaseType } from "../useCaseType";
 

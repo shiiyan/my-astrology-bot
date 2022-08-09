@@ -5,7 +5,7 @@ import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 import { PersonalSquirrelFortuneRankingSlackMessageBuilder }
   from "./personalSquirrelFortuneRankingSlackMessageBuilder";
-import { SquirrelFortuneRankingFactory } from "../domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
+import { SquirrelFortuneRankingFactory } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
 should();
 
 describe("SlackMessageBuilderFactory", () => {
