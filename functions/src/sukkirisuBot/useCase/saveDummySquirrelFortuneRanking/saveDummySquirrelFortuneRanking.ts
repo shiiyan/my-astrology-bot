@@ -1,7 +1,7 @@
-import { SquirrelFortuneRankingRepositoryInterface }
-  from "../../../core/domain/squirrelFortuneRanking/entityRepositoryInterface";
-import { SquirrelFortuneRankingFactory }
-  from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
+import {
+  SquirrelFortuneRankingRepositoryInterface,
+  SquirrelFortuneRankingFactory,
+} from "@shiiyan/sukkirisu-function-core-domain";
 import { AppMentionCommandUseCaseInterface } from "../appMentionCommandUseCaseInterface";
 import { UseCaseType } from "../useCaseType";
 

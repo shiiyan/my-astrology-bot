@@ -1,5 +1,4 @@
-import { BirthMonthFortune } from "@shiiyan/sukkirisu-function-core-domain";
-import { SquirrelFortuneRanking } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { BirthMonthFortune, SquirrelFortuneRanking } from "@shiiyan/sukkirisu-function-core-domain";
 import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
 
 /**

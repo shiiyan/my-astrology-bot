@@ -1,4 +1,4 @@
-import { SquirrelFortuneRanking } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import { SquirrelFortuneRanking } from "@shiiyan/sukkirisu-function-core-domain";
 import { PersonalSquirrelFortuneDto } from "../useCase/personalSquirrelFortune/personalSquirrelFortuneDto";
 import { SlackMessageBuilderInterface } from "./slackMessageBuilderInterface";
 import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }

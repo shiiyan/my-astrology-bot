@@ -5,7 +5,7 @@ import { AnonymousSquirrelFortuneRankingSlackMessageBuilder }
   from "./anonymousSquirrelFortuneRankingSlackMessageBuilder";
 import { PersonalSquirrelFortuneRankingSlackMessageBuilder }
   from "./personalSquirrelFortuneRankingSlackMessageBuilder";
-import { SquirrelFortuneRankingFactory } from "../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";
+import { SquirrelFortuneRankingFactory } from "@shiiyan/sukkirisu-function-core-domain";
 should();
 
 describe("SlackMessageBuilderFactory", () => {

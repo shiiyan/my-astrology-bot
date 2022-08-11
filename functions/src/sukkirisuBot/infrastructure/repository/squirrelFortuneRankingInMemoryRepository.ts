@@ -1,6 +1,7 @@
-import { SquirrelFortuneRankingRepositoryInterface }
-  from "../../../core/domain/squirrelFortuneRanking/entityRepositoryInterface";
-import { SquirrelFortuneRanking } from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
+import {
+  SquirrelFortuneRankingRepositoryInterface,
+  SquirrelFortuneRanking,
+} from "@shiiyan/sukkirisu-function-core-domain";
 
 /**
  * @export
