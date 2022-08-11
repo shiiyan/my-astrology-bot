@@ -6,9 +6,10 @@
   },
   "exclude": [
     "dist/**/*",
-    ".eslintrc.ts"
+    ".eslintrc.ts",
+    "**/*.spec.ts"
   ],
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ]
 }
