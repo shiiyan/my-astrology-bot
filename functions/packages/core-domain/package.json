@@ -1,6 +1,6 @@
 {
   "name": "@shiiyan/sukkirisu-function-core-domain",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "core package of sukkirsu function domain",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
