@@ -1,5 +1,5 @@
 import { should } from "chai";
-import { BirthMonthFortune } from "../../../core/domain/squirrelFortuneRanking/birthMonthFortune";
+import { BirthMonthFortune } from "@shiiyan/sukkirisu-function-core-domain";
 import { SquirrelFortuneRanking } from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
 import { SquirrelFortuneRankingFactory }
   from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRankingFactory";

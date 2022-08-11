@@ -1,6 +1,6 @@
 import { firestore } from "firebase-admin";
 import moment from "moment";
-import { BirthMonthFortune } from "../../../core/domain/squirrelFortuneRanking/birthMonthFortune";
+import { BirthMonthFortune } from "@shiiyan/sukkirisu-function-core-domain";
 import { SquirrelFortuneRankingRepositoryInterface }
   from "../../../core/domain/squirrelFortuneRanking/entityRepositoryInterface";
 import { SquirrelFortuneRanking } from "../../../core/domain/squirrelFortuneRanking/squirrelFortuneRanking";
