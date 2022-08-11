@@ -7,9 +7,8 @@
   "exclude": [
     "dist/**/*",
     ".eslintrc.ts",
-    "**/*.spec.ts"
   ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*"
   ]
 }
