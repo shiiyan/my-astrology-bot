@@ -1,0 +1,36 @@
+{
+  "name": "@shiiyan/sukkirisu-function-core-domain",
+  "version": "1.0.0",
+  "description": "core package of sukkirsu function domain",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "mocha",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shiiyan/my-sukkirisu-bot.git",
+    "directory": "functions/packages/core-domain"
+  },
+  "publishConfig": {
+    "@shiiyan:registry": "https://npm.pkg.github.com"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shiiyan/my-sukkirisu-bot/issues"
+  },
+  "homepage": "https://github.com/shiiyan/my-sukkirisu-bot/blob/master/functions/packages/core-domain/README.md",
+  "dependencies": {
+    "@shiiyan/sukkirisu-function-error": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "typescript": "^4.7.4",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.1"
+  }
+}
