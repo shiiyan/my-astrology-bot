@@ -1,4 +1,4 @@
-name: Node.js Package @sukkirisu-function/error
+name: Node.js Package @shiiyan/sukkirisu-function-error
 
 on:
   release:
