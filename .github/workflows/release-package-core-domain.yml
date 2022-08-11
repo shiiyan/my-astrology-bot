@@ -4,6 +4,9 @@ on:
   release:
     types: [created]
 
+env:
+  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,10 +22,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-          scope: '@shiiyan'
+          scope: "@shiiyan"
       - run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: npm test
 
   publish-gpr:
@@ -47,5 +48,3 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
