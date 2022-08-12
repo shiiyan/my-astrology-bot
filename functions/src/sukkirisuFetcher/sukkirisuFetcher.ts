@@ -4,17 +4,17 @@ import fetch from "node-fetch";
 import { JSDOM } from "jsdom";
 import { SquirrelFortuneRanking } from "@shiiyan/sukkirisu-function-core-domain";
 import { SquirrelFortuneRankingFirestoreRepository } from "./squirrelFortuneRankingFirestoreRepository";
-import { SukkirisuDomParser } from "./sukkirisuDomParser";
+import { SquirrelDomParser } from "./squirrelDomParser";
 
 firebaseAdmin.initializeApp();
 
-const sukkirisuFetcher = async (_eventData, _context, _callback) => {
+const sukkirisuFetcher = async () => {
   try {
     const fetchResponse = await fetch(functions.config().sukkirisu.url);
     const htmlString = await fetchResponse.text();
 
     const dom = new JSDOM(htmlString);
-    const allMonthFortunes = SukkirisuDomParser.parse(dom);
+    const allMonthFortunes = (new SquirrelDomParser(dom)).parse();
 
     const squirrelFortuneRanking = SquirrelFortuneRanking.create(allMonthFortunes);
     const repository = new SquirrelFortuneRankingFirestoreRepository(firebaseAdmin.firestore());
