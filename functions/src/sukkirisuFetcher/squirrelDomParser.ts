@@ -43,11 +43,11 @@ export class SquirrelDomParser {
     const allRow1sInGroup = rankGroupDiv.querySelectorAll(".row1");
     allRow1sInGroup?.forEach((row1) => {
       const rankDiv = row1.querySelector(".rank");
-      const rank = rankDiv ? Number(rankDiv.textContent?.at(0)) : this.getRankFromRankGroup(rankGroup);
+      const rank = rankDiv ? Number(rankDiv.textContent?.trim().slice(0, -1)) : this.getRankFromRankGroup(rankGroup);
       const birthMonth = Number(row1.querySelector(".month > span")?.textContent);
       const row2 = row1.nextElementSibling;
-      const comment = String(row2?.querySelector("p")?.textContent);
-      const luckyColor = String(row2?.querySelector("div")?.textContent);
+      const comment = String(row2?.querySelector("p")?.textContent?.trim());
+      const luckyColor = String(row2?.querySelector("div")?.textContent?.trim());
 
       fortunes.push({ rank, birthMonth, comment, luckyColor });
     });

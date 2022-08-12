@@ -18,9 +18,8 @@ describe("SquirrelDomParser", () => {
 
 
 const expected: BirthMonthFortune[] = [
-  { birthMonth: 1, rank: 1, comment: "新たな挑戦にツキあり　ワンパターンな行動から抜け出すチャンス", luckyColor: "青" },
-  { birthMonth: 12, rank: 2, comment: "リーダーやアドバイザーとして活躍できそう", luckyColor: "オレンジ" },
-  { birthMonth: 6, rank: 3, comment: "一発逆転！ラッキーがありそうな予感", luckyColor: "ピンク" },
+  { birthMonth: 12, rank: 2, comment: "周りの人と円満な関係をつくれそう", luckyColor: "シルバー" },
+  { birthMonth: 6, rank: 3, comment: "リーダーやアドバイザーとして活躍できそう", luckyColor: "オレンジ" },
   { birthMonth: 11, rank: 4, comment: "物事を冷静に見ることができる日", luckyColor: "黒" },
   { birthMonth: 8, rank: 5, comment: "才能や人柄を評価してくれる人がカギに", luckyColor: "緑" },
   { birthMonth: 2, rank: 6, comment: "苦手な事は午前中に終わらせよう", luckyColor: "紫" },
@@ -30,6 +29,7 @@ const expected: BirthMonthFortune[] = [
   { birthMonth: 5, rank: 10, comment: "相手の気持ちを考えて発言しよう", luckyColor: "赤" },
   { birthMonth: 9, rank: 11, comment: "過去の出来事を引きずらず今を大切に", luckyColor: "白" },
   { birthMonth: 7, rank: 12, comment: "否定的な考えで雰囲気を壊すかも　笑顔と柔軟性を大切に", luckyColor: "茶" },
+  { birthMonth: 1, rank: 1, comment: "新たな挑戦にツキあり　ワンパターンな行動から抜け出すチャンス", luckyColor: "青" },
 ];
 
 const htmlString = `
