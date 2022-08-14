@@ -3,8 +3,6 @@ import * as firebaseAdmin from "firebase-admin";
 import { SquirrelFortuneRankingFirestoreRepository } from "./squirrelFortuneRankingFirestoreRepository";
 import { FetchSukkirisuUseCase } from "./fetchSukkirisuUsecase";
 
-firebaseAdmin.initializeApp();
-
 /**
  * Sukkirisu fortune ranking fetcher function triggered by pub/sub events.
  * @see https://firebase.google.com/docs/functions/pubsub-events

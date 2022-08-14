@@ -6,8 +6,6 @@ import { UseCaseSelector } from "./useCase/useCaseSelector";
 import { isCommandUseCase, isQueryUseCase } from "./useCase/useCaseType";
 import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
 
-firebaseAdmin.initializeApp();
-
 const functionConfig = functions.config();
 
 const boltAppReceiver = new ExpressReceiver({
