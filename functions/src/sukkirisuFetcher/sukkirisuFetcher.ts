@@ -8,8 +8,20 @@ import { SquirrelDomParser } from "./squirrelDomParser";
 
 firebaseAdmin.initializeApp();
 
-const sukkirisuFetcher = async () => {
+/**
+ * Sukkirisu fortune ranking fetcher function triggered by pub/sub events.
+ * @see https://firebase.google.com/docs/functions/pubsub-events
+ *
+ * @param {{data: string}} message
+ * @return {*}  {Promise<void>}
+ */
+const sukkirisuFetcher = async (message: {data: string}): Promise<void> => {
   try {
+    const messageBody = message.data ? Buffer.from(message.data, "base64").toString() : null;
+    if (messageBody !== "trigger sukkirisuFetcher") {
+      throw new Error("Wrong message for sukkirisuFetcher: ".concat(messageBody ?? ""));
+    }
+
     const fetchResponse = await fetch(functions.config().sukkirisu.url);
     const htmlString = await fetchResponse.text();
 
