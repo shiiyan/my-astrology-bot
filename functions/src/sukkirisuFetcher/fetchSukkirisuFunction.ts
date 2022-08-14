@@ -12,7 +12,7 @@ firebaseAdmin.initializeApp();
  * @param {{data: string}} message
  * @return {*}  {Promise<void>}
  */
-const sukkirisuFetchFunction = async (message: {data: string}): Promise<void> => {
+const fetchSukkirisuFunction = async (message: {data: string}): Promise<void> => {
   try {
     const messageBody = message.data ? Buffer.from(message.data, "base64").toString() : null;
     if (messageBody !== "trigger sukkirisuFetchFunction") {
@@ -29,4 +29,4 @@ const sukkirisuFetchFunction = async (message: {data: string}): Promise<void> =>
   }
 };
 
-export default sukkirisuFetchFunction;
+export default fetchSukkirisuFunction;
