@@ -22,6 +22,7 @@ const sukkirisuFetcher = async (message: {data: string}): Promise<void> => {
       throw new Error("Wrong message for sukkirisuFetcher: ".concat(messageBody ?? ""));
     }
 
+    // todo: extract usecase class from here.
     const fetchResponse = await fetch(functions.config().sukkirisu.url);
     const htmlString = await fetchResponse.text();
 
