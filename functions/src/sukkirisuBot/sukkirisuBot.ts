@@ -3,7 +3,7 @@ import * as firebaseAdmin from "firebase-admin";
 import { App as BoltApp, ExpressReceiver } from "@slack/bolt";
 import { UseCaseFactory } from "./useCase/useCaseFactory";
 import { UseCaseSelector } from "./useCase/useCaseSelector";
-import { isCommandUseCase, isQueryUseCase } from "./useCase/useCaseType";
+import { isCommandUseCase, isHelpUseCase, isQueryUseCase } from "./useCase/useCaseType";
 import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
 
 const functionConfig = functions.config();
@@ -81,6 +81,11 @@ boltApp.event("app_mention", async ({ event, say })=> {
       }
 
       const message = SlackMessageBuilderFactory.create(queryResult).build();
+      await say(message);
+    }
+
+    if (isHelpUseCase(useCase)) {
+      const message = useCase.helpMessage;
       await say(message);
     }
 

@@ -13,6 +13,7 @@ import { GetAllPersonalSquirrelFortuneForToday } from "./personalSquirrelFortune
 import { PersonalSquirrelFortuneDtoFireStoreQueryService }
   from "../infrastructure/queryService/personalSquirrelFortuneDtoFirestoreQueryService";
 import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
+import { ShowHelpMessage } from "./showHelpMessage/showHelpMessage";
 
 export type CreateParam = {
     useCaseName: string,
@@ -31,7 +32,7 @@ export class UseCaseFactory {
    */
   public static create(
       { useCaseName, firestore }: CreateParam
-  ): AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface {
+  ): AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage {
     switch (useCaseName) {
       case "SaveBirthMonthProfile":
         return new SaveBirthMonthProfile(
@@ -49,6 +50,8 @@ export class UseCaseFactory {
         return new SaveDummySquirrelFortuneRanking(
             new SquirrelFortuneRankingFirestoreRepository(firestore)
         );
+      case "ShowHelpMessage":
+        return new ShowHelpMessage();
       default:
         throw new InvalidArgumentError(`No use case to create for given name ${useCaseName}`);
     }

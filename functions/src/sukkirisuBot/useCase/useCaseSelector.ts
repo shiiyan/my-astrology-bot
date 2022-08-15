@@ -19,6 +19,14 @@ export class UseCaseSelector {
    */
   public static select(eventMessage: string): SelectResult {
     let matchedGroups;
+    matchedGroups = eventMessage.match(/(?<help>help|ヘルプ)/)?.groups;
+    if (matchedGroups?.help) {
+      return {
+        useCaseName: "ShowHelpMessage",
+        useCaseParam: undefined,
+      };
+    }
+
     matchedGroups = eventMessage.match(/(?<name>[\w]+)は(?<month>[0-9]{1,2})月生まれ/)?.groups;
     if (matchedGroups?.name && matchedGroups?.month) {
       const birthMonthProfile = {
