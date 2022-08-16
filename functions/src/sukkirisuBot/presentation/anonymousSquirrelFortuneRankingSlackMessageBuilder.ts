@@ -53,7 +53,7 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
     type: "section",
     text: {
       type: "mrkdwn",
-      text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキりす!>",
+      text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキリす!>",
     },
   };
 
