@@ -18,7 +18,8 @@ export class UseCaseSelector {
    * @memberof UseCaseSelector
    */
   public static select(eventMessage: string): SelectResult {
-    let matchedGroups;
+    let matchedGroups: {[key: string]: string} | undefined;
+
     matchedGroups = eventMessage.match(/(?<help>help|ヘルプ)/)?.groups;
     if (matchedGroups?.help) {
       return {
@@ -40,18 +41,20 @@ export class UseCaseSelector {
       };
     }
 
-    matchedGroups = eventMessage.match(/(?<allPersonalFortune>個人スッキリす)/)?.groups;
-    if (matchedGroups?.allPersonalFortune) {
+    // Named Capture Group personal (?<personal>(?:個人)?)
+    // Non-capturing group (?:個人)? between zero and one times.
+    // Named Capture Group fortune (?<fortune>スッキリす)
+    matchedGroups = eventMessage.match(/(?<personal>(?:個人)?)(?<fortune>スッキリす)/)?.groups;
+    if (!matchedGroups?.personal && matchedGroups?.fortune) {
       return {
-        useCaseName: "GetAllPersonalSquirrelFortuneForToday",
+        useCaseName: "GetSquirrelFortuneRankingForToday",
         useCaseParam: undefined,
       };
     }
 
-    matchedGroups = eventMessage.match(/(?<fortune>スッキリす)/)?.groups;
-    if (matchedGroups?.fortune) {
+    if (matchedGroups?.personal && matchedGroups?.fortune) {
       return {
-        useCaseName: "GetSquirrelFortuneRankingForToday",
+        useCaseName: "GetAllPersonalSquirrelFortuneForToday",
         useCaseParam: undefined,
       };
     }
