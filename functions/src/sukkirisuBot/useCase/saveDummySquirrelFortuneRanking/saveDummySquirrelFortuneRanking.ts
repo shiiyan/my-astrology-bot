@@ -20,11 +20,11 @@ export class SaveDummySquirrelFortuneRanking implements AppMentionCommandUseCase
     type: UseCaseType.Command,
     description: {
       english: "saving dummy squirrel fortune ranking",
-      japanese: "仮のスッキリすランキングを保存",
+      japanese: "仮のスッキりすランキングを保存",
     },
     message: {
-      success: "仮のスッキリすランキングを保存しました。",
-      failure: "仮のスッキリすランキングを保存できませんでした。",
+      success: "仮のスッキりすランキングを保存しました。",
+      failure: "仮のスッキりすランキングを保存できませんでした。",
     },
   };
 

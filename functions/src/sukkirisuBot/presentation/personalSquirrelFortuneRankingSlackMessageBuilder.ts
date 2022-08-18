@@ -51,7 +51,7 @@ export class PersonalSquirrelFortuneRankingSlackMessageBuilder implements SlackM
       type: "header",
       text: {
         emoji: true,
-        text: "今日の個人スッキリすランキング:chipmunk:",
+        text: "今日の個人スッキりすランキング:chipmunk:",
         type: "plain_text",
       },
     };
@@ -111,7 +111,7 @@ export class PersonalSquirrelFortuneRankingSlackMessageBuilder implements SlackM
       type: "section",
       text: {
         type: "mrkdwn",
-        text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキリす!>",
+        text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキりす!>",
       },
     };
   }

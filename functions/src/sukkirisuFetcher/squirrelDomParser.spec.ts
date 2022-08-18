@@ -106,7 +106,7 @@ const htmlString = `
                             <div class="ntv-box-title">生まれた月で今日の運勢をチェック！</div>
                             <div class="ntv-article-body">
                                 <div class="mainVisual">
-                                    <img src="/sukkiri/assets/images/sukkirisu/mainvisual.jpg" alt="スッキリす誕生月占い">
+                                    <img src="/sukkiri/assets/images/sukkirisu/mainvisual.jpg" alt="スッキりす誕生月占い">
                                 </div>
 
                                 <div class="subtitle">
@@ -117,7 +117,7 @@ const htmlString = `
                                 <div>
                                     <div style="padding-bottom: 1px;">
                                         <div class="ntv-article-contents-main">
-                                            <h3 class="rankGroup-2">スッキリす</h3>
+                                            <h3 class="rankGroup-2">スッキりす</h3>
                                             <div>
 
                                                 <div>
@@ -211,7 +211,7 @@ const htmlString = `
 
                                             </div>
 
-                                            <h3 class="rankGroup-7">まあまあスッキリす</h3>
+                                            <h3 class="rankGroup-7">まあまあスッキりす</h3>
                                             <div>
 
                                                 <div>
@@ -323,7 +323,7 @@ const htmlString = `
 
                                             </div>
 
-                                            <h3 class="rankGroup-1">超スッキリす</h3>
+                                            <h3 class="rankGroup-1">超スッキりす</h3>
                                             <div>
 
                                                 <div>

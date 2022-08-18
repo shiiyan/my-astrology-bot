@@ -13,7 +13,7 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
     "type": "header",
     "text": {
       "type": "plain_text",
-      "text": ":sparkles:スッキリす:sparkles::chipmunk:",
+      "text": ":sparkles:スッキりす:sparkles::chipmunk:",
       "emoji": true,
     },
   };
@@ -22,7 +22,7 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
     "type": "header",
     "text": {
       "type": "plain_text",
-      "text": ":snowflake:まあまあスッキリす:snowflake::chipmunk:",
+      "text": ":snowflake:まあまあスッキりす:snowflake::chipmunk:",
       "emoji": true,
     },
   };
@@ -40,7 +40,7 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
     "type": "header",
     "text": {
       "type": "plain_text",
-      "text": ":sunny:超スッキリす:sunny::chipmunk:",
+      "text": ":sunny:超スッキりす:sunny::chipmunk:",
       "emoji": true,
     },
   };
@@ -53,7 +53,7 @@ export class AnonymousSquirrelFortuneRankingSlackMessageBuilder implements Slack
     type: "section",
     text: {
       type: "mrkdwn",
-      text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキリす!>",
+      text: "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキりす!>",
     },
   };
 

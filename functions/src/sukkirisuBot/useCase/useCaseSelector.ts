@@ -43,8 +43,8 @@ export class UseCaseSelector {
 
     // Named Capture Group personal (?<personal>(?:個人)?)
     // Non-capturing group (?:個人)? between zero and one times.
-    // Named Capture Group fortune (?<fortune>スッキリす)
-    matchedGroups = eventMessage.match(/(?<personal>(?:個人)?)(?<fortune>スッキリす)/)?.groups;
+    // Named Capture Group fortune (?<fortune>スッキりす)
+    matchedGroups = eventMessage.match(/(?<personal>(?:個人)?)(?<fortune>スッキりす)/)?.groups;
     if (!matchedGroups?.personal && matchedGroups?.fortune) {
       return {
         useCaseName: "GetSquirrelFortuneRankingForToday",

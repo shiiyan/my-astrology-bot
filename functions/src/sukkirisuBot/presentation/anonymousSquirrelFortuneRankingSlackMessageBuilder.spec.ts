@@ -21,7 +21,7 @@ const createExpectedMessage = () => {
       {
         "text": {
           "emoji": true,
-          "text": ":sparkles:スッキリす:sparkles::chipmunk:",
+          "text": ":sparkles:スッキりす:sparkles::chipmunk:",
           "type": "plain_text",
         },
         "type": "header",
@@ -152,7 +152,7 @@ const createExpectedMessage = () => {
       {
         "text": {
           "emoji": true,
-          "text": ":snowflake:まあまあスッキリす:snowflake::chipmunk:",
+          "text": ":snowflake:まあまあスッキりす:snowflake::chipmunk:",
           "type": "plain_text",
         },
         "type": "header",
@@ -318,7 +318,7 @@ const createExpectedMessage = () => {
       {
         "text": {
           "emoji": true,
-          "text": ":sunny:超スッキリす:sunny::chipmunk:",
+          "text": ":sunny:超スッキりす:sunny::chipmunk:",
           "type": "plain_text",
         },
         "type": "header",
@@ -354,7 +354,7 @@ const createExpectedMessage = () => {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキリす!>",
+          "text": "ソース： <https://www.ntv.co.jp/sukkiri/sukkirisu/index.html|誕生月占い スッキりす!>",
         },
       },
     ],
