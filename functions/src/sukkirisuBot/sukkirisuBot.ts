@@ -85,7 +85,7 @@ boltApp.event("app_mention", async ({ event, say })=> {
     }
 
     if (isHelpUseCase(useCase)) {
-      const message = useCase.helpMessage;
+      const message = await useCase.getHelpMessage();
       await say(message);
     }
 
