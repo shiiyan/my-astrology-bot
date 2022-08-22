@@ -35,10 +35,10 @@ export class ShowHelpMessage {
   async getHelpMessage(): Promise<string> {
     await this.ensureCallableOncePerHalfHour();
 
-    return `メンションして以下を含めた投稿を行ってください
-スッキりす：今日のすっきりすランキングを全て表示
-個人スッキりす：ユーザとその誕生月を設定した場合、登録されているユーザのランキングを表示
-{ユーザー}は{誕生月}月生まれ：ユーザに対して誕生月を設定する。ユーザーはローマ字で指定、誕生月は数字で指定
+    return `コマンド一覧。コマンドは日本語です
+Sukkirisu Bot スッキりす （全てのランキングを表示）
+Sukkirisu Bot 個人スッキりす （登録されているユーザのランキングを表示）
+Sukkirisu Bot <ユーザー名>は<誕生月>月生まれ （ユーザーを登録。ex. abcは12月生まれ）
 
 0分~30分、31~59分の30分単位で再度リクエストを送ることができるようになります`;
   }
