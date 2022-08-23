@@ -1,6 +1,6 @@
 {
   "name": "@shiiyan/sukkirisu-function-error",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "errors for sukkirsu function",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
