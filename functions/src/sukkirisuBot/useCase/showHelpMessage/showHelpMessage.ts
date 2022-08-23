@@ -1,3 +1,4 @@
+import { DocumentAlreadyExists } from "@shiiyan/sukkirisu-function-error";
 import { firestore } from "firebase-admin";
 import moment from "moment";
 import { UseCaseType } from "../useCaseType";
@@ -59,7 +60,7 @@ Sukkirisu Bot <ユーザー名>は<誕生月>月生まれ （ユーザーを登�
     if (!doc.exists) {
       docRef.set({ useCase: "showHelpMessage" });
     } else {
-      throw new Error("Document already exists.");
+      throw new DocumentAlreadyExists("Document already exists. DocId: ".concat(docId));
     }
   }
 }

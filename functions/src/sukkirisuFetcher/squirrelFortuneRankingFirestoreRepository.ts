@@ -4,6 +4,7 @@ import {
   SquirrelFortuneRankingRepositoryInterface,
   SquirrelFortuneRanking,
 } from "@shiiyan/sukkirisu-function-core-domain";
+import { NotImplementedError } from "@shiiyan/sukkirisu-function-error";
 
 /**
  * @export
@@ -32,7 +33,7 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
    * @memberof SquirrelFortuneRankingFirestoreRepository
    */
   async findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined> {
-    throw new Error("To be implemented.".concat(" date: ", date.toDateString()));
+    throw new NotImplementedError("findByCreateDateWithLock with date: ".concat(date.toDateString()));
   }
 
   /**

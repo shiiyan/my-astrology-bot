@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { DocumentAlreadyExists } from "@shiiyan/sukkirisu-function-error";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { firestore } from "firebase-admin";
@@ -36,7 +37,7 @@ Sukkirisu Bot <ユーザー名>は<誕生月>月生まれ （ユーザーを登�
   });
 
   it("should not return help message when ensureCallableOncePerHalfHour fails", () => {
-    stubbed.throws(new Error("Document already exists."));
-    (useCase.getHelpMessage()).should.eventually.throws(Error, "Document already exists.");
+    stubbed.throws(new DocumentAlreadyExists());
+    return useCase.getHelpMessage().should.be.rejectedWith(DocumentAlreadyExists);
   });
 });

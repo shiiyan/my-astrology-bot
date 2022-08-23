@@ -1,4 +1,5 @@
 import { BirthMonthFortune } from "@shiiyan/sukkirisu-function-core-domain";
+import { DomElementNotExistsError } from "@shiiyan/sukkirisu-function-error";
 import { JSDOM } from "jsdom";
 
 /**
@@ -36,7 +37,7 @@ export class SquirrelDomParser {
   private extractFortunesFromRankGroup(rankGroup :string): BirthMonthFortune[] {
     const rankGroupDiv = this.dom.window.document.querySelector(".".concat(rankGroup))?.nextElementSibling;
     if (!rankGroupDiv) {
-      throw new Error(`Div of ${rankGroup} does not exist.`);
+      throw new DomElementNotExistsError(`Div of ${rankGroup} does not exist.`);
     }
 
     const fortunes: BirthMonthFortune[] = [];
