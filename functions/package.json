@@ -9,7 +9,8 @@
     "start": "npm run shell",
     "deploy": "firebase deploy",
     "logs": "firebase functions:log",
-    "test": "mocha"
+    "test": "mocha",
+    "test:landing": "mocha --reporter landing"
   },
   "engines": {
     "node": "16"
