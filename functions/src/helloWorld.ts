@@ -1,6 +1,6 @@
 import * as functions from "firebase-functions";
 
-const helloWorldFunction = async (
+const helloWorldFunction = (
     _request: functions.https.Request,
     response: functions.Response
 ) => {
