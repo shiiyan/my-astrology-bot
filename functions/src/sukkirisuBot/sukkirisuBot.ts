@@ -9,13 +9,13 @@ import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFa
 const functionConfig = functions.config();
 
 const boltAppReceiver = new ExpressReceiver({
-  signingSecret: functionConfig.slack.signing_secret,
+  signingSecret: functionConfig.slack?.signing_secret ?? "not available",
   endpoints: "/events",
   processBeforeResponse: true,
 });
 
 const boltApp = new BoltApp({
-  token: functionConfig.slack.bot_token,
+  token: functionConfig.slack?.bot_token ?? "not available",
   receiver: boltAppReceiver,
   processBeforeResponse: true,
 });
