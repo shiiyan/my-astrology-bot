@@ -25,8 +25,10 @@ const fetchSukkirisuFunction = async (message: {data: string}): Promise<void> =>
         new SquirrelFortuneRankingFirestoreRepository(firebaseAdmin.firestore())
     );
     await useCase.run();
-  } catch (e) {
-    functions.logger.error(e);
+  } catch (e: unknown) {
+    functions.logger.error(
+      e instanceof InvalidPubSubMessageError ? e.message : e
+    );
   }
 };
 
