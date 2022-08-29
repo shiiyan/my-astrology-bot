@@ -3,7 +3,8 @@
 // import chaiAsPromised from "chai-as-promised";
 // import firebaseFunctionsTest from "firebase-functions-test";
 // import { SquirrelFortuneRankingFirestoreRepository } from "./squirrelFortuneRankingFirestoreRepository";
-// import { SquirrelFortuneRankingFactory } from "@shiiyan/sukkirisu-function-core-domain";
+// import { SquirrelFortuneRanking, SquirrelFortuneRankingFactory } from "@shiiyan/sukkirisu-function-core-domain";
+// import moment from "moment";
 // chai.use(chaiAsPromised);
 // chai.should();
 
@@ -15,18 +16,49 @@
 // const firestore = firebaseAdmin.firestore();
 
 // describe("squirrelFortuneRankingFirestoreRepository", () => {
-//   after(() => {
+//   const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
+//   const dateString = moment(squirrelFortuneRanking.getCreateDate()).format("YYYY-MM-DD");
+
+//   afterEach(() => {
 //     test.cleanup();
 //   });
 
 //   it("should save when SquirrelFortuneRanking is provided", async () => {
-//     const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
-
 //     const repository = new SquirrelFortuneRankingFirestoreRepository(firestore);
 //     await repository.save(squirrelFortuneRanking);
 
-//     // TODO: assert found result is same with generated squirrelFortuneRanking.
+//     const found = await repository.findByCreateDateWithLock(squirrelFortuneRanking.getCreateDate());
 
-//     // await firestore.collection("indexes").doc(`/squirrelFortuneRanking/date/${dateString}`).delete();
-//   });
+//     found?.should.be.instanceOf(SquirrelFortuneRanking);
+//     found?.should.have.property("createDate");
+//     found?.should.have.property("createDate").be.instanceOf(Date);
+//     found?.should.have.property("birthMonthFortunes");
+//     found?.should.have.property("birthMonthFortunes").be.a("array");
+//     found?.should.have.property("birthMonthFortunes").to.have.lengthOf(12);
+
+//     await Promise.all([
+//       removeSavedSquirrelFortuneRanking(dateString),
+//       removeIndex(dateString),
+//       removeLock(),
+//     ]);
+//   }).timeout(10000);
 // });
+
+// const removeSavedSquirrelFortuneRanking = async (dateString: string) => {
+//   const snapshot = await firestore.collection(`squirrelFortuneRankings/${dateString}/birthMonthFortunes`).get();
+//   const batch = firestore.batch();
+//   snapshot.docs.forEach((doc) => batch.delete(doc.ref));
+//   await batch.commit();
+//   await firestore.collection("squirrelFortuneRankings").doc(dateString).delete();
+// };
+
+// const removeIndex = async (dateString: string) => {
+//   await firestore.collection("indexes").doc(`/squirrelFortuneRanking/date/${dateString}`).delete();
+// };
+
+// const removeLock = async () => {
+//   const snapshot = await firestore.collection("squirrelFortuneRankingQueryLogs").get();
+//   const batch = firestore.batch();
+//   snapshot.docs.forEach((doc) => batch.delete(doc.ref));
+//   await batch.commit();
+// };
