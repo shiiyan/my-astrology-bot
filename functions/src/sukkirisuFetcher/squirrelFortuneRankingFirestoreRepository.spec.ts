@@ -8,7 +8,7 @@ import moment from "moment";
 chai.use(chaiAsPromised);
 chai.should();
 
-const pathToServiceAccountKey = "/Users/shiiyan/Secret/sukkirisu-test-firebase-adminsdk-v5pk5-69565861ee.json";
+const pathToServiceAccountKey = process.env.PATH_TO_TEST_PROJECT_SERVICE_ACCOUNT_KEY;
 const test = firebaseFunctionsTest({
   projectId: "sukkirisu-test",
   databaseURL: "https://sukkirisu-test.firebaseio.com",
