@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Create service account key file of sukkirisu test
-        run: echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST }} > $HOME/service_account_key_of_sukkirisu_test.json
+        run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST }}' > $HOME/service_account_key_of_sukkirisu_test.json
 
       - name: Create dotenv file
         run: |
