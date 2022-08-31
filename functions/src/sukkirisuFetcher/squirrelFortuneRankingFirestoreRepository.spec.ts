@@ -5,15 +5,22 @@ import firebaseFunctionsTest from "firebase-functions-test";
 import { SquirrelFortuneRankingFirestoreRepository } from "./squirrelFortuneRankingFirestoreRepository";
 import { SquirrelFortuneRanking, SquirrelFortuneRankingFactory } from "@shiiyan/sukkirisu-function-core-domain";
 import moment from "moment";
+import * as fs from "fs";
+
 chai.use(chaiAsPromised);
 chai.should();
 
-const pathToServiceAccountKey = process.env.PATH_TO_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST;
+const pathToServiceAccountKey = process.env.PATH_TO_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST ?? "";
 const test = firebaseFunctionsTest({
   projectId: "sukkirisu-test",
   databaseURL: "https://sukkirisu-test.firebaseio.com",
 }, pathToServiceAccountKey);
 const firestore = firebaseAdmin.firestore();
+
+const rawdata = fs.readFileSync(pathToServiceAccountKey, "utf8");
+const key = JSON.parse(rawdata);
+console.log(key);
+
 
 describe("squirrelFortuneRankingFirestoreRepository", () => {
   const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
