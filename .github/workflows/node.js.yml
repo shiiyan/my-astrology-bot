@@ -29,6 +29,9 @@ jobs:
       - name: Create service account key file of sukkirisu test
         run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST }}' > $HOME/service_account_key_of_sukkirisu_test.json
 
+      - name: Cat json
+        run: cat $HOME/service_account_key_of_sukkirisu_test.json
+
       - name: Create dotenv file
         run: |
           touch .env
