@@ -2,7 +2,14 @@ import * as functions from "firebase-functions";
 import { helloWorld } from "./index";
 import { should } from "chai";
 import { stub } from "sinon";
+import firebaseFunctionsTest from "firebase-functions-test";
 should();
+
+const pathToServiceAccountKey = process.env.PATH_TO_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST ?? "";
+export const { cleanup } = firebaseFunctionsTest({
+  projectId: "sukkirisu-test",
+  databaseURL: "https://sukkirisu-test.firebaseio.com",
+}, pathToServiceAccountKey);
 
 describe("helloWorldFunction", () => {
   it("should send hello message when invoked", () => {
