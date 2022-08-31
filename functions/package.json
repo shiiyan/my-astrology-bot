@@ -10,7 +10,7 @@
     "deploy": "npm test && firebase deploy",
     "logs": "firebase functions:log",
     "test": "mocha",
-    "test:landing": "mocha --reporter landing"
+    "test:nyan": "mocha --reporter nyan"
   },
   "engines": {
     "node": "16"
