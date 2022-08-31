@@ -18,6 +18,7 @@ const test = firebaseFunctionsTest({
 const firestore = firebaseAdmin.firestore();
 
 const rawdata = fs.readFileSync(pathToServiceAccountKey, "utf8");
+console.log(rawdata);
 const key = JSON.parse(rawdata);
 console.log(key);
 
