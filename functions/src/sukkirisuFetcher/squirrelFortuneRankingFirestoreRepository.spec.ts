@@ -1,34 +1,21 @@
 import * as firebaseAdmin from "firebase-admin";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import firebaseFunctionsTest from "firebase-functions-test";
 import { SquirrelFortuneRankingFirestoreRepository } from "./squirrelFortuneRankingFirestoreRepository";
 import { SquirrelFortuneRanking, SquirrelFortuneRankingFactory } from "@shiiyan/sukkirisu-function-core-domain";
+import { cleanup } from "../index.spec";
 import moment from "moment";
-import * as fs from "fs";
-
 chai.use(chaiAsPromised);
 chai.should();
 
-const pathToServiceAccountKey = process.env.PATH_TO_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST ?? "";
-const test = firebaseFunctionsTest({
-  projectId: "sukkirisu-test",
-  databaseURL: "https://sukkirisu-test.firebaseio.com",
-}, pathToServiceAccountKey);
 const firestore = firebaseAdmin.firestore();
-
-const rawdata = fs.readFileSync(pathToServiceAccountKey, "utf8");
-console.log(rawdata);
-const key = JSON.parse(rawdata);
-console.log(key);
-
 
 describe("squirrelFortuneRankingFirestoreRepository", () => {
   const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
   const dateString = moment(squirrelFortuneRanking.getCreateDate()).format("YYYY-MM-DD");
 
   afterEach(() => {
-    test.cleanup();
+    cleanup();
   });
 
   it("should save when SquirrelFortuneRanking is provided", async () => {
