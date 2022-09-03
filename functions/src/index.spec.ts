@@ -1,15 +1,16 @@
 import * as functions from "firebase-functions";
-import { helloWorld } from "./index";
+import { helloWorld, fetchSukkirisu } from "./index";
 import { should } from "chai";
 import { stub } from "sinon";
 import firebaseFunctionsTest from "firebase-functions-test";
 should();
 
 const pathToServiceAccountKey = process.env.PATH_TO_SERVICE_ACCOUNT_KEY_OF_SUKKIRISU_TEST ?? "";
-export const { cleanup } = firebaseFunctionsTest({
+const testSdk = firebaseFunctionsTest({
   projectId: "sukkirisu-test",
   databaseURL: "https://sukkirisu-test.firebaseio.com",
 }, pathToServiceAccountKey);
+export const { cleanup } = testSdk;
 
 describe("helloWorldFunction", () => {
   it("should send hello message when invoked", () => {
@@ -28,8 +29,13 @@ describe("helloWorldFunction", () => {
 });
 
 describe("fetchSukkirisuFunction", () => {
-  it("to be tested", () => {
-    // todo
+  it("should fetch sukkirisu when correct pubsub message is provided", async () => {
+    // make base64 encoded message of "trigger sukkirisuFetchFunction"
+    const pubsubMessage = testSdk.pubsub.makeMessage("dHJpZ2dlciBzdWtraXJpc3VGZXRjaEZ1bmN0aW9u");
+    const wrapped = testSdk.wrap(fetchSukkirisu);
+    await wrapped(pubsubMessage);
+
+    // todo: assert fetch result
   });
 });
 
