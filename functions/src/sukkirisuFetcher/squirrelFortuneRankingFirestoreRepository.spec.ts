@@ -5,6 +5,7 @@ import { SquirrelFortuneRankingFirestoreRepository } from "./squirrelFortuneRank
 import { SquirrelFortuneRanking, SquirrelFortuneRankingFactory } from "@shiiyan/sukkirisu-function-core-domain";
 import { cleanup } from "../index.spec";
 import moment from "moment";
+import { FirebaseFunctionsTestHelper } from "../shared/firebaseFunctionsTestHelper";
 chai.use(chaiAsPromised);
 chai.should();
 
@@ -14,8 +15,14 @@ describe("squirrelFortuneRankingFirestoreRepository", () => {
   const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
   const dateString = moment(squirrelFortuneRanking.getCreateDate()).format("YYYY-MM-DD");
 
-  afterEach(() => {
+  afterEach(async () => {
     cleanup();
+    await Promise.all([
+      removeSavedSquirrelFortuneRanking(dateString),
+      removeIndex(dateString),
+      removeLock(),
+    ]);
+    return;
   });
 
   it("should save when SquirrelFortuneRanking is provided", async () => {
@@ -33,30 +40,26 @@ describe("squirrelFortuneRankingFirestoreRepository", () => {
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((month) => {
       found?.getAllMonthFortunes().should.deep.include(squirrelFortuneRanking.getFortuneByBirthMonth(month));
     });
-
-    await Promise.all([
-      removeSavedSquirrelFortuneRanking(dateString),
-      removeIndex(dateString),
-      removeLock(),
-    ]);
   }).timeout(10000);
 });
 
 const removeSavedSquirrelFortuneRanking = async (dateString: string) => {
-  const snapshot = await firestore.collection(`squirrelFortuneRankings/${dateString}/birthMonthFortunes`).get();
-  const batch = firestore.batch();
-  snapshot.docs.forEach((doc) => batch.delete(doc.ref));
-  await batch.commit();
-  await firestore.collection("squirrelFortuneRankings").doc(dateString).delete();
+  await (new FirebaseFunctionsTestHelper(firestore)).deleteTestCollection(
+      `squirrelFortuneRankings/${dateString}/birthMonthFortunes`
+  );
+  await (new FirebaseFunctionsTestHelper(firestore)).deleteTestDocument({
+    collectionName: "squirrelFortuneRankings",
+    docPath: dateString,
+  });
 };
 
 const removeIndex = async (dateString: string) => {
-  await firestore.collection("indexes").doc(`/squirrelFortuneRanking/date/${dateString}`).delete();
+  await (new FirebaseFunctionsTestHelper(firestore)).deleteTestDocument({
+    collectionName: "indexes",
+    docPath: `/squirrelFortuneRanking/date/${dateString}`,
+  });
 };
 
 const removeLock = async () => {
-  const snapshot = await firestore.collection("squirrelFortuneRankingQueryLogs").get();
-  const batch = firestore.batch();
-  snapshot.docs.forEach((doc) => batch.delete(doc.ref));
-  await batch.commit();
+  await (new FirebaseFunctionsTestHelper(firestore)).deleteTestCollection("squirrelFortuneRankingQueryLogs");
 };
