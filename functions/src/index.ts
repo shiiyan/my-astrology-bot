@@ -1,7 +1,7 @@
 import * as functions from "firebase-functions";
 import * as firebaseAdmin from "firebase-admin";
 import helloWorldFunction from "./helloWorld";
-import boltAppReceiver from "./sukkirisuBot/sukkirisuBot";
+import boltAppReceiver from "./sukkirisuBot/sukkirisuBotFunction";
 import fetchSukkirisuFunction from "./sukkirisuFetcher/fetchSukkirisuFunction";
 import dotenv from "dotenv";
 
