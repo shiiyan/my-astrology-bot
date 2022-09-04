@@ -21,7 +21,7 @@
     "@shiiyan/sukkirisu-function-error": "^1.0.15",
     "@slack/bolt": "^3.11.3",
     "dotenv": "^16.0.1",
-    "firebase-admin": "^10.0.2",
+    "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.18.0",
     "jsdom": "^20.0.0",
     "moment": "^2.29.4",
