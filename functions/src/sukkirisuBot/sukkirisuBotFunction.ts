@@ -5,6 +5,7 @@ import { UseCaseFactory } from "./useCase/useCaseFactory";
 import { UseCaseSelector } from "./useCase/useCaseSelector";
 import { isCommandUseCase, isHelpUseCase, isQueryUseCase } from "./useCase/useCaseType";
 import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
+import { SameAppMentionEventFilter } from "./infrastructure/filter/sameAppMentionEventFilter";
 
 const functionConfig = functions.config();
 
@@ -24,6 +25,8 @@ export const sukkirisuBotFunction = async (
     { event, say }: { event: AppMentionEvent, say: SayFn }
 ): Promise<void> => {
   try {
+    await (new SameAppMentionEventFilter(firebaseAdmin.firestore())).filter(event);
+
     const { useCaseName, useCaseParam } = UseCaseSelector.select(event.text);
     if (!useCaseName) {
       await say("理解できませんでした。");

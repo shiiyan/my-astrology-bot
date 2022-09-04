@@ -20,5 +20,5 @@ describe("sukkirisuBotFunction", () => {
     say.calledOnce.should.be.true;
     say.calledWith("理解できませんでした。").should.be.true;
     // assert db log once
-  });
+  }).timeout(10000);
 });
