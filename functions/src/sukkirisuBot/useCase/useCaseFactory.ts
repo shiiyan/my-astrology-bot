@@ -51,7 +51,7 @@ export class UseCaseFactory {
             new SquirrelFortuneRankingFirestoreRepository(firestore)
         );
       case "ShowHelpMessage":
-        return new ShowHelpMessage(firestore);
+        return new ShowHelpMessage();
       default:
         throw new InvalidArgumentError(`No use case to create for given name ${useCaseName}`);
     }

@@ -22,7 +22,7 @@ export class PersonalSquirrelFortuneDtoInMemoryQueryService implements QueryServ
    * @return {*} {Promise<PersonalSquirrelFortuneDto[] | undefined>}
    * @memberof PersonalSquirrelFortuneDtoInMemoryQueryService
    */
-  fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[] | undefined> {
+  fetchAllByDate(date: Date): Promise<PersonalSquirrelFortuneDto[] | undefined> {
     const found = this.data.find(
         (fortuneWithDate) => fortuneWithDate.createDate.getTime() === date.getTime()
     );

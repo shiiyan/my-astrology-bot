@@ -31,7 +31,7 @@ export class PersonalSquirrelFortuneDtoFireStoreQueryService implements QuerySer
    * @return {*} {Promise<PersonalSquirrelFortuneDto[]>}
    * @memberof PersonalSquirrelFortuneDtoFireStoreQueryService
    */
-  async fetchAllByDateWithLock(date: Date): Promise<PersonalSquirrelFortuneDto[]> {
+  async fetchAllByDate(date: Date): Promise<PersonalSquirrelFortuneDto[]> {
     const { fortunesSnapShot, birthMonthProfilesSnapShot } = await this.database.runTransaction(
         async (transaction) => {
           // get fortunes snap shot.
@@ -46,14 +46,6 @@ export class PersonalSquirrelFortuneDtoFireStoreQueryService implements QuerySer
           const birthMonthProfilesRef = this.database
               .collection("birthMonthProfiles");
           const birthMonthProfilesSnapShot = await transaction.get(birthMonthProfilesRef);
-
-          // ensure same query can only perform once per half hour.
-          const halfHour = Number(moment().format("m")) > 30 ? "30" : "00";
-          const currentHour = moment().format("YYYY-MM-DD HH");
-          const logsRef = this.database
-              .collection("personalSqiurrelFortuneQueryServiceLogs")
-              .doc(currentHour + ":" + halfHour);
-          transaction.create(logsRef, { method: "fetchAllByDateWithLock" });
 
           return { fortunesSnapShot, birthMonthProfilesSnapShot };
         });

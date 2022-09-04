@@ -44,7 +44,7 @@ export class GetSquirrelFortuneRankingForToday implements AppMentionQueryUseCase
    */
   async run(): Promise<SquirrelFortuneRanking | undefined> {
     const now = new Date();
-    const found = await this.repository.findByCreateDateWithLock(now);
+    const found = await this.repository.findByCreateDate(now);
     return found;
   }
 }

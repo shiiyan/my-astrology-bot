@@ -57,7 +57,7 @@ export const sukkirisuBotFunction = async (
     }
 
     if (isHelpUseCase(useCase)) {
-      const message = await useCase.getHelpMessage();
+      const message = useCase.getHelpMessage();
       await say(message);
     }
 

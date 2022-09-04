@@ -18,7 +18,7 @@ export class SquirrelFortuneRankingInMemoryRepository implements SquirrelFortune
    * @return {*} {(Promise<SquirrelFortuneRanking | undefined>)}
    * @memberof SquirrelFortuneRankingInMemoryRepository
    */
-  findByCreateDateWithLock(date: Date): Promise<SquirrelFortuneRanking | undefined> {
+  findByCreateDate(date: Date): Promise<SquirrelFortuneRanking | undefined> {
     const found = this.data.find(
         (squirrelFortuneRanking) => squirrelFortuneRanking.getCreateDate().getTime() === date.getTime()
     );

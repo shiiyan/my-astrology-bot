@@ -1,3 +1,4 @@
+/* eslint-disable no-invalid-this */
 import * as firebaseAdmin from "firebase-admin";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
@@ -11,7 +12,9 @@ chai.should();
 
 const firestore = firebaseAdmin.firestore();
 
-describe("squirrelFortuneRankingFirestoreRepository", () => {
+describe("squirrelFortuneRankingFirestoreRepository", function() {
+  (this as unknown as Mocha.Suite).timeout(10000);
+
   const squirrelFortuneRanking = SquirrelFortuneRankingFactory.build();
   const dateString = moment(squirrelFortuneRanking.getCreateDate()).format("YYYY-MM-DD");
 
@@ -20,16 +23,14 @@ describe("squirrelFortuneRankingFirestoreRepository", () => {
     await Promise.all([
       removeSavedSquirrelFortuneRanking(dateString),
       removeIndex(dateString),
-      removeLock(),
     ]);
-    return;
   });
 
   it("should save when SquirrelFortuneRanking is provided", async () => {
     const repository = new SquirrelFortuneRankingFirestoreRepository(firestore);
     await repository.save(squirrelFortuneRanking);
 
-    const found = await repository.findByCreateDateWithLock(squirrelFortuneRanking.getCreateDate());
+    const found = await repository.findByCreateDate(squirrelFortuneRanking.getCreateDate());
 
     found?.should.be.instanceOf(SquirrelFortuneRanking);
     found?.should.have.property("createDate");
@@ -40,7 +41,7 @@ describe("squirrelFortuneRankingFirestoreRepository", () => {
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((month) => {
       found?.getAllMonthFortunes().should.deep.include(squirrelFortuneRanking.getFortuneByBirthMonth(month));
     });
-  }).timeout(10000);
+  });
 });
 
 const removeSavedSquirrelFortuneRanking = async (dateString: string) => {
@@ -58,8 +59,4 @@ const removeIndex = async (dateString: string) => {
     collectionName: "indexes",
     docPath: `/squirrelFortuneRanking/date/${dateString}`,
   });
-};
-
-const removeLock = async () => {
-  await (new FirebaseFunctionsTestHelper(firestore)).deleteTestCollection("squirrelFortuneRankingQueryLogs");
 };
