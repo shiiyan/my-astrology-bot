@@ -6,9 +6,10 @@ const pubsubClient = new PubSub();
 
 const publishMessage = async (): Promise<void> => {
   try {
+    const dataBuffer: Buffer = Buffer.from("Hello, world!");
     const messageId = await pubsubClient
         .topic(topicName)
-        .publishMessage({ data: "Hello, world!" });
+        .publishMessage({ data: dataBuffer });
     functions.logger.info(`Message ${messageId} published.`);
   } catch (e) {
     functions.logger.error(e);
