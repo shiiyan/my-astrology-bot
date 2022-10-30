@@ -6,11 +6,16 @@ import { UseCaseSelector } from "./useCase/useCaseSelector";
 import { isCommandUseCase, isHelpUseCase, isQueryUseCase } from "./useCase/useCaseType";
 import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
 import { SameAppMentionEventFilter } from "./infrastructure/filter/sameAppMentionEventFilter";
+import { PubSub } from "@google-cloud/pubsub";
+import { SelfIntroduce } from "./useCase/selfIntroduce/selfIntroduce";
 
 const functionConfig = functions.config();
 
+const pubsubClient = new PubSub();
+
 const boltAppReceiver = new ExpressReceiver({
-  signingSecret: functionConfig.slack?.signing_secret ?? "not available",
+  // TODO: refactor move to functionConfig Object.
+  signingSecret: functionConfig.slack?.signing_secret ?? "not_available",
   endpoints: "/events",
   processBeforeResponse: true,
 });
@@ -25,14 +30,19 @@ export const sukkirisuBotFunction = async (
     { event, say }: { event: AppMentionEvent, say: SayFn }
 ): Promise<void> => {
   try {
-    await (new SameAppMentionEventFilter(firebaseAdmin.firestore())).filter(event);
-
     const { useCaseName, useCaseParam } = UseCaseSelector.select(event.text);
     if (!useCaseName) {
-      await say("理解できませんでした。");
+      say("理解できませんでした。");
       return;
     }
 
+    if (SelfIntroduce.confirmUseCase(useCaseName)) {
+      (new SelfIntroduce(pubsubClient, functions.logger)).execute(event);
+      say("かしこまりました。");
+      return;
+    }
+
+    await (new SameAppMentionEventFilter(firebaseAdmin.firestore())).filter(event);
     const useCase = UseCaseFactory.create({
       useCaseName: useCaseName,
       firestore: firebaseAdmin.firestore(),
