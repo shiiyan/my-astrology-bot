@@ -8,7 +8,8 @@ const topicName = "projects/sukkirisu-d6ac0/topics/my-hello-world";
 const pubsubClient = new PubSub();
 
 const boltApp = new BoltApp({
-  token: functionConfig.slack?.hellow_world_bot_toke ?? "not_available",
+  token: functionConfig.slack?.hello_world_bot_token,
+  signingSecret: functionConfig.slack?.hello_world_signing_secret,
 });
 
 const publishMessageToPubSub = async (): Promise<void> => {
@@ -25,7 +26,7 @@ const publishMessageToPubSub = async (): Promise<void> => {
 
 const postMessageToSlack = () => {
   boltApp.client.chat.postMessage({
-    channel: "C03KUJE7M71",
+    channel: functionConfig.slack?.hello_world_channel_id,
     text: "Hello from cloud function",
   });
 };
