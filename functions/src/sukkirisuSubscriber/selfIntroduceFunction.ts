@@ -3,8 +3,8 @@ import { App as BoltApp } from "@slack/bolt";
 
 const functionConfig = functions.config();
 const boltApp = new BoltApp({
-  token: functionConfig.slack.bot_token,
-  signingSecret: functionConfig.slack.signing_secret,
+  token: functionConfig.slack?.bot_token ?? "not_available",
+  signingSecret: functionConfig.slack?.signing_secret ?? "not_available",
 });
 
 type MessageBody = {
