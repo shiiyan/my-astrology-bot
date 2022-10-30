@@ -3,6 +3,15 @@ import { UseCaseSelector } from "./useCaseSelector";
 should();
 
 describe("UseCaseSelector", () => {
+  it("should return show help message use case when japanese message is provided", () => {
+    const message = "自己紹介してください";
+    const result = UseCaseSelector.select(message);
+
+    result.should.be.a("object");
+    result.should.have.property("useCaseName").equals("SelfIntroduce");
+    result.should.have.property("useCaseParam").be.undefined;
+  });
+
   it("should return save birth month profile use case when correct message is provided", () => {
     const message = "abcは12月生まれ";
     const result = UseCaseSelector.select(message);
