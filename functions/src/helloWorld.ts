@@ -1,10 +1,17 @@
 import * as functions from "firebase-functions";
 import { PubSub } from "@google-cloud/pubsub";
+import { App as BoltApp } from "@slack/bolt";
+
+const functionConfig = functions.config();
 
 const topicName = "projects/sukkirisu-d6ac0/topics/my-hello-world";
 const pubsubClient = new PubSub();
 
-const publishMessage = async (): Promise<void> => {
+const boltApp = new BoltApp({
+  token: functionConfig.slack?.hellow_world_bot_toke ?? "not_available",
+});
+
+const publishMessageToPubSub = async (): Promise<void> => {
   try {
     const dataBuffer: Buffer = Buffer.from("Hello, world!");
     const messageId = await pubsubClient
@@ -16,12 +23,20 @@ const publishMessage = async (): Promise<void> => {
   }
 };
 
+const postMessageToSlack = () => {
+  boltApp.client.chat.postMessage({
+    channel: "C03KUJE7M71",
+    text: "Hello from cloud function",
+  });
+};
+
 const helloWorldFunction = (
     _request: functions.https.Request,
     response: functions.Response
 ) => {
   functions.logger.info("Hello logs!", { structuredData: true });
-  publishMessage();
+  publishMessageToPubSub();
+  postMessageToSlack();
   response.send("Hello from cloud function");
 };
 
