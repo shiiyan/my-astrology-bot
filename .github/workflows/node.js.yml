@@ -50,4 +50,5 @@ jobs:
       - run: npm run test:nyan
 
       - name: Remove service account key file of sukkirisu test
+        if: always()
         run: unlink $HOME/service_account_key_of_sukkirisu_test.json
