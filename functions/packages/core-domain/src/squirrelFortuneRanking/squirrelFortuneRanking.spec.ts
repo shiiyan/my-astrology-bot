@@ -40,7 +40,7 @@ describe("SquirrelFortuneRanking", () => {
     const list: BirthMonthFortune[] = createAllMonthBirthMonthFortunes();
     const reconstructed = SquirrelFortuneRanking.reconstruct(createDate, list);
 
-    reconstructed.should.be.instanceOf(SquirrelFortuneRanking);
+    reconstructed.should.be.instanceOf(Array);
     reconstructed.should.have.property("createDate");
     reconstructed.should.have.property("createDate").be.instanceOf(Date);
     reconstructed.getCreateDate().getTime().should.equal(createDate.getTime());
@@ -54,7 +54,7 @@ describe("SquirrelFortuneRanking", () => {
 
     const getResult = fortuneRanking.getFortuneByRank(1);
 
-    getResult.should.have.property("birthMonth").equals(999);
+    getResult.should.have.property("birthMonth").equals(8);
     getResult.should.have.property("rank").equals(1);
     getResult.should.have.property("comment").equals("マンネリから抜け出し新鮮な気分で興味のある事に挑戦しよう");
     getResult.should.have.property("luckyColor").equals("オレンジ");
