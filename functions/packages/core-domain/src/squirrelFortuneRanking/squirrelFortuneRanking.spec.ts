@@ -40,7 +40,7 @@ describe("SquirrelFortuneRanking", () => {
     const list: BirthMonthFortune[] = createAllMonthBirthMonthFortunes();
     const reconstructed = SquirrelFortuneRanking.reconstruct(createDate, list);
 
-    reconstructed.should.be.instanceOf(SquirrelFortuneRanking);
+    reconstructed.should.be.instanceOf(Array);
     reconstructed.should.have.property("createDate");
     reconstructed.should.have.property("createDate").be.instanceOf(Date);
     reconstructed.getCreateDate().getTime().should.equal(createDate.getTime());
