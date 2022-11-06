@@ -7,7 +7,7 @@ import { isCommandUseCase, isHelpUseCase, isQueryUseCase } from "./useCase/useCa
 import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
 import { SameAppMentionEventFilter } from "./infrastructure/filter/sameAppMentionEventFilter";
 import { PubSub } from "@google-cloud/pubsub";
-import { SelfIntroduce } from "./useCase/selfIntroduce/selfIntroduce";
+import { CommandFactory } from "./command/commandFactory";
 
 const functionConfig = functions.config();
 
@@ -30,15 +30,26 @@ export const sukkirisuBotFunction = async (
     { event, say }: { event: AppMentionEvent, say: SayFn }
 ): Promise<void> => {
   try {
-    const { useCaseName, useCaseParam } = UseCaseSelector.select(event.text);
-    if (!useCaseName) {
-      say("理解できませんでした。");
+    const command = CommandFactory.make(event);
+
+    if (command) {
+      const dataBuffer = Buffer.from(JSON.stringify({
+        channel: command.getChannelId(),
+      }));
+      const messageId = await pubsubClient
+          .topic(functionConfig.pubsub.topic_prefix.concat(command.getTopic()))
+          .publishMessage({ data: dataBuffer });
+      functions.logger.info(`Message ${messageId} of topic ${command.getTopic()} published.`);
+
+      say("かしこまりました。");
+
       return;
     }
 
-    if (SelfIntroduce.confirmUseCase(useCaseName)) {
-      (new SelfIntroduce(pubsubClient, functions.logger)).execute(event);
-      say("かしこまりました。");
+    // TODO: lines of code below are to be removed.
+    const { useCaseName, useCaseParam } = UseCaseSelector.select(event.text);
+    if (!useCaseName) {
+      say("理解できませんでした。");
       return;
     }
 
