@@ -6,11 +6,9 @@ import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
 import { GetAllPersonalSquirrelFortuneForToday }
   from "./personalSquirrelFortune/getAllPersonalSquirrelFortuneForToday";
-
 import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
 import { UseCaseFactory } from "./useCaseFactory";
 import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
-import { ShowHelpMessage } from "./showHelpMessage/showHelpMessage";
 should();
 
 describe("UseCaseFactory", () => {
@@ -50,15 +48,6 @@ describe("UseCaseFactory", () => {
     });
 
     created.should.be.an.instanceOf(SaveDummySquirrelFortuneRanking);
-  });
-
-  it("should create correct use case given use case name ShowHelpMessage", () => {
-    const created = UseCaseFactory.create({
-      useCaseName: "ShowHelpMessage",
-      firestore: stubFirestore,
-    });
-
-    created.should.be.an.instanceOf(ShowHelpMessage);
   });
 
   it("should throw error when no use case to create", () => {

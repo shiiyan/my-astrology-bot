@@ -1,6 +1,5 @@
 import { AppMentionCommandUseCaseInterface } from "./appMentionCommandUseCaseInterface";
 import { AppMentionQueryUseCaseInterface } from "./appMentionQueryUseCaseInterface";
-import { ShowHelpMessage } from "./showHelpMessage/showHelpMessage";
 
 export enum UseCaseType {
     Command = "command",
@@ -12,11 +11,11 @@ export enum UseCaseType {
  * Check whether use case is a command use case.
  *
  * @export
- * @param {AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage} useCase
+ * @param {AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface} useCase
  * @return {*} {useCase is AppMentionCommandUseCaseInterface}
  */
 export function isCommandUseCase(
-    useCase: AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage
+    useCase: AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface
 ): useCase is AppMentionCommandUseCaseInterface {
   return useCase.metaInfo.type === UseCaseType.Command;
 }
@@ -25,24 +24,11 @@ export function isCommandUseCase(
  * Check whether use case is a query use case.
  *
  * @export
- * @param {AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage} useCase
+ * @param {AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface} useCase
  * @return {*} {useCase is AppMentionQueryUseCaseInterface}
  */
 export function isQueryUseCase(
-    useCase: AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage
+    useCase: AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface
 ): useCase is AppMentionQueryUseCaseInterface {
   return useCase.metaInfo.type === UseCaseType.Query;
-}
-
-/**
- * Check whether use case is a query use case.
- *
- * @export
- * @param {AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage} useCase
- * @return {*} {useCase is ShowHelpMessage}
- */
-export function isHelpUseCase(
-    useCase: AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface | ShowHelpMessage
-): useCase is ShowHelpMessage {
-  return useCase.metaInfo.type === UseCaseType.Help;
 }

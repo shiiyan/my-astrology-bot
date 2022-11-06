@@ -1,10 +1,11 @@
 import * as functions from "firebase-functions";
 import * as firebaseAdmin from "firebase-admin";
+import dotenv from "dotenv";
 import helloWorldFunction from "./helloWorld";
 import boltAppReceiver from "./sukkirisuBot/sukkirisuBotFunction";
 import fetchSukkirisuFunction from "./sukkirisuFetcher/fetchSukkirisuFunction";
 import selfIntroduceFunction from "./sukkirisuSubscriber/selfIntroduceFunction";
-import dotenv from "dotenv";
+import showHelpMessageFunction from "./sukkirisuSubscriber/showHelpMessageFunction";
 
 dotenv.config();
 firebaseAdmin.initializeApp();
@@ -27,3 +28,8 @@ export const sukkirisuBotSelfIntroduce = functions
     .pubsub
     .topic("sukkirisu-bot-self-introduce")
     .onPublish(selfIntroduceFunction);
+
+export const sukkirisuBotShowHelpMessage = functions
+    .pubsub
+    .topic("sukkirisu-bot-show-help-message")
+    .onPublish(showHelpMessageFunction);

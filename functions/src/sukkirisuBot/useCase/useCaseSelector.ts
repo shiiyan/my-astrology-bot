@@ -20,22 +20,6 @@ export class UseCaseSelector {
   public static select(eventMessage: string): SelectResult {
     let matchedGroups: {[key: string]: string} | undefined;
 
-    matchedGroups = eventMessage.match(/(?<selfIntroduce>自己紹介)/)?.groups;
-    if (matchedGroups?.selfIntroduce) {
-      return {
-        useCaseName: "SelfIntroduce",
-        useCaseParam: undefined,
-      };
-    }
-
-    matchedGroups = eventMessage.match(/(?<help>help|ヘルプ)/)?.groups;
-    if (matchedGroups?.help) {
-      return {
-        useCaseName: "ShowHelpMessage",
-        useCaseParam: undefined,
-      };
-    }
-
     matchedGroups = eventMessage.match(/(?<name>[\w]+)は(?<month>[0-9]{1,2})月生まれ/)?.groups;
     if (matchedGroups?.name && matchedGroups?.month) {
       const birthMonthProfile = {
