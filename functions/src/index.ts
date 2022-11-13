@@ -6,6 +6,8 @@ import boltAppReceiver from "./sukkirisuBot/sukkirisuBotFunction";
 import fetchSukkirisuFunction from "./sukkirisuFetcher/fetchSukkirisuFunction";
 import selfIntroduceFunction from "./sukkirisuSubscriber/selfIntroduceFunction";
 import showHelpMessageFunction from "./sukkirisuSubscriber/showHelpMessageFunction";
+import getPersonalSquirrelFortuneFunction
+  from "./sukkirisuSubscriber/getPersonalSquirrelFortune/getPersonalSquirrelFortuneFunction";
 
 dotenv.config();
 firebaseAdmin.initializeApp();
@@ -33,3 +35,8 @@ export const sukkirisuBotShowHelpMessage = functions
     .pubsub
     .topic("sukkirisu-bot-show-help-message")
     .onPublish(showHelpMessageFunction);
+
+export const sukkirisuBotGetPersonalSquirrelFortune = functions
+    .pubsub
+    .topic("sukkirisu-bot-get-personal-squirrel-fortune")
+    .onPublish(getPersonalSquirrelFortuneFunction);
