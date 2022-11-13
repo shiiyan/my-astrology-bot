@@ -1,6 +1,6 @@
 import { should } from "chai";
 import { CommandFactory } from "./commandFactory";
-import { GetPersonalSquirrelFortuneCommand } from "./GetPersonalSquirrelFortuneCommand";
+import { GetPersonalSquirrelFortuneCommand } from "./getPersonalSquirrelFortuneCommand";
 import { SelfIntroduceCommand } from "./selfIntroduceCommand";
 import { ShowHelpMessageCommand } from "./showHelpMessageCommand";
 should();

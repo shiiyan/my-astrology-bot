@@ -1,6 +1,6 @@
 import { AppMentionEvent } from "@slack/bolt";
 import { CommandInterface } from "./commandInterface";
-import { GetPersonalSquirrelFortuneCommand } from "./GetPersonalSquirrelFortuneCommand";
+import { GetPersonalSquirrelFortuneCommand } from "./getPersonalSquirrelFortuneCommand";
 import { SelfIntroduceCommand } from "./selfIntroduceCommand";
 import { ShowHelpMessageCommand } from "./showHelpMessageCommand";
 
