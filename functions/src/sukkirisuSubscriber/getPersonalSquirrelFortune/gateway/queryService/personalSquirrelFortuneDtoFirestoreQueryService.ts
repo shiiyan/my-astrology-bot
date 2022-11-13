@@ -62,6 +62,10 @@ export class PersonalSquirrelFortuneDtoFireStoreQueryService implements QuerySer
       allMonthFortunes.push(singleMonthFortune);
     });
 
+    if (allMonthFortunes.length === 0) {
+      return [];
+    }
+
     const squirrelFortuneRanking = SquirrelFortuneRanking.reconstruct(date, allMonthFortunes);
     const personalSquirrelFortunes: PersonalSquirrelFortuneDto[] = [];
     birthMonthProfilesSnapShot.forEach((birthMonthProfile) => {

@@ -22,12 +22,12 @@ export class PersonalSquirrelFortuneDtoInMemoryQueryService implements QueryServ
    * @return {*} {Promise<PersonalSquirrelFortuneDto[] | undefined>}
    * @memberof PersonalSquirrelFortuneDtoInMemoryQueryService
    */
-  fetchAllByDate(date: Date): Promise<PersonalSquirrelFortuneDto[] | undefined> {
+  fetchAllByDate(date: Date): Promise<PersonalSquirrelFortuneDto[]> {
     const found = this.data.find(
         (fortuneWithDate) => fortuneWithDate.createDate.getTime() === date.getTime()
     );
 
-    return new Promise((resolve) => resolve(found?.personalSquirrelFortunes));
+    return new Promise((resolve) => resolve(found?.personalSquirrelFortunes ?? []));
   }
 
   /**

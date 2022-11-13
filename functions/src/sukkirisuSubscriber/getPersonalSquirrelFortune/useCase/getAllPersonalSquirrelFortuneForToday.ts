@@ -43,7 +43,7 @@ export class GetAllPersonalSquirrelFortuneForToday {
     const now = new Date();
     const found = await this.queryService.fetchAllByDate(now);
 
-    return found ?
+    return found.length !== 0 ?
      this.messageBuilder.build(found) :
      this.messageBuilder.buildFailure(this.metaInfo.message.failure);
   }
