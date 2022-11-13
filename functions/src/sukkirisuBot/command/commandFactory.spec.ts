@@ -1,5 +1,6 @@
 import { should } from "chai";
 import { CommandFactory } from "./commandFactory";
+import { GetPersonalSquirrelFortuneCommand } from "./GetPersonalSquirrelFortuneCommand";
 import { SelfIntroduceCommand } from "./selfIntroduceCommand";
 import { ShowHelpMessageCommand } from "./showHelpMessageCommand";
 should();
@@ -30,6 +31,20 @@ describe("CommandFactory", () => {
 
     command.should.be.an.instanceOf(ShowHelpMessageCommand);
   });
+
+  it("should make get personal squirrel fortune command given correct message", () => {
+    const command = CommandFactory.make({
+      type: "app_mention",
+      username: "test_user",
+      text: "個人スッキりす",
+      ts: "current",
+      channel: "channel_mocha",
+      event_ts: "current",
+    }) ?? false;
+
+    command.should.be.an.instanceOf(GetPersonalSquirrelFortuneCommand);
+  });
+
 
   it("should return undefined when no command to make", () => {
     const command = CommandFactory.make({

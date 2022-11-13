@@ -1,5 +1,6 @@
 import { AppMentionEvent } from "@slack/bolt";
 import { CommandInterface } from "./commandInterface";
+import { GetPersonalSquirrelFortuneCommand } from "./GetPersonalSquirrelFortuneCommand";
 import { SelfIntroduceCommand } from "./selfIntroduceCommand";
 import { ShowHelpMessageCommand } from "./showHelpMessageCommand";
 
@@ -25,6 +26,11 @@ export class CommandFactory {
     matchedGroups = event.text.match(/(?<help>help|ヘルプ)/)?.groups;
     if (matchedGroups?.help) {
       return new ShowHelpMessageCommand(event);
+    }
+
+    matchedGroups = event.text.match(/(?<personalSquirrelFortune>個人スッキりす)/)?.groups;
+    if (matchedGroups?.personalSquirrelFortune) {
+      return new GetPersonalSquirrelFortuneCommand(event);
     }
 
     return;
