@@ -9,9 +9,6 @@ import { AppMentionQueryUseCaseInterface } from "./appMentionQueryUseCaseInterfa
 import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
 import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
-import { GetAllPersonalSquirrelFortuneForToday } from "./personalSquirrelFortune/getAllPersonalSquirrelFortuneForToday";
-import { PersonalSquirrelFortuneDtoFireStoreQueryService }
-  from "../infrastructure/queryService/personalSquirrelFortuneDtoFirestoreQueryService";
 import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
 
 export type CreateParam = {
@@ -40,10 +37,6 @@ export class UseCaseFactory {
       case "GetSquirrelFortuneRankingForToday":
         return new GetSquirrelFortuneRankingForToday(
             new SquirrelFortuneRankingFirestoreRepository(firestore)
-        );
-      case "GetAllPersonalSquirrelFortuneForToday":
-        return new GetAllPersonalSquirrelFortuneForToday(
-            new PersonalSquirrelFortuneDtoFireStoreQueryService(firestore)
         );
       case "SaveDummySquirrelFortuneRanking":
         return new SaveDummySquirrelFortuneRanking(

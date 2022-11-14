@@ -4,8 +4,6 @@ import { stubInterface } from "ts-sinon";
 import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
-import { GetAllPersonalSquirrelFortuneForToday }
-  from "./personalSquirrelFortune/getAllPersonalSquirrelFortuneForToday";
 import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
 import { UseCaseFactory } from "./useCaseFactory";
 import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
@@ -30,15 +28,6 @@ describe("UseCaseFactory", () => {
     });
 
     created.should.be.an.instanceOf(GetSquirrelFortuneRankingForToday);
-  });
-
-  it("should create correct use case given use case name GetAllPersonalSquirrelFortuneForToday", () => {
-    const created = UseCaseFactory.create({
-      useCaseName: "GetAllPersonalSquirrelFortuneForToday",
-      firestore: stubFirestore,
-    });
-
-    created.should.be.an.instanceOf(GetAllPersonalSquirrelFortuneForToday);
   });
 
   it("should create correct use case given use case name SaveDummySquirrelFortuneRanking", () => {

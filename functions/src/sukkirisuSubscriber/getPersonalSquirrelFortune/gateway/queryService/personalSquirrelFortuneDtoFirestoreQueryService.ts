@@ -1,9 +1,9 @@
 import { firestore } from "firebase-admin";
 import moment from "moment";
 import { BirthMonthFortune, SquirrelFortuneRanking } from "@shiiyan/sukkirisu-function-core-domain";
-import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
-  from "../../../../sukkirisuBot/useCase/personalSquirrelFortune/personalSquirrelFortuneDtoQueryServiceInterface";
 import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
+  from "../../useCase/personalSquirrelFortuneDtoQueryServiceInterface";
 
 /**
  * @export

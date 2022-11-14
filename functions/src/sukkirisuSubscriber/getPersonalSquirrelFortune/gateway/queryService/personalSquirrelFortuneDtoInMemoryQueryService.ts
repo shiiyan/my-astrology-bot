@@ -1,6 +1,7 @@
-import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
-  from "../../../../sukkirisuBot/useCase/personalSquirrelFortune/personalSquirrelFortuneDtoQueryServiceInterface";
+
 import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortuneDto";
+import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
+  from "../../useCase/personalSquirrelFortuneDtoQueryServiceInterface";
 
 type FortunesWithDate = {
     createDate: Date,

@@ -25,15 +25,6 @@ describe("UseCaseSelector", () => {
     result.should.have.property("useCaseParam").be.undefined;
   });
 
-  it("should return get personal fortune ranking for all use case when correct message is provided", () => {
-    const message = "今日の個人スッキりすランキングを教えて";
-    const result = UseCaseSelector.select(message);
-
-    result.should.be.a("object");
-    result.should.have.property("useCaseName").equals("GetAllPersonalSquirrelFortuneForToday");
-    result.should.have.property("useCaseParam").be.undefined;
-  });
-
   it("should return save dummy squirrel fortune ranking use case when correct message is provided", () => {
     const message = "テストデータを生成して";
     const result = UseCaseSelector.select(message);

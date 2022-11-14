@@ -1,10 +1,7 @@
 import { SquirrelFortuneRanking } from "@shiiyan/sukkirisu-function-core-domain";
-import { PersonalSquirrelFortuneDto } from "./personalSquirrelFortune/personalSquirrelFortuneDto";
 import { UseCaseType } from "./useCaseType";
 
-export type AppMentionQueryResult = SquirrelFortuneRanking
-    | PersonalSquirrelFortuneDto[]
-    | undefined;
+export type AppMentionQueryResult = SquirrelFortuneRanking | undefined;
 
 export interface AppMentionQueryUseCaseInterface {
     metaInfo: {
