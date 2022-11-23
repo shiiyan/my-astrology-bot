@@ -35,6 +35,7 @@ export const sukkirisuBotFunction = async (
     if (command) {
       const dataBuffer = Buffer.from(JSON.stringify({
         channel: command.getChannelId(),
+        detail: command.getDetail(),
       }));
       const messageId = await pubsubClient
           .topic(functionConfig.pubsub.topic_prefix.concat(command.getTopic()))
