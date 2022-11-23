@@ -4,22 +4,12 @@ import { stubInterface } from "ts-sinon";
 import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
-import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
 import { UseCaseFactory } from "./useCaseFactory";
 import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
 should();
 
 describe("UseCaseFactory", () => {
   const stubFirestore = stubInterface<firestore.Firestore>();
-
-  it("should create correct use case given use case name SaveBirthMonthProfile", () => {
-    const created = UseCaseFactory.create({
-      useCaseName: "SaveBirthMonthProfile",
-      firestore: stubFirestore,
-    });
-
-    created.should.be.an.instanceOf(SaveBirthMonthProfile);
-  });
 
   it("should create correct use case given use case name GetSquirrelFortuneRankingForToday", () => {
     const created = UseCaseFactory.create({

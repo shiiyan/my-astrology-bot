@@ -1,14 +1,11 @@
 import { firestore } from "firebase-admin";
 import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
-import { BirthMonthProfileFirestoreRepository }
-  from "../infrastructure/repository/birthMonthProfileFirestoreRepository";
 import { SquirrelFortuneRankingFirestoreRepository }
   from "../infrastructure/repository/squirrelFortuneRankingFirestoreRepository";
 import { AppMentionCommandUseCaseInterface } from "./appMentionCommandUseCaseInterface";
 import { AppMentionQueryUseCaseInterface } from "./appMentionQueryUseCaseInterface";
 import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
-import { SaveBirthMonthProfile } from "./saveBirthMonthProfile/saveBirthMonthProfile";
 import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
 
 export type CreateParam = {
@@ -30,10 +27,6 @@ export class UseCaseFactory {
       { useCaseName, firestore }: CreateParam
   ): AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface {
     switch (useCaseName) {
-      case "SaveBirthMonthProfile":
-        return new SaveBirthMonthProfile(
-            new BirthMonthProfileFirestoreRepository(firestore)
-        );
       case "GetSquirrelFortuneRankingForToday":
         return new GetSquirrelFortuneRankingForToday(
             new SquirrelFortuneRankingFirestoreRepository(firestore)

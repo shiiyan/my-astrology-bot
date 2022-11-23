@@ -48,7 +48,7 @@ export const sukkirisuBotFunction = async (
     }
 
     // TODO: lines of code below are to be removed.
-    const { useCaseName, useCaseParam } = UseCaseSelector.select(event.text);
+    const { useCaseName } = UseCaseSelector.select(event.text);
     if (!useCaseName) {
       say("理解できませんでした。");
       return;
@@ -63,7 +63,7 @@ export const sukkirisuBotFunction = async (
     functions.logger.info("Starting ", useCase.metaInfo.description.english);
 
     if (isCommandUseCase(useCase)) {
-      await useCase.execute(useCaseParam);
+      await useCase.execute();
       await say(useCase.metaInfo.message.success);
     }
 

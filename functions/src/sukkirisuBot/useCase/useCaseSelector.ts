@@ -1,8 +1,6 @@
-import { AppMentionUseCaseExecuteParam } from "./appMentionCommandUseCaseInterface";
-
 declare type SelectResult = {
     useCaseName?: string,
-    useCaseParam?: AppMentionUseCaseExecuteParam
+    useCaseParam?: undefined
   }
 
 /**
@@ -19,19 +17,6 @@ export class UseCaseSelector {
    */
   public static select(eventMessage: string): SelectResult {
     let matchedGroups: {[key: string]: string} | undefined;
-
-    matchedGroups = eventMessage.match(/(?<name>[\w]+)は(?<month>[0-9]{1,2})月生まれ/)?.groups;
-    if (matchedGroups?.name && matchedGroups?.month) {
-      const birthMonthProfile = {
-        name: String(matchedGroups.name),
-        birthMonth: Number(matchedGroups.month),
-      };
-
-      return {
-        useCaseName: "SaveBirthMonthProfile",
-        useCaseParam: birthMonthProfile,
-      };
-    }
 
     matchedGroups = eventMessage.match(/(?<fortune>スッキりす)/)?.groups;
     if (matchedGroups?.fortune) {
