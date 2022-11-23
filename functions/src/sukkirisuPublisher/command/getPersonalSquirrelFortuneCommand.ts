@@ -22,7 +22,7 @@ export class GetPersonalSquirrelFortuneCommand implements CommandInterface {
 
   /**
    * @return {*}  {string}
-   * @memberof SelfIntroduceCommand
+   * @memberof GetPersonalSquirrelFortuneCommand
    */
   getTopic(): string {
     return this.topic;
@@ -30,7 +30,7 @@ export class GetPersonalSquirrelFortuneCommand implements CommandInterface {
 
   /**
    * @return {*}  {string}
-   * @memberof SelfIntroduceCommand
+   * @memberof GetPersonalSquirrelFortuneCommand
    */
   getChannelId(): string {
     return this.channelId;
@@ -38,7 +38,7 @@ export class GetPersonalSquirrelFortuneCommand implements CommandInterface {
 
   /**
    * @return {*}  {(object | null)}
-   * @memberof SelfIntroduceCommand
+   * @memberof GetPersonalSquirrelFortuneCommand
    */
   getDetail(): object | null {
     return null;

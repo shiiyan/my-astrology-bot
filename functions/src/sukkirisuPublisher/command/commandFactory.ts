@@ -1,5 +1,6 @@
 import { AppMentionEvent } from "@slack/bolt";
 import { CommandInterface } from "./commandInterface";
+import { GetAnonymousSquirrelFortuneCommand } from "./getAnonymousSquirrelFortuneCommand";
 import { GetPersonalSquirrelFortuneCommand } from "./getPersonalSquirrelFortuneCommand";
 import { SaveBirthMonthProfileCommand } from "./saveBirthMonthProfileCommand";
 import { SelfIntroduceCommand } from "./selfIntroduceCommand";
@@ -29,8 +30,15 @@ export class CommandFactory {
       return new ShowHelpMessageCommand(event);
     }
 
-    matchedGroups = event.text.match(/(?<personalSquirrelFortune>個人スッキりす)/)?.groups;
-    if (matchedGroups?.personalSquirrelFortune) {
+    // Named Capture Group personal (?<personal>(?:個人)?)
+    // Non-capturing group (?:個人)? between zero and one times.
+    // Named Capture Group fortune (?<fortune>スッキりす)
+    matchedGroups = event.text.match(/(?<personal>(?:個人)?)(?<fortune>スッキりす)/)?.groups;
+    if (!matchedGroups?.personal && matchedGroups?.fortune) {
+      return new GetAnonymousSquirrelFortuneCommand(event);
+    }
+
+    if (matchedGroups?.personal && matchedGroups?.fortune) {
       return new GetPersonalSquirrelFortuneCommand(event);
     }
 

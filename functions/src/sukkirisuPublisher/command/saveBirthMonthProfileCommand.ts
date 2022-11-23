@@ -32,7 +32,7 @@ export class SaveBirthMonthProfileCommand implements CommandInterface {
 
   /**
    * @return {*}  {string}
-   * @memberof SelfIntroduceCommand
+   * @memberof SaveBirthMonthProfileCommand
    */
   getTopic(): string {
     return this.topic;
@@ -40,7 +40,7 @@ export class SaveBirthMonthProfileCommand implements CommandInterface {
 
   /**
    * @return {*}  {string}
-   * @memberof SelfIntroduceCommand
+   * @memberof SaveBirthMonthProfileCommand
    */
   getChannelId(): string {
     return this.channelId;

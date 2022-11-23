@@ -1,5 +1,6 @@
 import { should } from "chai";
 import { CommandFactory } from "./commandFactory";
+import { GetAnonymousSquirrelFortuneCommand } from "./getAnonymousSquirrelFortuneCommand";
 import { GetPersonalSquirrelFortuneCommand } from "./getPersonalSquirrelFortuneCommand";
 import { SaveBirthMonthProfileCommand } from "./saveBirthMonthProfileCommand";
 import { SelfIntroduceCommand } from "./selfIntroduceCommand";
@@ -61,6 +62,18 @@ describe("CommandFactory", () => {
     (command as SaveBirthMonthProfileCommand).getDetail().should.deep.equal({ name: "abc", birthMonth: 12 });
   });
 
+  it("should make get squirrel fortune ranking command when correct message is provided", () => {
+    const command = CommandFactory.make({
+      type: "app_mention",
+      username: "test_user",
+      text: "今日のスッキりすランキングを教えて",
+      ts: "current",
+      channel: "channel_mocha",
+      event_ts: "current",
+    }) ?? false;
+
+    command.should.be.an.instanceOf(GetAnonymousSquirrelFortuneCommand);
+  });
 
   it("should return undefined when no command to make", () => {
     const command = CommandFactory.make({
