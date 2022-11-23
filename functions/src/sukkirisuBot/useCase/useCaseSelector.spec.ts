@@ -12,15 +12,6 @@ describe("UseCaseSelector", () => {
     result.should.have.property("useCaseParam").be.undefined;
   });
 
-  it("should return save dummy squirrel fortune ranking use case when correct message is provided", () => {
-    const message = "テストデータを生成して";
-    const result = UseCaseSelector.select(message);
-
-    result.should.be.a("object");
-    result.should.have.property("useCaseName").equals("SaveDummySquirrelFortuneRanking");
-    result.should.have.property("useCaseParam").be.undefined;
-  });
-
   it("should return undefined use case when message is not understandable", () => {
     const message = "xxxxxxxxxxxxx";
     const result = UseCaseSelector.select(message);

@@ -71,36 +71,11 @@ export class SquirrelFortuneRankingFirestoreRepository implements SquirrelFortun
   }
 
   /**
-   * Save SquirrelFortuneRanking to firestore.
-   *
    * @param {SquirrelFortuneRanking} squirrelFortuneRanking
-   * @return {*}  {Promise<void>}
    * @memberof SquirrelFortuneRankingFirestoreRepository
    */
-  async save(squirrelFortuneRanking: SquirrelFortuneRanking): Promise<void> {
-    const batch = this.database.batch();
-
-    const dateString = moment(squirrelFortuneRanking.getCreateDate()).format("YYYY-MM-DD");
-    const squirrelFortuneRankingDocRef = this.database.collection("squirrelFortuneRankings")
-        .doc(dateString);
-
-    const createDateInTimestamp = {
-      createDate: firestore.Timestamp.fromDate(squirrelFortuneRanking.getCreateDate()),
-    };
-    batch.create(squirrelFortuneRankingDocRef, createDateInTimestamp);
-
-    squirrelFortuneRanking.getAllMonthFortunes().forEach((singleMonthFortune) => {
-      const singleMonthFortuneDocRef = this.database.collection("squirrelFortuneRankings")
-          .doc(dateString)
-          .collection("birthMonthFortunes")
-          .doc();
-      batch.create(singleMonthFortuneDocRef, singleMonthFortune);
-    });
-
-    const indexDocRef = this.database.collection("indexes")
-        .doc(`/squirrelFortuneRanking/date/${dateString}`);
-    batch.create(indexDocRef, { value: squirrelFortuneRankingDocRef.id });
-
-    await batch.commit();
+  save(squirrelFortuneRanking: SquirrelFortuneRanking): Promise<void> {
+    console.log("To be saved: ", squirrelFortuneRanking);
+    throw new Error("Method not implemented.",);
   }
 }

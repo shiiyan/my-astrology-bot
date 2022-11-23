@@ -16,20 +16,10 @@ export class UseCaseSelector {
    * @memberof UseCaseSelector
    */
   public static select(eventMessage: string): SelectResult {
-    let matchedGroups: {[key: string]: string} | undefined;
-
-    matchedGroups = eventMessage.match(/(?<fortune>スッキりす)/)?.groups;
+    const matchedGroups = eventMessage.match(/(?<fortune>スッキりす)/)?.groups;
     if (matchedGroups?.fortune) {
       return {
         useCaseName: "GetSquirrelFortuneRankingForToday",
-        useCaseParam: undefined,
-      };
-    }
-
-    matchedGroups = eventMessage.match(/(?<testData>テストデータ)/)?.groups;
-    if (matchedGroups?.testData) {
-      return {
-        useCaseName: "SaveDummySquirrelFortuneRanking",
         useCaseParam: undefined,
       };
     }

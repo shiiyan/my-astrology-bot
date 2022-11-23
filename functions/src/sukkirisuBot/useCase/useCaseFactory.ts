@@ -2,11 +2,9 @@ import { firestore } from "firebase-admin";
 import { InvalidArgumentError } from "@shiiyan/sukkirisu-function-error";
 import { SquirrelFortuneRankingFirestoreRepository }
   from "../infrastructure/repository/squirrelFortuneRankingFirestoreRepository";
-import { AppMentionCommandUseCaseInterface } from "./appMentionCommandUseCaseInterface";
 import { AppMentionQueryUseCaseInterface } from "./appMentionQueryUseCaseInterface";
 import { GetSquirrelFortuneRankingForToday }
   from "./getSquirrelFortuneRankingForToday/getSquirrelFortuneRankingForToday";
-import { SaveDummySquirrelFortuneRanking } from "./saveDummySquirrelFortuneRanking/saveDummySquirrelFortuneRanking";
 
 export type CreateParam = {
     useCaseName: string,
@@ -25,14 +23,10 @@ export class UseCaseFactory {
    */
   public static create(
       { useCaseName, firestore }: CreateParam
-  ): AppMentionQueryUseCaseInterface | AppMentionCommandUseCaseInterface {
+  ): AppMentionQueryUseCaseInterface {
     switch (useCaseName) {
       case "GetSquirrelFortuneRankingForToday":
         return new GetSquirrelFortuneRankingForToday(
-            new SquirrelFortuneRankingFirestoreRepository(firestore)
-        );
-      case "SaveDummySquirrelFortuneRanking":
-        return new SaveDummySquirrelFortuneRanking(
             new SquirrelFortuneRankingFirestoreRepository(firestore)
         );
       default:

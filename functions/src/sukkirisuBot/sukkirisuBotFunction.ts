@@ -3,7 +3,7 @@ import * as firebaseAdmin from "firebase-admin";
 import { App as BoltApp, AppMentionEvent, ExpressReceiver, SayFn } from "@slack/bolt";
 import { UseCaseFactory } from "./useCase/useCaseFactory";
 import { UseCaseSelector } from "./useCase/useCaseSelector";
-import { isCommandUseCase, isQueryUseCase } from "./useCase/useCaseType";
+import { isQueryUseCase } from "./useCase/useCaseType";
 import { SlackMessageBuilderFactory } from "./presentation/slackMessageBuilderFactory";
 import { SameAppMentionEventFilter } from "./infrastructure/filter/sameAppMentionEventFilter";
 import { PubSub } from "@google-cloud/pubsub";
@@ -61,11 +61,6 @@ export const sukkirisuBotFunction = async (
     });
 
     functions.logger.info("Starting ", useCase.metaInfo.description.english);
-
-    if (isCommandUseCase(useCase)) {
-      await useCase.execute();
-      await say(useCase.metaInfo.message.success);
-    }
 
     if (isQueryUseCase(useCase)) {
       const queryResult = await useCase.run();
