@@ -8,6 +8,7 @@ import selfIntroduceFunction from "./sukkirisuSubscriber/selfIntroduceFunction";
 import showHelpMessageFunction from "./sukkirisuSubscriber/showHelpMessageFunction";
 import getPersonalSquirrelFortuneFunction
   from "./sukkirisuSubscriber/getPersonalSquirrelFortune/getPersonalSquirrelFortuneFunction";
+import saveBirthMonthProfileFunction from "./sukkirisuSubscriber/saveBirthMonthProfile/saveBirthMonthProfileFunction";
 
 dotenv.config();
 firebaseAdmin.initializeApp();
@@ -40,3 +41,8 @@ export const sukkirisuBotGetPersonalSquirrelFortune = functions
     .pubsub
     .topic("sukkirisu-bot-get-personal-squirrel-fortune")
     .onPublish(getPersonalSquirrelFortuneFunction);
+
+export const sukkirisuBotSaveBirthMonthProfile = functions
+    .pubsub
+    .topic("sukkirisu-bot-save-birth-month-profile")
+    .onPublish(saveBirthMonthProfileFunction);
