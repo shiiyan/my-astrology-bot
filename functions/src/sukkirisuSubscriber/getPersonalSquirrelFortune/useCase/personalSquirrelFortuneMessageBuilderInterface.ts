@@ -4,7 +4,7 @@ export type MessageBlock = {
     blocks: object[]
 };
 
-export interface personalSquirrelFortuneMessageBuilderInterface {
+export interface PersonalSquirrelFortuneMessageBuilderInterface {
     build(queryResult: PersonalSquirrelFortuneDto[]): MessageBlock
     buildFailure(failureMessage: string): MessageBlock
 }

@@ -1,5 +1,5 @@
 import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortuneDto";
-import { MessageBlock, personalSquirrelFortuneMessageBuilderInterface as MessageBuilderInterface }
+import { MessageBlock, PersonalSquirrelFortuneMessageBuilderInterface as MessageBuilderInterface }
   from "../../useCase/personalSquirrelFortuneMessageBuilderInterface";
 
 type FortuneRankingBlock = { type: string; text: { type: string; text: string; }; };

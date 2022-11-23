@@ -5,12 +5,12 @@ import { PersonalSquirrelFortuneDtoInMemoryQueryService }
   from "../gateway/queryService/personalSquirrelFortuneDtoInMemoryQueryService";
 import { GetAllPersonalSquirrelFortuneForToday } from "./getAllPersonalSquirrelFortuneForToday";
 import { PersonalSquirrelFortuneDto } from "./personalSquirrelFortuneDto";
-import { personalSquirrelFortuneMessageBuilderInterface } from "./personalSquirrelFortuneMessageBuilderInterface";
+import { PersonalSquirrelFortuneMessageBuilderInterface } from "./personalSquirrelFortuneMessageBuilderInterface";
 should();
 
 describe("GetAllPersonalSquirrelFortuneForToday", () => {
   let queryService: PersonalSquirrelFortuneDtoInMemoryQueryService;
-  let messageBuilder: personalSquirrelFortuneMessageBuilderInterface;
+  let messageBuilder: PersonalSquirrelFortuneMessageBuilderInterface;
   let useCase: GetAllPersonalSquirrelFortuneForToday;
 
   beforeEach("prepare use case", () => {

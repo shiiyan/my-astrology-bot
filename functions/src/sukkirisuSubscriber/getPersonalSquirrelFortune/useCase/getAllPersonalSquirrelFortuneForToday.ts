@@ -1,5 +1,5 @@
 import { PersonalSquirrelFortuneDtoQueryServiceInterface } from "./personalSquirrelFortuneDtoQueryServiceInterface";
-import { MessageBlock, personalSquirrelFortuneMessageBuilderInterface }
+import { MessageBlock, PersonalSquirrelFortuneMessageBuilderInterface }
   from "./personalSquirrelFortuneMessageBuilderInterface";
 
 /**
@@ -8,7 +8,7 @@ import { MessageBlock, personalSquirrelFortuneMessageBuilderInterface }
  */
 export class GetAllPersonalSquirrelFortuneForToday {
   private queryService: PersonalSquirrelFortuneDtoQueryServiceInterface;
-  private messageBuilder: personalSquirrelFortuneMessageBuilderInterface;
+  private messageBuilder: PersonalSquirrelFortuneMessageBuilderInterface;
 
   public metaInfo = {
     description: {
@@ -24,12 +24,12 @@ export class GetAllPersonalSquirrelFortuneForToday {
   /**
    * Creates an instance of GetAllPersonalSquirrelFortuneForToday.
    * @param {PersonalSquirrelFortuneDtoQueryServiceInterface} queryService
-   * @param {personalSquirrelFortuneMessageBuilderInterface} messageBuilder
+   * @param {PersonalSquirrelFortuneMessageBuilderInterface} messageBuilder
    * @memberof GetAllPersonalSquirrelFortuneForToday
    */
   constructor(
       queryService: PersonalSquirrelFortuneDtoQueryServiceInterface,
-      messageBuilder: personalSquirrelFortuneMessageBuilderInterface,
+      messageBuilder: PersonalSquirrelFortuneMessageBuilderInterface,
   ) {
     this.queryService = queryService;
     this.messageBuilder = messageBuilder;
