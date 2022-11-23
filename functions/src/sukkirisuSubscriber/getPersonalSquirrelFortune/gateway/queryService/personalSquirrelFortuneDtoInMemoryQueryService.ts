@@ -1,4 +1,4 @@
-
+import moment from "moment";
 import { PersonalSquirrelFortuneDto } from "../../useCase/personalSquirrelFortuneDto";
 import { PersonalSquirrelFortuneDtoQueryServiceInterface as QueryServiceInterface }
   from "../../useCase/personalSquirrelFortuneDtoQueryServiceInterface";
@@ -25,7 +25,7 @@ export class PersonalSquirrelFortuneDtoInMemoryQueryService implements QueryServ
    */
   fetchAllByDate(date: Date): Promise<PersonalSquirrelFortuneDto[]> {
     const found = this.data.find(
-        (fortuneWithDate) => fortuneWithDate.createDate.getTime() === date.getTime()
+        (fortuneWithDate) => moment(fortuneWithDate.createDate).isSame(date, "day")
     );
 
     return new Promise((resolve) => resolve(found?.personalSquirrelFortunes ?? []));
