@@ -1,13 +1,12 @@
 import * as functions from "firebase-functions";
 import * as firebaseAdmin from "firebase-admin";
+import { boltApp, MessageBody } from "../common/bootstrap";
 import { KnownBlock } from "@slack/bolt";
 import { GetAllPersonalSquirrelFortuneForToday } from "./useCase/getAllPersonalSquirrelFortuneForToday";
 import { PersonalSquirrelFortuneRankingSlackMessageBuilder }
   from "./gateway/messageBuilder/personalSquirrelFortuneRankingSlackMessageBuilder";
 import { PersonalSquirrelFortuneDtoFireStoreQueryService }
   from "./gateway/queryService/personalSquirrelFortuneDtoFirestoreQueryService";
-import { boltApp, MessageBody } from "../common/bootstrap";
-
 
 const getPersonalSquirrelFortuneFunction = async (message: {data: string}): Promise<void> => {
   try {
@@ -16,7 +15,8 @@ const getPersonalSquirrelFortuneFunction = async (message: {data: string}): Prom
 
     const useCase = new GetAllPersonalSquirrelFortuneForToday(
         new PersonalSquirrelFortuneDtoFireStoreQueryService(firebaseAdmin.firestore()),
-        new PersonalSquirrelFortuneRankingSlackMessageBuilder());
+        new PersonalSquirrelFortuneRankingSlackMessageBuilder()
+    );
 
     const result = await useCase.handle();
 
