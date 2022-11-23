@@ -1,16 +1,5 @@
 import * as functions from "firebase-functions";
-import { App as BoltApp } from "@slack/bolt";
-
-const functionConfig = functions.config();
-const boltApp = new BoltApp({
-  // set token as not_available for CI to pass
-  token: functionConfig.slack?.bot_token ?? "not_available",
-  signingSecret: functionConfig.slack?.signing_secret ?? "not_available",
-});
-
-type MessageBody = {
-    channel: string
-};
+import { boltApp, MessageBody } from "./common/bootstrap";
 
 const showHelpMessageFunction = async (message: {data: string}): Promise<void> => {
   try {
