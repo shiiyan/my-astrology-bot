@@ -6,8 +6,10 @@ import { BirthMonthProfileFirestoreRepository } from "./gateway/birthMonthProfil
 import { BirthMonthProfile } from "@shiiyan/sukkirisu-function-core-domain";
 
 type ParsedBody = MessageBody & {
-  name: string,
-  birthMonth: number
+  detail: {
+    name: string,
+    birthMonth: number
+  }
 }
 
 let parsedBody: ParsedBody;
@@ -22,8 +24,8 @@ const saveBirthMonthProfileFunction = async (message: {data: string}): Promise<v
         new BirthMonthProfileFirestoreRepository(firebaseAdmin.firestore())
     );
     const birthMonthProfile: BirthMonthProfile = {
-      name: parsedBody.name,
-      birthMonth: parsedBody.birthMonth,
+      name: parsedBody.detail.name,
+      birthMonth: parsedBody.detail.birthMonth,
     };
     await useCase.handle(birthMonthProfile);
 
