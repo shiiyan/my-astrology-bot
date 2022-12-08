@@ -16,6 +16,7 @@ In order to install them, npm needs to be configured with Github tokens which ha
 ```bash
 npm config set //npm.pkg.github.com/:_authToken=<token_which_can_read_packages>
 ```
+
 ## Architecture
 
 ![architecture_of_my_sukkirisu_bot](https://user-images.githubusercontent.com/36617009/206574608-fcb4ac31-ed21-4375-a4e4-df1a151d4f33.jpg)
