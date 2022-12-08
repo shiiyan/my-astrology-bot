@@ -19,4 +19,4 @@ npm config set //npm.pkg.github.com/:_authToken=<token_which_can_read_packages>
 
 ## Architecture
 
-![architecture_of_my_sukkirisu_bot](https://user-images.githubusercontent.com/36617009/206574608-fcb4ac31-ed21-4375-a4e4-df1a151d4f33.jpg)
+![architecture_of_my_sukkirisu_bot](https://user-images.githubusercontent.com/36617009/206575260-a00d03ab-e2bc-4e9d-8b0d-c4308506daf4.jpg)
