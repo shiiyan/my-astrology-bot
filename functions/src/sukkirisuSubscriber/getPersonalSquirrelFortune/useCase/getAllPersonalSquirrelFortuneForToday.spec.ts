@@ -41,7 +41,7 @@ describe("GetAllPersonalSquirrelFortuneForToday", () => {
           "type": "section",
           "text": {
             "type": "mrkdwn",
-            "text": "*1位* one number one",
+            "text": "*1位* @one number one",
           },
         },
         {

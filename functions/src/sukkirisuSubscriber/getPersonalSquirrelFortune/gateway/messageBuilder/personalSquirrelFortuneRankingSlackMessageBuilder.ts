@@ -99,8 +99,11 @@ export class PersonalSquirrelFortuneRankingSlackMessageBuilder implements Messag
 
     const fortuneRankingBlocks: FortuneRankingBlock[] = [];
 
+    let i = 0;
     fortunesGroupByRank.forEach((fortunes, rank) => {
-      const joinedNames = fortunes.map((fortune) => fortune.name).join();
+      const joinedNames = fortunes.map(
+          (fortune) => i === 0 ? `@${fortune.name}`: fortune.name
+      ).join(", ");
 
       const message = `*${rank}位* ${joinedNames} ${fortunes[0].comment}`;
       fortuneRankingBlocks.push({
@@ -110,6 +113,7 @@ export class PersonalSquirrelFortuneRankingSlackMessageBuilder implements Messag
           text: message,
         },
       });
+      i++;
     });
 
     return fortuneRankingBlocks;
