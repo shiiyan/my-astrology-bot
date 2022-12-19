@@ -130,7 +130,7 @@ const createExpectedMessage = () => {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "*1位* abc,333,uuu 日焼け対策をして肌トラブルを防ごう",
+          "text": "*1位* @abc, @333, @uuu 日焼け対策をして肌トラブルを防ごう",
         },
       },
       {
